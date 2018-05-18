@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at simplified_sha256.sv(6): object "done" differs only in case from object "DONE" in the same scope File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 6
+Info (10281): Verilog HDL Declaration information at simplified_sha256.sv(16): object "h" differs only in case from object "H" in the same scope File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 16

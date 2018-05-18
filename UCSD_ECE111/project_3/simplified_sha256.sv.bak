@@ -1,0 +1,46 @@
+// Simplified SHA-256 Module
+// By Siddharth Atre & Kejia Ren
+
+module simplified_sha256 (input logic clk, reset_n, start, 
+									input logic[15:0] message_addr, output_addr,
+									output logic done, mem_clk, mem_we,
+									output logic [15:0] mem_addr,
+									output logic [31:0] mem_write_data,
+									input logic [31:0] mem_read_data);
+									
+	enum logic[2:0] {IDLE=3'b000, PREP=3'b001, COMPUTE=3'b010, POST=3'b011, WRITE=3'b100, DONE=3'b101} state;
+	
+	
+	
+									
+	always_ff(@posedge clk, negedge reset_n) begin
+		if(!reset_n) begin
+			state <= IDLE;
+		end
+		
+		case(state) begin
+			IDLE: begin
+			if(start) state <= PREP;
+			end
+			
+			PREP: begin
+			
+			end
+			
+			COMPUTE: begin
+			end
+			
+			POST: begin
+			end
+			
+			WRITE: begin
+			end
+			
+			DONE: begin
+			end
+			
+		end
+	end								
+									
+endmodule
+

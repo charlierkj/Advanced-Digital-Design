@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at byte_rotation.sv(3): object "done" differs only in case from object "DONE" in the same scope File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_2/byte_rotation.sv Line: 3

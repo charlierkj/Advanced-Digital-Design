@@ -1,0 +1,58 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/simulation/modelsim
+vsimplified_sha256
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1525319571
+!i10b 1
+!s100 4ckG;>C8=B3IgXE8R[eNN0
+I6n5`gfb0ejXI4^IP=E;i]0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 simplified_sha256_sv_unit
+S1
+R0
+w1525299368
+8E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/simplified_sha256.sv
+FE:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/simplified_sha256.sv
+L0 4
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1525319571.000000
+!s107 E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/simplified_sha256.sv|
+!s90 -reportprogress|300|-work|work|E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/simplified_sha256.sv|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+vtb_simplified_sha256
+R1
+R2
+!i10b 1
+!s100 FmE9S9:IW7V`kAZ_8z?1h1
+IZ]9TXld66A9ASC0jBnV6J0
+R3
+!s105 tb_simplified_sha256_sv_unit
+S1
+R0
+w1524761417
+8E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/tb_simplified_sha256.sv
+FE:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/tb_simplified_sha256.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/tb_simplified_sha256.sv|
+!s90 -reportprogress|300|-work|work|E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3/tb_simplified_sha256.sv|
+!i113 1
+R6
+R7

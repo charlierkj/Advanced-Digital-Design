@@ -1,0 +1,22 @@
+Fitter Status : Successful - Fri Apr 20 03:41:23 2018
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : byte_rotation
+Top-level Entity Name : byte_rotation
+Family : Arria II GX
+Device : EP2AGX45DF29I5
+Timing Models : Final
+Logic utilization : < 1 %
+    Combinational ALUTs : 63 / 36,100 ( < 1 % )
+    Memory ALUTs : 0 / 18,050 ( 0 % )
+    Dedicated logic registers : 38 / 36,100 ( < 1 % )
+Total registers : 38
+Total pins : 134 / 404 ( 33 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 2,939,904 ( 0 % )
+DSP block 18-bit elements : 0 / 232 ( 0 % )
+Total GXB Receiver Channel PCS : 0 / 8 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 8 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )

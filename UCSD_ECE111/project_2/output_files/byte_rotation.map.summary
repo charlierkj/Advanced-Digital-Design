@@ -1,0 +1,20 @@
+Analysis & Synthesis Status : Successful - Fri Apr 20 03:41:03 2018
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : byte_rotation
+Top-level Entity Name : byte_rotation
+Family : Arria II GX
+Logic utilization : N/A
+    Combinational ALUTs : 63
+    Memory ALUTs : 0
+    Dedicated logic registers : 38
+Total registers : 38
+Total pins : 134
+Total virtual pins : 0
+Total block memory bits : 0
+DSP block 18-bit elements : 0
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0
+Total DLLs : 0

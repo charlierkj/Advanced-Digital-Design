@@ -1,0 +1,5 @@
+
+State Machine - |fibonacci_calculator|state
+Name state.COMPUTE 
+state.IDLE 0 
+state.COMPUTE 1 

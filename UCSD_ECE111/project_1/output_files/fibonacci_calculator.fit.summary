@@ -1,0 +1,22 @@
+Fitter Status : Successful - Thu Apr 12 14:16:24 2018
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : fibonacci_calculator
+Top-level Entity Name : fibonacci_calculator
+Family : Arria II GX
+Device : EP2AGX45DF29I5
+Timing Models : Final
+Logic utilization : < 1 %
+    Combinational ALUTs : 25 / 36,100 ( < 1 % )
+    Memory ALUTs : 0 / 18,050 ( 0 % )
+    Dedicated logic registers : 38 / 36,100 ( < 1 % )
+Total registers : 38
+Total pins : 25 / 404 ( 6 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 2,939,904 ( 0 % )
+DSP block 18-bit elements : 0 / 232 ( 0 % )
+Total GXB Receiver Channel PCS : 0 / 8 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 8 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )

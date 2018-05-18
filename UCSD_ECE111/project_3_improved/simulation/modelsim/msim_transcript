@@ -1,0 +1,105 @@
+# Reading E:/Quartus_Prime/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do simplified_sha256_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying E:/Quartus_Prime/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved {E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:00:02 on May 11,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved" E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 12:00:02 on May 11,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:00:10 on May 11,2018
+# vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 12:00:10 on May 11,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/tb_simplified_sha256.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:00:10 on May 11,2018
+# vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 12:00:10 on May 11,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_simplified_sha256
+# vsim work.tb_simplified_sha256 
+# Start time: 12:00:13 on May 11,2018
+# Loading sv_std.std
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+# ** Warning: (vsim-3015) E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/tb_simplified_sha256.sv(27): [PCDPC] - Port size (16) does not match connection size (32) for port 'message_addr'. The port definition is at: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_simplified_sha256/simplified_sha256_inst File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv
+# ** Warning: (vsim-3015) E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/tb_simplified_sha256.sv(27): [PCDPC] - Port size (16) does not match connection size (32) for port 'output_addr'. The port definition is at: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_simplified_sha256/simplified_sha256_inst File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv
+add wave -r /*
+run -all
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = bdd2fbd9
+# Correct H[1] = 42623974	Your H[1] = 42623974
+# Correct H[2] = bf129635	Your H[2] = bf129635
+# Correct H[3] = 937c5107	Your H[3] = 937c5107
+# Correct H[4] = f09b6e9e	Your H[4] = f09b6e9e
+# Correct H[5] = 708eb28b	Your H[5] = 708eb28b
+# Correct H[6] = 0318d121	Your H[6] = 0318d121
+# Correct H[7] = 85eca921	Your H[7] = 85eca921
+# ***************************
+# 
+# CONGRATULATIONS! All your hash results are correct!
+# 
+# Total number of cycles:         149
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/tb_simplified_sha256.sv(257)
+#    Time: 3030 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/tb_simplified_sha256.sv line 257
+# End time: 12:00:51 on May 11,2018, Elapsed time: 0:00:38
+# Errors: 0, Warnings: 2

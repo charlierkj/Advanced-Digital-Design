@@ -1,0 +1,6 @@
+set tool_name "ModelSim-Altera (SystemVerilog)"
+set corner_file_list {
+    {{"Slow -5 0.9V 100 Model"} {simplified_sha256_5_900mv_100c_slow.svo simplified_sha256_5_900mv_100c_v_slow.sdo}}
+    {{"Slow -5 0.9V -40 Model"} {simplified_sha256_5_900mv_-40c_slow.svo simplified_sha256_5_900mv_-40c_v_slow.sdo}}
+    {{"Fast -M 0.9V -40 Model"} {simplified_sha256_min_900mv_-40c_fast.svo simplified_sha256_min_900mv_-40c_v_fast.sdo}}
+}

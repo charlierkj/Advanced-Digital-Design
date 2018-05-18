@@ -1,0 +1,547 @@
+Analysis & Synthesis report for bitcoin_hash
+Fri May 18 11:31:45 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |bitcoin_hash|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Physical Synthesis Netlist Optimizations
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++-----------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status       ; Successful - Fri May 18 11:31:45 2018       ;
+; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                     ; bitcoin_hash                                ;
+; Top-level Entity Name             ; bitcoin_hash                                ;
+; Family                            ; Arria II GX                                 ;
+; Logic utilization                 ; N/A                                         ;
+;     Combinational ALUTs           ; 2,129                                       ;
+;     Memory ALUTs                  ; 0                                           ;
+;     Dedicated logic registers     ; 1,663                                       ;
+; Total registers                   ; 1663                                        ;
+; Total pins                        ; 118                                         ;
+; Total virtual pins                ; 0                                           ;
+; Total block memory bits           ; 0                                           ;
+; DSP block 18-bit elements         ; 0                                           ;
+; Total GXB Receiver Channel PCS    ; 0                                           ;
+; Total GXB Receiver Channel PMA    ; 0                                           ;
+; Total GXB Transmitter Channel PCS ; 0                                           ;
+; Total GXB Transmitter Channel PMA ; 0                                           ;
+; Total PLLs                        ; 0                                           ;
+; Total DLLs                        ; 0                                           ;
++-----------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; EP2AGX45DF29I5     ;                    ;
+; Top-level entity name                                                           ; bitcoin_hash       ; bitcoin_hash       ;
+; Family name                                                                     ; Arria II GX        ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                        ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                               ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; bitcoin_hash.sv                  ; yes             ; User SystemVerilog HDL File  ; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++-----------------------------------------------+-----------+
+; Resource                                      ; Usage     ;
++-----------------------------------------------+-----------+
+; Estimated ALUTs Used                          ; 2129      ;
+;     -- Combinational ALUTs                    ; 2129      ;
+;     -- Memory ALUTs                           ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+; Dedicated logic registers                     ; 1663      ;
+;                                               ;           ;
+; Estimated ALUTs Unavailable                   ; 5         ;
+;     -- Due to unpartnered combinational logic ; 5         ;
+;     -- Due to Memory ALUTs                    ; 0         ;
+;                                               ;           ;
+; Total combinational functions                 ; 2129      ;
+; Combinational ALUT usage by number of inputs  ;           ;
+;     -- 7 input functions                      ; 5         ;
+;     -- 6 input functions                      ; 231       ;
+;     -- 5 input functions                      ; 276       ;
+;     -- 4 input functions                      ; 282       ;
+;     -- <=3 input functions                    ; 1335      ;
+;                                               ;           ;
+; Combinational ALUTs by mode                   ;           ;
+;     -- normal mode                            ; 1504      ;
+;     -- extended LUT mode                      ; 5         ;
+;     -- arithmetic mode                        ; 396       ;
+;     -- shared arithmetic mode                 ; 224       ;
+;                                               ;           ;
+; Estimated ALUT/register pairs used            ; 2460      ;
+;                                               ;           ;
+; Total registers                               ; 1663      ;
+;     -- Dedicated logic registers              ; 1663      ;
+;     -- I/O registers                          ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+;                                               ;           ;
+;                                               ;           ;
+; I/O pins                                      ; 118       ;
+;                                               ;           ;
+; DSP block 18-bit elements                     ; 0         ;
+;                                               ;           ;
+; Maximum fan-out node                          ; clk~input ;
+; Maximum fan-out                               ; 1664      ;
+; Total fan-out                                 ; 13816     ;
+; Average fan-out                               ; 3.43      ;
++-----------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+; |bitcoin_hash              ; 2129 (2129)         ; 1663 (1663)               ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |bitcoin_hash       ; bitcoin_hash ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bitcoin_hash|state                                                                                               ;
++----------------+----------------+-------------+------------+---------------+-------------+-------------+-------------+------------+
+; Name           ; state.COMPUTE2 ; state.WRITE ; state.POST ; state.COMPUTE ; state.PREP3 ; state.PREP2 ; state.PREP1 ; state.IDLE ;
++----------------+----------------+-------------+------------+---------------+-------------+-------------+-------------+------------+
+; state.IDLE     ; 0              ; 0           ; 0          ; 0             ; 0           ; 0           ; 0           ; 0          ;
+; state.PREP1    ; 0              ; 0           ; 0          ; 0             ; 0           ; 0           ; 1           ; 1          ;
+; state.PREP2    ; 0              ; 0           ; 0          ; 0             ; 0           ; 1           ; 0           ; 1          ;
+; state.PREP3    ; 0              ; 0           ; 0          ; 0             ; 1           ; 0           ; 0           ; 1          ;
+; state.COMPUTE  ; 0              ; 0           ; 0          ; 1             ; 0           ; 0           ; 0           ; 1          ;
+; state.POST     ; 0              ; 0           ; 1          ; 0             ; 0           ; 0           ; 0           ; 1          ;
+; state.WRITE    ; 0              ; 1           ; 0          ; 0             ; 0           ; 0           ; 0           ; 1          ;
+; state.COMPUTE2 ; 1              ; 0           ; 0          ; 0             ; 0           ; 0           ; 0           ; 1          ;
++----------------+----------------+-------------+------------+---------------+-------------+-------------+-------------+------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~12                              ; Lost fanout        ;
+; state~13                              ; Lost fanout        ;
+; state~14                              ; Lost fanout        ;
+; index_h2[3]                           ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1663  ;
+; Number of registers using Synchronous Clear  ; 782   ;
+; Number of registers using Synchronous Load   ; 297   ;
+; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1141  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------+
+; Physical Synthesis Netlist Optimizations                      ;
++------------------------------+----------+---------------------+
+; Node                         ; Action   ; Reason              ;
++------------------------------+----------+---------------------+
+; Add0~2                       ; Modified ; Timing optimization ;
+; Add6~1                       ; Modified ; Timing optimization ;
+; Add6~2                       ; Modified ; Timing optimization ;
+; Add7~1                       ; Modified ; Timing optimization ;
+; Add7~2                       ; Modified ; Timing optimization ;
+; Add8~1                       ; Modified ; Timing optimization ;
+; Add8~2                       ; Modified ; Timing optimization ;
+; Add9~1                       ; Modified ; Timing optimization ;
+; Add9~2                       ; Modified ; Timing optimization ;
+; Add10~1                      ; Modified ; Timing optimization ;
+; Add10~2                      ; Modified ; Timing optimization ;
+; Add11~1                      ; Modified ; Timing optimization ;
+; Add11~2                      ; Modified ; Timing optimization ;
+; Add12~1                      ; Modified ; Timing optimization ;
+; Add12~2                      ; Modified ; Timing optimization ;
+; Add13~1                      ; Modified ; Timing optimization ;
+; Add13~2                      ; Modified ; Timing optimization ;
+; Add19~1                      ; Modified ; Timing optimization ;
+; Add20~1                      ; Modified ; Timing optimization ;
+; Add22~2                      ; Modified ; Timing optimization ;
+; Add24~2                      ; Modified ; Timing optimization ;
+; Selector16~0                 ; Modified ; Timing optimization ;
+; Selector81~0                 ; Modified ; Timing optimization ;
+; Selector209~0                ; Modified ; Timing optimization ;
+; Selector337~0                ; Modified ; Timing optimization ;
+; Selector369~0                ; Modified ; Timing optimization ;
+; Selector401~0                ; Modified ; Timing optimization ;
+; Selector433~0                ; Modified ; Timing optimization ;
+; Selector465~0                ; Modified ; Timing optimization ;
+; Selector497~0                ; Modified ; Timing optimization ;
+; Selector529~0                ; Modified ; Timing optimization ;
+; Selector561~0                ; Modified ; Timing optimization ;
+; Selector1073~0               ; Deleted  ; Timing optimization ;
+; Selector1073~2               ; Deleted  ; Timing optimization ;
+; Selector1073~3               ; Modified ; Timing optimization ;
+; Selector1073~3_RESYN10_BDD11 ; Created  ; Timing optimization ;
+; Selector1073~3_RESYN12_BDD13 ; Created  ; Timing optimization ;
+; Selector1073~3_RESYN14_BDD15 ; Created  ; Timing optimization ;
+; Selector1074~2               ; Deleted  ; Timing optimization ;
+; Selector1074~3               ; Deleted  ; Timing optimization ;
+; Selector1074~7               ; Modified ; Timing optimization ;
+; Selector1074~7_RESYN0_BDD1   ; Created  ; Timing optimization ;
+; Selector1074~7_RESYN2_BDD3   ; Created  ; Timing optimization ;
+; Selector1075~0               ; Deleted  ; Timing optimization ;
+; Selector1075~2               ; Deleted  ; Timing optimization ;
+; Selector1075~4               ; Modified ; Timing optimization ;
+; Selector1075~4_RESYN4_BDD5   ; Created  ; Timing optimization ;
+; Selector1075~4_RESYN6_BDD7   ; Created  ; Timing optimization ;
+; Selector1075~4_RESYN8_BDD9   ; Created  ; Timing optimization ;
+; WideOr32~0                   ; Modified ; Timing optimization ;
+; WideOr33~0                   ; Modified ; Timing optimization ;
+; WideOr34~0                   ; Modified ; Timing optimization ;
+; WideOr35~0                   ; Modified ; Timing optimization ;
+; WideOr36~0                   ; Modified ; Timing optimization ;
+; WideOr37~0                   ; Modified ; Timing optimization ;
+; WideOr38~0                   ; Modified ; Timing optimization ;
+; WideOr39~0                   ; Modified ; Timing optimization ;
+; WideOr40~0                   ; Modified ; Timing optimization ;
+; WideOr41~0                   ; Modified ; Timing optimization ;
+; WideOr42~0                   ; Modified ; Timing optimization ;
+; WideOr43~0                   ; Modified ; Timing optimization ;
+; WideOr44~0                   ; Modified ; Timing optimization ;
+; WideOr45~0                   ; Modified ; Timing optimization ;
+; WideOr46~0                   ; Modified ; Timing optimization ;
+; WideOr47~0                   ; Modified ; Timing optimization ;
+; WideOr48~0                   ; Modified ; Timing optimization ;
+; WideOr49~0                   ; Modified ; Timing optimization ;
+; WideOr50~0                   ; Modified ; Timing optimization ;
+; WideOr51~0                   ; Modified ; Timing optimization ;
+; WideOr52~0                   ; Modified ; Timing optimization ;
+; WideOr53~0                   ; Modified ; Timing optimization ;
+; WideOr54~0                   ; Modified ; Timing optimization ;
+; WideOr55~0                   ; Modified ; Timing optimization ;
+; WideOr56~0                   ; Modified ; Timing optimization ;
+; WideOr57~0                   ; Modified ; Timing optimization ;
+; WideOr58~0                   ; Modified ; Timing optimization ;
+; WideOr59~0                   ; Modified ; Timing optimization ;
+; WideOr60~0                   ; Modified ; Timing optimization ;
+; WideOr61~0                   ; Modified ; Timing optimization ;
+; WideOr62~0                   ; Modified ; Timing optimization ;
+; WideOr63~0                   ; Modified ; Timing optimization ;
+; h1[0][0]~1                   ; Modified ; Timing optimization ;
+; h1[1][0]~39                  ; Modified ; Timing optimization ;
+; h1[2][0]~40                  ; Modified ; Timing optimization ;
+; h1[3][0]~193                 ; Modified ; Timing optimization ;
+; h1[4][0]~33                  ; Modified ; Timing optimization ;
+; h1[5][0]~34                  ; Modified ; Timing optimization ;
+; h1[6][0]~35                  ; Modified ; Timing optimization ;
+; h1[7][0]~219                 ; Modified ; Timing optimization ;
+; h2[0][0]~1                   ; Modified ; Timing optimization ;
+; h2[1][0]~2                   ; Modified ; Timing optimization ;
+; h2[2][0]~3                   ; Modified ; Timing optimization ;
+; h2[3][0]~4                   ; Modified ; Timing optimization ;
+; h2[4][0]~5                   ; Modified ; Timing optimization ;
+; h2[5][0]~6                   ; Modified ; Timing optimization ;
+; h2[6][0]~7                   ; Modified ; Timing optimization ;
+; h2[7][0]~8                   ; Modified ; Timing optimization ;
++------------------------------+----------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |bitcoin_hash|index_nonces[6]   ;
+; 5:1                ; 16 bits   ; 48 ALUTs      ; 0 ALUTs              ; 48 ALUTs               ; Yes        ; |bitcoin_hash|t[15]             ;
+; 6:1                ; 480 bits  ; 1920 ALUTs    ; 0 ALUTs              ; 1920 ALUTs             ; Yes        ; |bitcoin_hash|w[0][19]          ;
+; 6:1                ; 256 bits  ; 1024 ALUTs    ; 512 ALUTs            ; 512 ALUTs              ; Yes        ; |bitcoin_hash|H[18]             ;
+; 7:1                ; 32 bits   ; 128 ALUTs     ; 64 ALUTs             ; 64 ALUTs               ; Yes        ; |bitcoin_hash|temp[10]          ;
+; 7:1                ; 4 bits    ; 16 ALUTs      ; 4 ALUTs              ; 12 ALUTs               ; Yes        ; |bitcoin_hash|index_h2[2]       ;
+; 10:1               ; 256 bits  ; 1536 ALUTs    ; 512 ALUTs            ; 1024 ALUTs             ; Yes        ; |bitcoin_hash|h[2][24]          ;
+; 11:1               ; 4 bits    ; 28 ALUTs      ; 8 ALUTs              ; 20 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[2]~reg0  ;
+; 11:1               ; 12 bits   ; 84 ALUTs      ; 36 ALUTs             ; 48 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[15]~reg0 ;
+; 19:1               ; 15 bits   ; 180 ALUTs     ; 90 ALUTs             ; 90 ALUTs               ; Yes        ; |bitcoin_hash|w[15][29]         ;
+; 20:1               ; 13 bits   ; 169 ALUTs     ; 78 ALUTs             ; 91 ALUTs               ; Yes        ; |bitcoin_hash|w[15][15]         ;
+; 20:1               ; 2 bits    ; 26 ALUTs      ; 18 ALUTs             ; 8 ALUTs                ; Yes        ; |bitcoin_hash|w[15][9]          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash                                     ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; Parameter Name ; Value                                                                            ; Type         ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; k              ; (1116352408,1899447441,-1245643825,-373957723,961987163,1508970993,-1841331548,- ; Array/Record ;
+; k              ; 1424204075,-670586216,310598401,607225278,1426881987,1925078388,-2132889090,-168 ;              ;
+; k              ; 0079193,-1046744716,-459576895,-272742522,264347078,604807628,770255983,12491501 ;              ;
+; k              ; 22,1555081692,1996064986,-1740746414,-1473132947,-1341970488,-1084653625,-958395 ;              ;
+; k              ; 405,-710438585,113926993,338241895,666307205,773529912,1294757372,1396182291,169 ;              ;
+; k              ; 5183700,1986661051,-2117940946,-1838011259,-1564481375,-1474664885,-1035236496,- ;              ;
+; k              ; 949202525,-778901479,-694614492,-200395387,275423344,430227734,506948616,6590605 ;              ;
+; k              ; 56,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,-2 ;              ;
+;                ; 067236844,-1933114872,-1866530822,-1538233109,-1090935817,-965641998)            ;              ;
++----------------+----------------------------------------------------------------------------------+--------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriaii_ff            ; 1663                        ;
+;     CLR               ; 10                          ;
+;     ENA               ; 75                          ;
+;     ENA SCLR          ; 769                         ;
+;     ENA SCLR SLD      ; 13                          ;
+;     ENA SLD           ; 284                         ;
+;     plain             ; 512                         ;
+; boundary_port         ; 118                         ;
+; stratixiv_lcell_comb  ; 2129                        ;
+;     arith             ; 396                         ;
+;         1 data inputs ; 60                          ;
+;         2 data inputs ; 326                         ;
+;         3 data inputs ; 10                          ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 1504                        ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 695                         ;
+;         4 data inputs ; 282                         ;
+;         5 data inputs ; 276                         ;
+;         6 data inputs ; 231                         ;
+;     shared            ; 224                         ;
+;         3 data inputs ; 224                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.60                        ;
+; Average LUT depth     ; 3.74                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:11     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Fri May 18 11:31:09 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bitcoin_hash -c bitcoin_hash
+Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb_bitcoin_hash.sv
+    Info (12023): Found entity 1: tb_bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/tb_bitcoin_hash.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bitcoin_hash.sv
+    Info (12023): Found entity 1: bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 4
+Info (12127): Elaborating entity "bitcoin_hash" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(110): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 110
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(118): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 118
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(121): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 121
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(131): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 131
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(136): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 136
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(146): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 146
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(151): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 151
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(161): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 161
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(170): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 170
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(187): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 187
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(215): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 215
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(229): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 229
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(249): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 249
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(256): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/bitcoin_hash.sv Line: 256
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (128000): Starting physical synthesis optimizations for speed
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'bitcoin_hash.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332128): Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
+    Info (332127): Assuming a default timing requirement
+Info (332111): Found 1 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):    1.000          clk
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:03
+Info (144001): Generated suppressed messages file E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/output_files/bitcoin_hash.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2768 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 2650 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 904 megabytes
+    Info: Processing ended: Fri May 18 11:31:45 2018
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:01:00
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_1/output_files/bitcoin_hash.map.smsg.
+
+

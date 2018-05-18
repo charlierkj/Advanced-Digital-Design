@@ -1,0 +1,412 @@
+Analysis & Synthesis report for simplified_sha256
+Fri May 11 07:19:27 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |simplified_sha256|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |simplified_sha256
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++-----------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status       ; Successful - Fri May 11 07:19:27 2018       ;
+; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                     ; simplified_sha256                           ;
+; Top-level Entity Name             ; simplified_sha256                           ;
+; Family                            ; Arria II GX                                 ;
+; Logic utilization                 ; N/A                                         ;
+;     Combinational ALUTs           ; 1,325                                       ;
+;     Memory ALUTs                  ; 0                                           ;
+;     Dedicated logic registers     ; 1,147                                       ;
+; Total registers                   ; 1147                                        ;
+; Total pins                        ; 118                                         ;
+; Total virtual pins                ; 0                                           ;
+; Total block memory bits           ; 0                                           ;
+; DSP block 18-bit elements         ; 0                                           ;
+; Total GXB Receiver Channel PCS    ; 0                                           ;
+; Total GXB Receiver Channel PMA    ; 0                                           ;
+; Total GXB Transmitter Channel PCS ; 0                                           ;
+; Total GXB Transmitter Channel PMA ; 0                                           ;
+; Total PLLs                        ; 0                                           ;
+; Total DLLs                        ; 0                                           ;
++-----------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; EP2AGX45DF29I5     ;                    ;
+; Top-level entity name                                                           ; simplified_sha256  ; simplified_sha256  ;
+; Family name                                                                     ; Arria II GX        ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                        ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                               ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; simplified_sha256.sv             ; yes             ; User SystemVerilog HDL File  ; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++-----------------------------------------------+-----------+
+; Resource                                      ; Usage     ;
++-----------------------------------------------+-----------+
+; Estimated ALUTs Used                          ; 1325      ;
+;     -- Combinational ALUTs                    ; 1325      ;
+;     -- Memory ALUTs                           ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+; Dedicated logic registers                     ; 1147      ;
+;                                               ;           ;
+; Estimated ALUTs Unavailable                   ; 7         ;
+;     -- Due to unpartnered combinational logic ; 7         ;
+;     -- Due to Memory ALUTs                    ; 0         ;
+;                                               ;           ;
+; Total combinational functions                 ; 1325      ;
+; Combinational ALUT usage by number of inputs  ;           ;
+;     -- 7 input functions                      ; 7         ;
+;     -- 6 input functions                      ; 158       ;
+;     -- 5 input functions                      ; 19        ;
+;     -- 4 input functions                      ; 35        ;
+;     -- <=3 input functions                    ; 1106      ;
+;                                               ;           ;
+; Combinational ALUTs by mode                   ;           ;
+;     -- normal mode                            ; 730       ;
+;     -- extended LUT mode                      ; 7         ;
+;     -- arithmetic mode                        ; 396       ;
+;     -- shared arithmetic mode                 ; 192       ;
+;                                               ;           ;
+; Estimated ALUT/register pairs used            ; 1598      ;
+;                                               ;           ;
+; Total registers                               ; 1147      ;
+;     -- Dedicated logic registers              ; 1147      ;
+;     -- I/O registers                          ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+;                                               ;           ;
+;                                               ;           ;
+; I/O pins                                      ; 118       ;
+;                                               ;           ;
+; DSP block 18-bit elements                     ; 0         ;
+;                                               ;           ;
+; Maximum fan-out node                          ; clk~input ;
+; Maximum fan-out                               ; 1148      ;
+; Total fan-out                                 ; 9558      ;
+; Average fan-out                               ; 3.53      ;
++-----------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                          ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
+; |simplified_sha256         ; 1325 (1325)         ; 1147 (1147)               ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |simplified_sha256  ; simplified_sha256 ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |simplified_sha256|state                                                                                     ;
++---------------+------------+-------------+------------+---------------+-------------+-------------+-------------+------------+
+; Name          ; state.DONE ; state.WRITE ; state.POST ; state.COMPUTE ; state.PREP3 ; state.PREP2 ; state.PREP1 ; state.IDLE ;
++---------------+------------+-------------+------------+---------------+-------------+-------------+-------------+------------+
+; state.IDLE    ; 0          ; 0           ; 0          ; 0             ; 0           ; 0           ; 0           ; 0          ;
+; state.PREP1   ; 0          ; 0           ; 0          ; 0             ; 0           ; 0           ; 1           ; 1          ;
+; state.PREP2   ; 0          ; 0           ; 0          ; 0             ; 0           ; 1           ; 0           ; 1          ;
+; state.PREP3   ; 0          ; 0           ; 0          ; 0             ; 1           ; 0           ; 0           ; 1          ;
+; state.COMPUTE ; 0          ; 0           ; 0          ; 1             ; 0           ; 0           ; 0           ; 1          ;
+; state.POST    ; 0          ; 0           ; 1          ; 0             ; 0           ; 0           ; 0           ; 1          ;
+; state.WRITE   ; 0          ; 1           ; 0          ; 0             ; 0           ; 0           ; 0           ; 1          ;
+; state.DONE    ; 1          ; 0           ; 0          ; 0             ; 0           ; 0           ; 0           ; 1          ;
++---------------+------------+-------------+------------+---------------+-------------+-------------+-------------+------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~12                              ; Lost fanout        ;
+; state~13                              ; Lost fanout        ;
+; state~14                              ; Lost fanout        ;
+; Total Number of Removed Registers = 3 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1147  ;
+; Number of registers using Synchronous Clear  ; 645   ;
+; Number of registers using Synchronous Load   ; 461   ;
+; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1137  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 5:1                ; 480 bits  ; 1440 ALUTs    ; 0 ALUTs              ; 1440 ALUTs             ; Yes        ; |simplified_sha256|w[3][15]                ;
+; 5:1                ; 32 bits   ; 96 ALUTs      ; 64 ALUTs             ; 32 ALUTs               ; Yes        ; |simplified_sha256|temp[26]                ;
+; 5:1                ; 256 bits  ; 768 ALUTs     ; 256 ALUTs            ; 512 ALUTs              ; Yes        ; |simplified_sha256|h[4][24]                ;
+; 6:1                ; 16 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|t[1]                    ;
+; 6:1                ; 256 bits  ; 1024 ALUTs    ; 512 ALUTs            ; 512 ALUTs              ; Yes        ; |simplified_sha256|C[3]                    ;
+; 11:1               ; 32 bits   ; 224 ALUTs     ; 128 ALUTs            ; 96 ALUTs               ; Yes        ; |simplified_sha256|mem_write_data[15]~reg0 ;
+; 9:1                ; 29 bits   ; 174 ALUTs     ; 29 ALUTs             ; 145 ALUTs              ; Yes        ; |simplified_sha256|w[15][12]               ;
+; 9:1                ; 3 bits    ; 18 ALUTs      ; 6 ALUTs              ; 12 ALUTs               ; Yes        ; |simplified_sha256|w[15][7]                ;
+; 14:1               ; 4 bits    ; 36 ALUTs      ; 12 ALUTs             ; 24 ALUTs               ; Yes        ; |simplified_sha256|mem_addr[0]~reg0        ;
+; 14:1               ; 12 bits   ; 108 ALUTs     ; 48 ALUTs             ; 60 ALUTs               ; Yes        ; |simplified_sha256|mem_addr[6]~reg0        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |simplified_sha256                                ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; Parameter Name ; Value                                                                            ; Type         ;
++----------------+----------------------------------------------------------------------------------+--------------+
+; k              ; (1116352408,1899447441,-1245643825,-373957723,961987163,1508970993,-1841331548,- ; Array/Record ;
+; k              ; 1424204075,-670586216,310598401,607225278,1426881987,1925078388,-2132889090,-168 ;              ;
+; k              ; 0079193,-1046744716,-459576895,-272742522,264347078,604807628,770255983,12491501 ;              ;
+; k              ; 22,1555081692,1996064986,-1740746414,-1473132947,-1341970488,-1084653625,-958395 ;              ;
+; k              ; 405,-710438585,113926993,338241895,666307205,773529912,1294757372,1396182291,169 ;              ;
+; k              ; 5183700,1986661051,-2117940946,-1838011259,-1564481375,-1474664885,-1035236496,- ;              ;
+; k              ; 949202525,-778901479,-694614492,-200395387,275423344,430227734,506948616,6590605 ;              ;
+; k              ; 56,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,-2 ;              ;
+;                ; 067236844,-1933114872,-1866530822,-1538233109,-1090935817,-965641998)            ;              ;
++----------------+----------------------------------------------------------------------------------+--------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriaii_ff            ; 1147                        ;
+;     CLR               ; 9                           ;
+;     CLR SLD           ; 1                           ;
+;     ENA               ; 32                          ;
+;     ENA SCLR          ; 645                         ;
+;     ENA SLD           ; 460                         ;
+; boundary_port         ; 118                         ;
+; stratixiv_lcell_comb  ; 1325                        ;
+;     arith             ; 396                         ;
+;         1 data inputs ; 60                          ;
+;         2 data inputs ; 326                         ;
+;         3 data inputs ; 10                          ;
+;     extend            ; 7                           ;
+;         7 data inputs ; 7                           ;
+;     normal            ; 730                         ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 502                         ;
+;         4 data inputs ; 35                          ;
+;         5 data inputs ; 19                          ;
+;         6 data inputs ; 158                         ;
+;     shared            ; 192                         ;
+;         3 data inputs ; 192                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.60                        ;
+; Average LUT depth     ; 3.73                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Fri May 11 07:18:59 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off simplified_sha256 -c simplified_sha256
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb_simplified_sha256.sv
+    Info (12023): Found entity 1: tb_simplified_sha256 File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/tb_simplified_sha256.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file simplified_sha256.sv
+    Info (12023): Found entity 1: simplified_sha256 File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 4
+Info (12127): Elaborating entity "simplified_sha256" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(104): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 104
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(112): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 112
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(119): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 119
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(129): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 129
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(134): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 134
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(143): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 143
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(152): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 152
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(166): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 166
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(189): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/simplified_sha256.sv Line: 189
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/output_files/simplified_sha256.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1932 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 1814 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 760 megabytes
+    Info: Processing ended: Fri May 11 07:19:27 2018
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:49
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/Quartus_Prime/Advanced_Digital_Design_Project/project_3_improved/output_files/simplified_sha256.map.smsg.
+
+
