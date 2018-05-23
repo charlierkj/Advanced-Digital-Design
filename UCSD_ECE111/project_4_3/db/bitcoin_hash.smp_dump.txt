@@ -1,0 +1,16 @@
+
+State Machine - |bitcoin_hash|state
+Name state.POST state.WRITE state.COMPUTE3 state.PREP32 state.PREP31 state.COMPUTE2 state.PREP22 state.PREP21 state.COMPUTE1 state.PREP13 state.PREP12 state.PREP11 state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.PREP11 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.PREP12 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.PREP13 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.COMPUTE1 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.PREP21 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.PREP22 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.COMPUTE2 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.PREP31 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.PREP32 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.COMPUTE3 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.WRITE 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.POST 1 0 0 0 0 0 0 0 0 0 0 0 1 
