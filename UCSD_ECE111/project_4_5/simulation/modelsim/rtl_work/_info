@@ -1,0 +1,58 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/simulation/modelsim
+vbitcoin_hash
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1527916875
+!i10b 1
+!s100 jHa_H^bKNa:cQ0aVkf12^3
+Ic`?a0mgIBl`U3KlLR49Lg2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 bitcoin_hash_sv_unit
+S1
+R0
+w1527916547
+8E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/bitcoin_hash.sv
+FE:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/bitcoin_hash.sv
+L0 4
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1527916875.000000
+!s107 E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/bitcoin_hash.sv|
+!s90 -reportprogress|300|-work|work|E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/bitcoin_hash.sv|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+vtb_bitcoin_hash
+R1
+!s110 1527916876
+!i10b 1
+!s100 g3DMkJcVJP0Fd>bAM?1ZP1
+IC8N2nQ3Ck]iG_9c0SQGB90
+R2
+!s105 tb_bitcoin_hash_sv_unit
+S1
+R0
+w1525974957
+8E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/tb_bitcoin_hash.sv
+FE:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/tb_bitcoin_hash.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1527916876.000000
+!s107 E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/tb_bitcoin_hash.sv|
+!s90 -reportprogress|300|-work|work|E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_5/tb_bitcoin_hash.sv|
+!i113 1
+R4
+R5

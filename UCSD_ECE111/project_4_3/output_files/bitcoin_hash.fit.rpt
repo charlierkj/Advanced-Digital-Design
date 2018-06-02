@@ -1,5 +1,5 @@
 Fitter report for bitcoin_hash
-Wed May 23 13:36:36 2018
+Thu May 31 05:05:54 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Fitter Summary                                                                  ;
 +-----------------------------------+---------------------------------------------+
-; Fitter Status                     ; Successful - Wed May 23 13:36:36 2018       ;
+; Fitter Status                     ; Successful - Thu May 31 05:05:54 2018       ;
 ; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                     ; bitcoin_hash                                ;
 ; Top-level Entity Name             ; bitcoin_hash                                ;
@@ -169,7 +169,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.5%      ;
+;     Processor 2            ;   2.4%      ;
 +----------------------------+-------------+
 
 
@@ -2475,7 +2475,7 @@ Info (170195): Router estimated average interconnect usage is 1% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:05
-Info (11888): Total time spent on timing analysis during the Fitter is 2.33 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 2.21 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2484,9 +2484,9 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Info (144001): Generated suppressed messages file E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_3/output_files/bitcoin_hash.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 5707 megabytes
-    Info: Processing ended: Wed May 23 13:36:37 2018
-    Info: Elapsed time: 00:00:39
-    Info: Total CPU time (on all processors): 00:00:52
+    Info: Processing ended: Thu May 31 05:05:55 2018
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:00:49
 
 
 +----------------------------+

@@ -1,0 +1,1048 @@
+Analysis & Synthesis report for bitcoin_hash
+Sat Jun 02 12:37:32 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |bitcoin_hash|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Physical Synthesis Netlist Optimizations
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++-----------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status       ; Successful - Sat Jun 02 12:37:31 2018       ;
+; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                     ; bitcoin_hash                                ;
+; Top-level Entity Name             ; bitcoin_hash                                ;
+; Family                            ; Arria II GX                                 ;
+; Logic utilization                 ; N/A                                         ;
+;     Combinational ALUTs           ; 18,377                                      ;
+;     Memory ALUTs                  ; 0                                           ;
+;     Dedicated logic registers     ; 21,065                                      ;
+; Total registers                   ; 21065                                       ;
+; Total pins                        ; 118                                         ;
+; Total virtual pins                ; 0                                           ;
+; Total block memory bits           ; 0                                           ;
+; DSP block 18-bit elements         ; 0                                           ;
+; Total GXB Receiver Channel PCS    ; 0                                           ;
+; Total GXB Receiver Channel PMA    ; 0                                           ;
+; Total GXB Transmitter Channel PCS ; 0                                           ;
+; Total GXB Transmitter Channel PMA ; 0                                           ;
+; Total PLLs                        ; 0                                           ;
+; Total DLLs                        ; 0                                           ;
++-----------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; EP2AGX45DF29I5     ;                    ;
+; Top-level entity name                                                           ; bitcoin_hash       ; bitcoin_hash       ;
+; Family name                                                                     ; Arria II GX        ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                        ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                               ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.2%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; bitcoin_hash.sv                  ; yes             ; User SystemVerilog HDL File  ; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++-----------------------------------------------+-----------+
+; Resource                                      ; Usage     ;
++-----------------------------------------------+-----------+
+; Estimated ALUTs Used                          ; 18377     ;
+;     -- Combinational ALUTs                    ; 18377     ;
+;     -- Memory ALUTs                           ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+; Dedicated logic registers                     ; 21065     ;
+;                                               ;           ;
+; Estimated ALUTs Unavailable                   ; 161       ;
+;     -- Due to unpartnered combinational logic ; 161       ;
+;     -- Due to Memory ALUTs                    ; 0         ;
+;                                               ;           ;
+; Total combinational functions                 ; 18377     ;
+; Combinational ALUT usage by number of inputs  ;           ;
+;     -- 7 input functions                      ; 161       ;
+;     -- 6 input functions                      ; 1959      ;
+;     -- 5 input functions                      ; 4693      ;
+;     -- 4 input functions                      ; 28        ;
+;     -- <=3 input functions                    ; 11536     ;
+;                                               ;           ;
+; Combinational ALUTs by mode                   ;           ;
+;     -- normal mode                            ; 9813      ;
+;     -- extended LUT mode                      ; 161       ;
+;     -- arithmetic mode                        ; 5203      ;
+;     -- shared arithmetic mode                 ; 3200      ;
+;                                               ;           ;
+; Estimated ALUT/register pairs used            ; 29572     ;
+;                                               ;           ;
+; Total registers                               ; 21065     ;
+;     -- Dedicated logic registers              ; 21065     ;
+;     -- I/O registers                          ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+;                                               ;           ;
+;                                               ;           ;
+; I/O pins                                      ; 118       ;
+;                                               ;           ;
+; DSP block 18-bit elements                     ; 0         ;
+;                                               ;           ;
+; Maximum fan-out node                          ; clk~input ;
+; Maximum fan-out                               ; 21066     ;
+; Total fan-out                                 ; 156200    ;
+; Average fan-out                               ; 3.94      ;
++-----------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+; |bitcoin_hash              ; 18377 (18377)       ; 21065 (21065)             ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |bitcoin_hash       ; bitcoin_hash ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------+
+; State Machine - |bitcoin_hash|state                                                                ;
++---------------+-------------+---------------+-------------+-------------+-------------+------------+
+; Name          ; state.WRITE ; state.COMPUTE ; state.PREP3 ; state.PREP2 ; state.PREP1 ; state.IDLE ;
++---------------+-------------+---------------+-------------+-------------+-------------+------------+
+; state.IDLE    ; 0           ; 0             ; 0           ; 0           ; 0           ; 0          ;
+; state.PREP1   ; 0           ; 0             ; 0           ; 0           ; 1           ; 1          ;
+; state.PREP2   ; 0           ; 0             ; 0           ; 1           ; 0           ; 1          ;
+; state.PREP3   ; 0           ; 0             ; 1           ; 0           ; 0           ; 1          ;
+; state.COMPUTE ; 0           ; 1             ; 0           ; 0           ; 0           ; 1          ;
+; state.WRITE   ; 1           ; 0             ; 0           ; 0           ; 0           ; 1          ;
++---------------+-------------+---------------+-------------+-------------+-------------+------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~10                              ; Lost fanout        ;
+; state~11                              ; Lost fanout        ;
+; state~12                              ; Lost fanout        ;
+; index_h2[3]                           ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 21065 ;
+; Number of registers using Synchronous Clear  ; 8195  ;
+; Number of registers using Synchronous Load   ; 8434  ;
+; Number of registers using Asynchronous Clear ; 8     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16959 ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------+
+; Physical Synthesis Netlist Optimizations                         ;
++---------------------------------+----------+---------------------+
+; Node                            ; Action   ; Reason              ;
++---------------------------------+----------+---------------------+
+; Add0~2                          ; Modified ; Timing optimization ;
+; Add34~2                         ; Modified ; Timing optimization ;
+; Add55~1                         ; Modified ; Timing optimization ;
+; Add56~1                         ; Modified ; Timing optimization ;
+; Add57~1                         ; Modified ; Timing optimization ;
+; Add58~1                         ; Modified ; Timing optimization ;
+; Add59~1                         ; Modified ; Timing optimization ;
+; Add60~1                         ; Modified ; Timing optimization ;
+; Add61~1                         ; Modified ; Timing optimization ;
+; Add62~1                         ; Modified ; Timing optimization ;
+; Add63~1                         ; Modified ; Timing optimization ;
+; Add64~1                         ; Modified ; Timing optimization ;
+; Add65~1                         ; Modified ; Timing optimization ;
+; Add66~1                         ; Modified ; Timing optimization ;
+; Add67~1                         ; Modified ; Timing optimization ;
+; Add68~1                         ; Modified ; Timing optimization ;
+; Add69~1                         ; Modified ; Timing optimization ;
+; Add70~1                         ; Modified ; Timing optimization ;
+; Add71~1                         ; Modified ; Timing optimization ;
+; Add72~1                         ; Modified ; Timing optimization ;
+; Add73~1                         ; Modified ; Timing optimization ;
+; Add74~1                         ; Modified ; Timing optimization ;
+; Add75~1                         ; Modified ; Timing optimization ;
+; Add76~1                         ; Modified ; Timing optimization ;
+; Add77~1                         ; Modified ; Timing optimization ;
+; Add78~1                         ; Modified ; Timing optimization ;
+; Add79~1                         ; Modified ; Timing optimization ;
+; Add80~1                         ; Modified ; Timing optimization ;
+; Add81~1                         ; Modified ; Timing optimization ;
+; Add82~1                         ; Modified ; Timing optimization ;
+; Add83~1                         ; Modified ; Timing optimization ;
+; Add84~1                         ; Modified ; Timing optimization ;
+; Add85~1                         ; Modified ; Timing optimization ;
+; Add86~1                         ; Modified ; Timing optimization ;
+; Add87~1                         ; Modified ; Timing optimization ;
+; Add88~1                         ; Modified ; Timing optimization ;
+; Add89~1                         ; Modified ; Timing optimization ;
+; Add90~1                         ; Modified ; Timing optimization ;
+; Add91~1                         ; Modified ; Timing optimization ;
+; Add92~1                         ; Modified ; Timing optimization ;
+; Add93~1                         ; Modified ; Timing optimization ;
+; Add94~1                         ; Modified ; Timing optimization ;
+; Add95~1                         ; Modified ; Timing optimization ;
+; Add96~1                         ; Modified ; Timing optimization ;
+; Add97~1                         ; Modified ; Timing optimization ;
+; Add98~1                         ; Modified ; Timing optimization ;
+; Add99~1                         ; Modified ; Timing optimization ;
+; Add100~1                        ; Modified ; Timing optimization ;
+; Add101~1                        ; Modified ; Timing optimization ;
+; Add102~1                        ; Modified ; Timing optimization ;
+; Add103~1                        ; Modified ; Timing optimization ;
+; Add104~1                        ; Modified ; Timing optimization ;
+; Add105~1                        ; Modified ; Timing optimization ;
+; Add106~1                        ; Modified ; Timing optimization ;
+; Add107~1                        ; Modified ; Timing optimization ;
+; Add108~1                        ; Modified ; Timing optimization ;
+; Add109~1                        ; Modified ; Timing optimization ;
+; Add110~1                        ; Modified ; Timing optimization ;
+; Add111~1                        ; Modified ; Timing optimization ;
+; Add112~1                        ; Modified ; Timing optimization ;
+; Add113~1                        ; Modified ; Timing optimization ;
+; Add114~1                        ; Modified ; Timing optimization ;
+; Add115~1                        ; Modified ; Timing optimization ;
+; Add116~1                        ; Modified ; Timing optimization ;
+; Add117~1                        ; Modified ; Timing optimization ;
+; Add118~1                        ; Modified ; Timing optimization ;
+; Add119~1                        ; Modified ; Timing optimization ;
+; Add120~1                        ; Modified ; Timing optimization ;
+; Add121~1                        ; Modified ; Timing optimization ;
+; Add122~1                        ; Modified ; Timing optimization ;
+; Add123~1                        ; Modified ; Timing optimization ;
+; Add124~1                        ; Modified ; Timing optimization ;
+; Add125~1                        ; Modified ; Timing optimization ;
+; Add126~1                        ; Modified ; Timing optimization ;
+; Add127~1                        ; Modified ; Timing optimization ;
+; Add128~1                        ; Modified ; Timing optimization ;
+; Add129~1                        ; Modified ; Timing optimization ;
+; Add130~1                        ; Modified ; Timing optimization ;
+; Add131~1                        ; Modified ; Timing optimization ;
+; Add132~1                        ; Modified ; Timing optimization ;
+; Add133~1                        ; Modified ; Timing optimization ;
+; Add134~1                        ; Modified ; Timing optimization ;
+; Add135~1                        ; Modified ; Timing optimization ;
+; Add136~1                        ; Modified ; Timing optimization ;
+; Add137~1                        ; Modified ; Timing optimization ;
+; Add138~1                        ; Modified ; Timing optimization ;
+; Add139~1                        ; Modified ; Timing optimization ;
+; Add140~1                        ; Modified ; Timing optimization ;
+; Add141~1                        ; Modified ; Timing optimization ;
+; Add142~1                        ; Modified ; Timing optimization ;
+; Add143~1                        ; Modified ; Timing optimization ;
+; Add144~1                        ; Modified ; Timing optimization ;
+; Add145~1                        ; Modified ; Timing optimization ;
+; Add146~1                        ; Modified ; Timing optimization ;
+; Add147~1                        ; Modified ; Timing optimization ;
+; Add148~1                        ; Modified ; Timing optimization ;
+; Add149~1                        ; Modified ; Timing optimization ;
+; Add150~1                        ; Modified ; Timing optimization ;
+; Add151~1                        ; Modified ; Timing optimization ;
+; Add152~1                        ; Modified ; Timing optimization ;
+; Add153~1                        ; Modified ; Timing optimization ;
+; Add154~1                        ; Modified ; Timing optimization ;
+; Add155~1                        ; Modified ; Timing optimization ;
+; Add156~1                        ; Modified ; Timing optimization ;
+; Add157~1                        ; Modified ; Timing optimization ;
+; Add158~1                        ; Modified ; Timing optimization ;
+; Add159~1                        ; Modified ; Timing optimization ;
+; Add160~1                        ; Modified ; Timing optimization ;
+; Add161~1                        ; Modified ; Timing optimization ;
+; Add162~1                        ; Modified ; Timing optimization ;
+; Add163~1                        ; Modified ; Timing optimization ;
+; Add164~1                        ; Modified ; Timing optimization ;
+; Add165~1                        ; Modified ; Timing optimization ;
+; Add166~1                        ; Modified ; Timing optimization ;
+; Add167~1                        ; Modified ; Timing optimization ;
+; Add168~1                        ; Modified ; Timing optimization ;
+; Add169~1                        ; Modified ; Timing optimization ;
+; Add170~1                        ; Modified ; Timing optimization ;
+; Add171~1                        ; Modified ; Timing optimization ;
+; Add172~1                        ; Modified ; Timing optimization ;
+; Add173~1                        ; Modified ; Timing optimization ;
+; Add174~1                        ; Modified ; Timing optimization ;
+; Add175~1                        ; Modified ; Timing optimization ;
+; Add176~1                        ; Modified ; Timing optimization ;
+; Add177~1                        ; Modified ; Timing optimization ;
+; Add178~1                        ; Modified ; Timing optimization ;
+; Add179~1                        ; Modified ; Timing optimization ;
+; Add180~1                        ; Modified ; Timing optimization ;
+; Add181~1                        ; Modified ; Timing optimization ;
+; Add206~2                        ; Modified ; Timing optimization ;
+; Add212~2                        ; Modified ; Timing optimization ;
+; Add218~2                        ; Modified ; Timing optimization ;
+; Add224~2                        ; Modified ; Timing optimization ;
+; Add230~2                        ; Modified ; Timing optimization ;
+; Add236~2                        ; Modified ; Timing optimization ;
+; Add242~2                        ; Modified ; Timing optimization ;
+; Add248~2                        ; Modified ; Timing optimization ;
+; Add362~1                        ; Modified ; Timing optimization ;
+; Add362~2                        ; Modified ; Timing optimization ;
+; Add363~1                        ; Modified ; Timing optimization ;
+; Add364~2                        ; Modified ; Timing optimization ;
+; LessThan0~2                     ; Modified ; Timing optimization ;
+; Selector12~1                    ; Modified ; Timing optimization ;
+; Selector16~0                    ; Modified ; Timing optimization ;
+; Selector11807~1                 ; Deleted  ; Timing optimization ;
+; Selector11807~2                 ; Deleted  ; Timing optimization ;
+; Selector11807~4                 ; Modified ; Timing optimization ;
+; Selector11807~4_RESYN48_BDD49   ; Created  ; Timing optimization ;
+; Selector11807~4_RESYN50_BDD51   ; Created  ; Timing optimization ;
+; Selector11807~4_RESYN52_BDD53   ; Created  ; Timing optimization ;
+; Selector11830~1                 ; Deleted  ; Timing optimization ;
+; Selector11830~2                 ; Deleted  ; Timing optimization ;
+; Selector11830~4                 ; Modified ; Timing optimization ;
+; Selector11830~4_RESYN56_BDD57   ; Created  ; Timing optimization ;
+; Selector11830~4_RESYN58_BDD59   ; Created  ; Timing optimization ;
+; Selector11830~4_RESYN60_BDD61   ; Created  ; Timing optimization ;
+; Selector11830~4_RESYN62_BDD63   ; Created  ; Timing optimization ;
+; Selector11839~0                 ; Deleted  ; Timing optimization ;
+; Selector11839~1                 ; Deleted  ; Timing optimization ;
+; Selector11839~3                 ; Modified ; Timing optimization ;
+; Selector11839~3_RESYN240_BDD241 ; Created  ; Timing optimization ;
+; Selector11839~3_RESYN242_BDD243 ; Created  ; Timing optimization ;
+; Selector11839~3_RESYN244_BDD245 ; Created  ; Timing optimization ;
+; Selector11839~3_RESYN246_BDD247 ; Created  ; Timing optimization ;
+; Selector11862~0                 ; Deleted  ; Timing optimization ;
+; Selector11862~1                 ; Deleted  ; Timing optimization ;
+; Selector11862~3                 ; Modified ; Timing optimization ;
+; Selector11862~3_RESYN72_BDD73   ; Created  ; Timing optimization ;
+; Selector11862~3_RESYN74_BDD75   ; Created  ; Timing optimization ;
+; Selector11862~3_RESYN76_BDD77   ; Created  ; Timing optimization ;
+; Selector11862~3_RESYN78_BDD79   ; Created  ; Timing optimization ;
+; Selector11870~3                 ; Modified ; Timing optimization ;
+; Selector11871~0                 ; Deleted  ; Timing optimization ;
+; Selector11871~1                 ; Deleted  ; Timing optimization ;
+; Selector11871~3                 ; Modified ; Timing optimization ;
+; Selector11871~3_RESYN184_BDD185 ; Created  ; Timing optimization ;
+; Selector11871~3_RESYN186_BDD187 ; Created  ; Timing optimization ;
+; Selector11871~3_RESYN188_BDD189 ; Created  ; Timing optimization ;
+; Selector11871~3_RESYN190_BDD191 ; Created  ; Timing optimization ;
+; Selector11894~0                 ; Deleted  ; Timing optimization ;
+; Selector11894~1                 ; Deleted  ; Timing optimization ;
+; Selector11894~3                 ; Modified ; Timing optimization ;
+; Selector11894~3_RESYN120_BDD121 ; Created  ; Timing optimization ;
+; Selector11894~3_RESYN122_BDD123 ; Created  ; Timing optimization ;
+; Selector11894~3_RESYN124_BDD125 ; Created  ; Timing optimization ;
+; Selector11894~3_RESYN126_BDD127 ; Created  ; Timing optimization ;
+; Selector11903~0                 ; Deleted  ; Timing optimization ;
+; Selector11903~1                 ; Deleted  ; Timing optimization ;
+; Selector11903~3                 ; Modified ; Timing optimization ;
+; Selector11903~3_RESYN248_BDD249 ; Created  ; Timing optimization ;
+; Selector11903~3_RESYN250_BDD251 ; Created  ; Timing optimization ;
+; Selector11903~3_RESYN252_BDD253 ; Created  ; Timing optimization ;
+; Selector11903~3_RESYN254_BDD255 ; Created  ; Timing optimization ;
+; Selector11926~0                 ; Deleted  ; Timing optimization ;
+; Selector11926~1                 ; Deleted  ; Timing optimization ;
+; Selector11926~3                 ; Modified ; Timing optimization ;
+; Selector11926~3_RESYN136_BDD137 ; Created  ; Timing optimization ;
+; Selector11926~3_RESYN138_BDD139 ; Created  ; Timing optimization ;
+; Selector11926~3_RESYN140_BDD141 ; Created  ; Timing optimization ;
+; Selector11926~3_RESYN142_BDD143 ; Created  ; Timing optimization ;
+; Selector11934~3                 ; Modified ; Timing optimization ;
+; Selector11935~0                 ; Deleted  ; Timing optimization ;
+; Selector11935~1                 ; Deleted  ; Timing optimization ;
+; Selector11935~3                 ; Modified ; Timing optimization ;
+; Selector11935~3_RESYN192_BDD193 ; Created  ; Timing optimization ;
+; Selector11935~3_RESYN194_BDD195 ; Created  ; Timing optimization ;
+; Selector11935~3_RESYN196_BDD197 ; Created  ; Timing optimization ;
+; Selector11935~3_RESYN198_BDD199 ; Created  ; Timing optimization ;
+; Selector11958~0                 ; Deleted  ; Timing optimization ;
+; Selector11958~1                 ; Deleted  ; Timing optimization ;
+; Selector11958~3                 ; Modified ; Timing optimization ;
+; Selector11958~3_RESYN88_BDD89   ; Created  ; Timing optimization ;
+; Selector11958~3_RESYN90_BDD91   ; Created  ; Timing optimization ;
+; Selector11958~3_RESYN92_BDD93   ; Created  ; Timing optimization ;
+; Selector11958~3_RESYN94_BDD95   ; Created  ; Timing optimization ;
+; Selector11967~0                 ; Deleted  ; Timing optimization ;
+; Selector11967~1                 ; Deleted  ; Timing optimization ;
+; Selector11967~3                 ; Modified ; Timing optimization ;
+; Selector11967~3_RESYN256_BDD257 ; Created  ; Timing optimization ;
+; Selector11967~3_RESYN258_BDD259 ; Created  ; Timing optimization ;
+; Selector11967~3_RESYN260_BDD261 ; Created  ; Timing optimization ;
+; Selector11967~3_RESYN262_BDD263 ; Created  ; Timing optimization ;
+; Selector11990~0                 ; Deleted  ; Timing optimization ;
+; Selector11990~1                 ; Deleted  ; Timing optimization ;
+; Selector11990~3                 ; Modified ; Timing optimization ;
+; Selector11990~3_RESYN104_BDD105 ; Created  ; Timing optimization ;
+; Selector11990~3_RESYN106_BDD107 ; Created  ; Timing optimization ;
+; Selector11990~3_RESYN108_BDD109 ; Created  ; Timing optimization ;
+; Selector11990~3_RESYN110_BDD111 ; Created  ; Timing optimization ;
+; Selector11998~3                 ; Modified ; Timing optimization ;
+; Selector11999~0                 ; Deleted  ; Timing optimization ;
+; Selector11999~1                 ; Deleted  ; Timing optimization ;
+; Selector11999~3                 ; Modified ; Timing optimization ;
+; Selector11999~3_RESYN200_BDD201 ; Created  ; Timing optimization ;
+; Selector11999~3_RESYN202_BDD203 ; Created  ; Timing optimization ;
+; Selector11999~3_RESYN204_BDD205 ; Created  ; Timing optimization ;
+; Selector11999~3_RESYN206_BDD207 ; Created  ; Timing optimization ;
+; Selector12022~0                 ; Deleted  ; Timing optimization ;
+; Selector12022~1                 ; Deleted  ; Timing optimization ;
+; Selector12022~3                 ; Modified ; Timing optimization ;
+; Selector12022~3_RESYN152_BDD153 ; Created  ; Timing optimization ;
+; Selector12022~3_RESYN154_BDD155 ; Created  ; Timing optimization ;
+; Selector12022~3_RESYN156_BDD157 ; Created  ; Timing optimization ;
+; Selector12022~3_RESYN158_BDD159 ; Created  ; Timing optimization ;
+; Selector12031~0                 ; Deleted  ; Timing optimization ;
+; Selector12031~1                 ; Deleted  ; Timing optimization ;
+; Selector12031~3                 ; Modified ; Timing optimization ;
+; Selector12031~3_RESYN264_BDD265 ; Created  ; Timing optimization ;
+; Selector12031~3_RESYN266_BDD267 ; Created  ; Timing optimization ;
+; Selector12031~3_RESYN268_BDD269 ; Created  ; Timing optimization ;
+; Selector12031~3_RESYN270_BDD271 ; Created  ; Timing optimization ;
+; Selector12054~0                 ; Deleted  ; Timing optimization ;
+; Selector12054~1                 ; Deleted  ; Timing optimization ;
+; Selector12054~3                 ; Modified ; Timing optimization ;
+; Selector12054~3_RESYN168_BDD169 ; Created  ; Timing optimization ;
+; Selector12054~3_RESYN170_BDD171 ; Created  ; Timing optimization ;
+; Selector12054~3_RESYN172_BDD173 ; Created  ; Timing optimization ;
+; Selector12054~3_RESYN174_BDD175 ; Created  ; Timing optimization ;
+; Selector12062~3                 ; Modified ; Timing optimization ;
+; Selector12063~0                 ; Deleted  ; Timing optimization ;
+; Selector12063~1                 ; Deleted  ; Timing optimization ;
+; Selector12063~3                 ; Modified ; Timing optimization ;
+; Selector12063~3_RESYN208_BDD209 ; Created  ; Timing optimization ;
+; Selector12063~3_RESYN210_BDD211 ; Created  ; Timing optimization ;
+; Selector12063~3_RESYN212_BDD213 ; Created  ; Timing optimization ;
+; Selector12063~3_RESYN214_BDD215 ; Created  ; Timing optimization ;
+; Selector12086~0                 ; Deleted  ; Timing optimization ;
+; Selector12086~1                 ; Deleted  ; Timing optimization ;
+; Selector12086~3                 ; Modified ; Timing optimization ;
+; Selector12086~3_RESYN64_BDD65   ; Created  ; Timing optimization ;
+; Selector12086~3_RESYN66_BDD67   ; Created  ; Timing optimization ;
+; Selector12086~3_RESYN68_BDD69   ; Created  ; Timing optimization ;
+; Selector12086~3_RESYN70_BDD71   ; Created  ; Timing optimization ;
+; Selector12091~0                 ; Deleted  ; Timing optimization ;
+; Selector12091~2                 ; Deleted  ; Timing optimization ;
+; Selector12091~3                 ; Deleted  ; Timing optimization ;
+; Selector12091~4                 ; Modified ; Timing optimization ;
+; Selector12091~4_RESYN0_BDD1     ; Created  ; Timing optimization ;
+; Selector12091~4_RESYN2_BDD3     ; Created  ; Timing optimization ;
+; Selector12091~4_RESYN4_BDD5     ; Created  ; Timing optimization ;
+; Selector12095~0                 ; Deleted  ; Timing optimization ;
+; Selector12095~1                 ; Deleted  ; Timing optimization ;
+; Selector12095~3                 ; Modified ; Timing optimization ;
+; Selector12095~3_RESYN272_BDD273 ; Created  ; Timing optimization ;
+; Selector12095~3_RESYN274_BDD275 ; Created  ; Timing optimization ;
+; Selector12095~3_RESYN276_BDD277 ; Created  ; Timing optimization ;
+; Selector12095~3_RESYN278_BDD279 ; Created  ; Timing optimization ;
+; Selector12118~0                 ; Deleted  ; Timing optimization ;
+; Selector12118~1                 ; Deleted  ; Timing optimization ;
+; Selector12118~3                 ; Modified ; Timing optimization ;
+; Selector12118~3_RESYN80_BDD81   ; Created  ; Timing optimization ;
+; Selector12118~3_RESYN82_BDD83   ; Created  ; Timing optimization ;
+; Selector12118~3_RESYN84_BDD85   ; Created  ; Timing optimization ;
+; Selector12118~3_RESYN86_BDD87   ; Created  ; Timing optimization ;
+; Selector12123~0                 ; Deleted  ; Timing optimization ;
+; Selector12123~2                 ; Deleted  ; Timing optimization ;
+; Selector12123~3                 ; Deleted  ; Timing optimization ;
+; Selector12123~4                 ; Modified ; Timing optimization ;
+; Selector12123~4_RESYN24_BDD25   ; Created  ; Timing optimization ;
+; Selector12123~4_RESYN26_BDD27   ; Created  ; Timing optimization ;
+; Selector12123~4_RESYN28_BDD29   ; Created  ; Timing optimization ;
+; Selector12126~3                 ; Modified ; Timing optimization ;
+; Selector12127~0                 ; Deleted  ; Timing optimization ;
+; Selector12127~1                 ; Deleted  ; Timing optimization ;
+; Selector12127~3                 ; Modified ; Timing optimization ;
+; Selector12127~3_RESYN216_BDD217 ; Created  ; Timing optimization ;
+; Selector12127~3_RESYN218_BDD219 ; Created  ; Timing optimization ;
+; Selector12127~3_RESYN220_BDD221 ; Created  ; Timing optimization ;
+; Selector12127~3_RESYN222_BDD223 ; Created  ; Timing optimization ;
+; Selector12150~0                 ; Deleted  ; Timing optimization ;
+; Selector12150~1                 ; Deleted  ; Timing optimization ;
+; Selector12150~3                 ; Modified ; Timing optimization ;
+; Selector12150~3_RESYN128_BDD129 ; Created  ; Timing optimization ;
+; Selector12150~3_RESYN130_BDD131 ; Created  ; Timing optimization ;
+; Selector12150~3_RESYN132_BDD133 ; Created  ; Timing optimization ;
+; Selector12150~3_RESYN134_BDD135 ; Created  ; Timing optimization ;
+; Selector12155~0                 ; Deleted  ; Timing optimization ;
+; Selector12155~2                 ; Deleted  ; Timing optimization ;
+; Selector12155~3                 ; Deleted  ; Timing optimization ;
+; Selector12155~4                 ; Modified ; Timing optimization ;
+; Selector12155~4_RESYN6_BDD7     ; Created  ; Timing optimization ;
+; Selector12155~4_RESYN8_BDD9     ; Created  ; Timing optimization ;
+; Selector12155~4_RESYN10_BDD11   ; Created  ; Timing optimization ;
+; Selector12159~0                 ; Deleted  ; Timing optimization ;
+; Selector12159~1                 ; Deleted  ; Timing optimization ;
+; Selector12159~3                 ; Modified ; Timing optimization ;
+; Selector12159~3_RESYN280_BDD281 ; Created  ; Timing optimization ;
+; Selector12159~3_RESYN282_BDD283 ; Created  ; Timing optimization ;
+; Selector12159~3_RESYN284_BDD285 ; Created  ; Timing optimization ;
+; Selector12159~3_RESYN286_BDD287 ; Created  ; Timing optimization ;
+; Selector12182~0                 ; Deleted  ; Timing optimization ;
+; Selector12182~1                 ; Deleted  ; Timing optimization ;
+; Selector12182~3                 ; Modified ; Timing optimization ;
+; Selector12182~3_RESYN144_BDD145 ; Created  ; Timing optimization ;
+; Selector12182~3_RESYN146_BDD147 ; Created  ; Timing optimization ;
+; Selector12182~3_RESYN148_BDD149 ; Created  ; Timing optimization ;
+; Selector12182~3_RESYN150_BDD151 ; Created  ; Timing optimization ;
+; Selector12187~0                 ; Deleted  ; Timing optimization ;
+; Selector12187~2                 ; Deleted  ; Timing optimization ;
+; Selector12187~3                 ; Deleted  ; Timing optimization ;
+; Selector12187~4                 ; Modified ; Timing optimization ;
+; Selector12187~4_RESYN30_BDD31   ; Created  ; Timing optimization ;
+; Selector12187~4_RESYN32_BDD33   ; Created  ; Timing optimization ;
+; Selector12187~4_RESYN34_BDD35   ; Created  ; Timing optimization ;
+; Selector12190~3                 ; Modified ; Timing optimization ;
+; Selector12191~0                 ; Deleted  ; Timing optimization ;
+; Selector12191~1                 ; Deleted  ; Timing optimization ;
+; Selector12191~3                 ; Modified ; Timing optimization ;
+; Selector12191~3_RESYN224_BDD225 ; Created  ; Timing optimization ;
+; Selector12191~3_RESYN226_BDD227 ; Created  ; Timing optimization ;
+; Selector12191~3_RESYN228_BDD229 ; Created  ; Timing optimization ;
+; Selector12191~3_RESYN230_BDD231 ; Created  ; Timing optimization ;
+; Selector12214~0                 ; Deleted  ; Timing optimization ;
+; Selector12214~1                 ; Deleted  ; Timing optimization ;
+; Selector12214~3                 ; Modified ; Timing optimization ;
+; Selector12214~3_RESYN96_BDD97   ; Created  ; Timing optimization ;
+; Selector12214~3_RESYN98_BDD99   ; Created  ; Timing optimization ;
+; Selector12214~3_RESYN100_BDD101 ; Created  ; Timing optimization ;
+; Selector12214~3_RESYN102_BDD103 ; Created  ; Timing optimization ;
+; Selector12219~0                 ; Deleted  ; Timing optimization ;
+; Selector12219~2                 ; Deleted  ; Timing optimization ;
+; Selector12219~3                 ; Deleted  ; Timing optimization ;
+; Selector12219~4                 ; Modified ; Timing optimization ;
+; Selector12219~4_RESYN12_BDD13   ; Created  ; Timing optimization ;
+; Selector12219~4_RESYN14_BDD15   ; Created  ; Timing optimization ;
+; Selector12219~4_RESYN16_BDD17   ; Created  ; Timing optimization ;
+; Selector12223~0                 ; Deleted  ; Timing optimization ;
+; Selector12223~1                 ; Deleted  ; Timing optimization ;
+; Selector12223~3                 ; Modified ; Timing optimization ;
+; Selector12223~3_RESYN288_BDD289 ; Created  ; Timing optimization ;
+; Selector12223~3_RESYN290_BDD291 ; Created  ; Timing optimization ;
+; Selector12223~3_RESYN292_BDD293 ; Created  ; Timing optimization ;
+; Selector12223~3_RESYN294_BDD295 ; Created  ; Timing optimization ;
+; Selector12246~0                 ; Deleted  ; Timing optimization ;
+; Selector12246~1                 ; Deleted  ; Timing optimization ;
+; Selector12246~3                 ; Modified ; Timing optimization ;
+; Selector12246~3_RESYN112_BDD113 ; Created  ; Timing optimization ;
+; Selector12246~3_RESYN114_BDD115 ; Created  ; Timing optimization ;
+; Selector12246~3_RESYN116_BDD117 ; Created  ; Timing optimization ;
+; Selector12246~3_RESYN118_BDD119 ; Created  ; Timing optimization ;
+; Selector12251~0                 ; Deleted  ; Timing optimization ;
+; Selector12251~2                 ; Deleted  ; Timing optimization ;
+; Selector12251~3                 ; Deleted  ; Timing optimization ;
+; Selector12251~4                 ; Modified ; Timing optimization ;
+; Selector12251~4_RESYN36_BDD37   ; Created  ; Timing optimization ;
+; Selector12251~4_RESYN38_BDD39   ; Created  ; Timing optimization ;
+; Selector12251~4_RESYN40_BDD41   ; Created  ; Timing optimization ;
+; Selector12254~3                 ; Modified ; Timing optimization ;
+; Selector12255~0                 ; Deleted  ; Timing optimization ;
+; Selector12255~1                 ; Deleted  ; Timing optimization ;
+; Selector12255~3                 ; Modified ; Timing optimization ;
+; Selector12255~3_RESYN232_BDD233 ; Created  ; Timing optimization ;
+; Selector12255~3_RESYN234_BDD235 ; Created  ; Timing optimization ;
+; Selector12255~3_RESYN236_BDD237 ; Created  ; Timing optimization ;
+; Selector12255~3_RESYN238_BDD239 ; Created  ; Timing optimization ;
+; Selector12278~0                 ; Deleted  ; Timing optimization ;
+; Selector12278~1                 ; Deleted  ; Timing optimization ;
+; Selector12278~3                 ; Modified ; Timing optimization ;
+; Selector12278~3_RESYN160_BDD161 ; Created  ; Timing optimization ;
+; Selector12278~3_RESYN162_BDD163 ; Created  ; Timing optimization ;
+; Selector12278~3_RESYN164_BDD165 ; Created  ; Timing optimization ;
+; Selector12278~3_RESYN166_BDD167 ; Created  ; Timing optimization ;
+; Selector12283~0                 ; Deleted  ; Timing optimization ;
+; Selector12283~2                 ; Deleted  ; Timing optimization ;
+; Selector12283~3                 ; Deleted  ; Timing optimization ;
+; Selector12283~4                 ; Modified ; Timing optimization ;
+; Selector12283~4_RESYN18_BDD19   ; Created  ; Timing optimization ;
+; Selector12283~4_RESYN20_BDD21   ; Created  ; Timing optimization ;
+; Selector12283~4_RESYN22_BDD23   ; Created  ; Timing optimization ;
+; Selector12287~0                 ; Deleted  ; Timing optimization ;
+; Selector12287~1                 ; Deleted  ; Timing optimization ;
+; Selector12287~3                 ; Modified ; Timing optimization ;
+; Selector12287~3_RESYN296_BDD297 ; Created  ; Timing optimization ;
+; Selector12287~3_RESYN298_BDD299 ; Created  ; Timing optimization ;
+; Selector12287~3_RESYN300_BDD301 ; Created  ; Timing optimization ;
+; Selector12287~3_RESYN302_BDD303 ; Created  ; Timing optimization ;
+; Selector12310~0                 ; Deleted  ; Timing optimization ;
+; Selector12310~1                 ; Deleted  ; Timing optimization ;
+; Selector12310~3                 ; Modified ; Timing optimization ;
+; Selector12310~3_RESYN176_BDD177 ; Created  ; Timing optimization ;
+; Selector12310~3_RESYN178_BDD179 ; Created  ; Timing optimization ;
+; Selector12310~3_RESYN180_BDD181 ; Created  ; Timing optimization ;
+; Selector12310~3_RESYN182_BDD183 ; Created  ; Timing optimization ;
+; Selector12315~0                 ; Deleted  ; Timing optimization ;
+; Selector12315~2                 ; Deleted  ; Timing optimization ;
+; Selector12315~3                 ; Deleted  ; Timing optimization ;
+; Selector12315~4                 ; Modified ; Timing optimization ;
+; Selector12315~4_RESYN42_BDD43   ; Created  ; Timing optimization ;
+; Selector12315~4_RESYN44_BDD45   ; Created  ; Timing optimization ;
+; Selector12315~4_RESYN46_BDD47   ; Created  ; Timing optimization ;
+; Selector12318~3                 ; Modified ; Timing optimization ;
+; WideOr32~0                      ; Modified ; Timing optimization ;
+; WideOr33~0                      ; Modified ; Timing optimization ;
+; WideOr34~0                      ; Modified ; Timing optimization ;
+; WideOr35~0                      ; Modified ; Timing optimization ;
+; WideOr36~0                      ; Modified ; Timing optimization ;
+; WideOr37~0                      ; Modified ; Timing optimization ;
+; WideOr38~0                      ; Modified ; Timing optimization ;
+; WideOr39~0                      ; Modified ; Timing optimization ;
+; WideOr40~0                      ; Modified ; Timing optimization ;
+; WideOr41~0                      ; Modified ; Timing optimization ;
+; WideOr42~0                      ; Modified ; Timing optimization ;
+; WideOr43~0                      ; Modified ; Timing optimization ;
+; WideOr44~0                      ; Modified ; Timing optimization ;
+; WideOr45~0                      ; Modified ; Timing optimization ;
+; WideOr46~0                      ; Modified ; Timing optimization ;
+; WideOr47~0                      ; Modified ; Timing optimization ;
+; WideOr48~0                      ; Modified ; Timing optimization ;
+; WideOr49~0                      ; Modified ; Timing optimization ;
+; WideOr50~0                      ; Modified ; Timing optimization ;
+; WideOr51~0                      ; Modified ; Timing optimization ;
+; WideOr52~0                      ; Modified ; Timing optimization ;
+; WideOr53~0                      ; Modified ; Timing optimization ;
+; WideOr54~0                      ; Modified ; Timing optimization ;
+; WideOr55~0                      ; Modified ; Timing optimization ;
+; WideOr56~0                      ; Modified ; Timing optimization ;
+; WideOr57~0                      ; Modified ; Timing optimization ;
+; WideOr58~0                      ; Modified ; Timing optimization ;
+; WideOr59~0                      ; Modified ; Timing optimization ;
+; WideOr60~0                      ; Modified ; Timing optimization ;
+; WideOr61~0                      ; Modified ; Timing optimization ;
+; WideOr62~0                      ; Modified ; Timing optimization ;
+; WideOr63~0                      ; Modified ; Timing optimization ;
+; h2[0][0][0]~2                   ; Modified ; Timing optimization ;
+; h2[0][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[0][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[0][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[0][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[0][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[0][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[0][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[1][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[2][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[3][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[4][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[5][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[6][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[7][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[8][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][0][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][1][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][2][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][3][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][4][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][5][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][6][0]~0                   ; Modified ; Timing optimization ;
+; h2[9][7][0]~0                   ; Modified ; Timing optimization ;
+; h2[10][0][0]~0                  ; Modified ; Timing optimization ;
+; h2[10][1][0]~0                  ; Modified ; Timing optimization ;
+; h2[10][2][0]~0                  ; Modified ; Timing optimization ;
+; h2[10][3][0]~0                  ; Modified ; Timing optimization ;
+; h2[10][4][0]~0                  ; Modified ; Timing optimization ;
+; h2[10][5][0]~0                  ; Modified ; Timing optimization ;
+; h2[10][6][0]~0                  ; Modified ; Timing optimization ;
+; h2[10][7][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][0][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][1][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][2][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][3][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][4][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][5][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][6][0]~0                  ; Modified ; Timing optimization ;
+; h2[11][7][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][0][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][1][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][2][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][3][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][4][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][5][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][6][0]~0                  ; Modified ; Timing optimization ;
+; h2[12][7][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][0][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][1][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][2][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][3][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][4][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][5][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][6][0]~0                  ; Modified ; Timing optimization ;
+; h2[13][7][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][0][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][1][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][2][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][3][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][4][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][5][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][6][0]~0                  ; Modified ; Timing optimization ;
+; h2[14][7][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][0][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][1][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][2][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][3][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][4][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][5][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][6][0]~0                  ; Modified ; Timing optimization ;
+; h2[15][7][0]~0                  ; Modified ; Timing optimization ;
+; t~5                             ; Modified ; Timing optimization ;
+; w[15][2][3]~0                   ; Deleted  ; Timing optimization ;
+; w[15][2][3]~0_RESYN54_BDD55     ; Created  ; Timing optimization ;
+; w[15][2][3]~1                   ; Modified ; Timing optimization ;
++---------------------------------+----------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 4:1                ; 4096 bits ; 8192 ALUTs    ; 0 ALUTs              ; 8192 ALUTs             ; Yes        ; |bitcoin_hash|C[5][8]                ;
+; 4:1                ; 192 bits  ; 384 ALUTs     ; 192 ALUTs            ; 192 ALUTs              ; Yes        ; |bitcoin_hash|temp[14][27]           ;
+; 5:1                ; 7680 bits ; 23040 ALUTs   ; 0 ALUTs              ; 23040 ALUTs            ; Yes        ; |bitcoin_hash|w[11][7][24]           ;
+; 5:1                ; 4 bits    ; 12 ALUTs      ; 4 ALUTs              ; 8 ALUTs                ; Yes        ; |bitcoin_hash|wc[0]                  ;
+; 5:1                ; 32 bits   ; 96 ALUTs      ; 0 ALUTs              ; 96 ALUTs               ; Yes        ; |bitcoin_hash|mem_write_data[2]~reg0 ;
+; 6:1                ; 320 bits  ; 1280 ALUTs    ; 640 ALUTs            ; 640 ALUTs              ; Yes        ; |bitcoin_hash|temp[1][3]             ;
+; 6:1                ; 4096 bits ; 16384 ALUTs   ; 4096 ALUTs           ; 12288 ALUTs            ; Yes        ; |bitcoin_hash|h[0][10][0]            ;
+; 6:1                ; 4 bits    ; 16 ALUTs      ; 4 ALUTs              ; 12 ALUTs               ; Yes        ; |bitcoin_hash|index_h2[2]            ;
+; 12:1               ; 4 bits    ; 32 ALUTs      ; 8 ALUTs              ; 24 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[0]~reg0       ;
+; 12:1               ; 12 bits   ; 96 ALUTs      ; 36 ALUTs             ; 60 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[4]~reg0       ;
+; 18:1               ; 480 bits  ; 5760 ALUTs    ; 3360 ALUTs           ; 2400 ALUTs             ; Yes        ; |bitcoin_hash|w[15][2][3]            ;
+; 18:1               ; 32 bits   ; 384 ALUTs     ; 256 ALUTs            ; 128 ALUTs              ; Yes        ; |bitcoin_hash|w[15][9][8]            ;
+; 16:1               ; 64 bits   ; 640 ALUTs     ; 640 ALUTs            ; 0 ALUTs                ; No         ; |bitcoin_hash|Mux549                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash                                       ;
++----------------+----------------------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                                            ; Type           ;
++----------------+----------------------------------------------------------------------------------+----------------+
+; num_nonces     ; 16                                                                               ; Signed Integer ;
+; k              ; (1116352408,1899447441,-1245643825,-373957723,961987163,1508970993,-1841331548,- ; Array/Record   ;
+; k              ; 1424204075,-670586216,310598401,607225278,1426881987,1925078388,-2132889090,-168 ;                ;
+; k              ; 0079193,-1046744716,-459576895,-272742522,264347078,604807628,770255983,12491501 ;                ;
+; k              ; 22,1555081692,1996064986,-1740746414,-1473132947,-1341970488,-1084653625,-958395 ;                ;
+; k              ; 405,-710438585,113926993,338241895,666307205,773529912,1294757372,1396182291,169 ;                ;
+; k              ; 5183700,1986661051,-2117940946,-1838011259,-1564481375,-1474664885,-1035236496,- ;                ;
+; k              ; 949202525,-778901479,-694614492,-200395387,275423344,430227734,506948616,6590605 ;                ;
+; k              ; 56,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,-2 ;                ;
+;                ; 067236844,-1933114872,-1866530822,-1538233109,-1090935817,-965641998)            ;                ;
++----------------+----------------------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriaii_ff            ; 21065                       ;
+;     CLR               ; 8                           ;
+;     ENA               ; 330                         ;
+;     ENA SCLR          ; 8195                        ;
+;     ENA SLD           ; 8434                        ;
+;     plain             ; 4098                        ;
+; boundary_port         ; 118                         ;
+; stratixiv_lcell_comb  ; 18377                       ;
+;     arith             ; 5203                        ;
+;         1 data inputs ; 46                          ;
+;         2 data inputs ; 4997                        ;
+;         3 data inputs ; 160                         ;
+;     extend            ; 161                         ;
+;         7 data inputs ; 161                         ;
+;     normal            ; 9813                        ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 65                          ;
+;         3 data inputs ; 3067                        ;
+;         4 data inputs ; 28                          ;
+;         5 data inputs ; 4693                        ;
+;         6 data inputs ; 1959                        ;
+;     shared            ; 3200                        ;
+;         3 data inputs ; 3200                        ;
+;                       ;                             ;
+; Max LUT depth         ; 7.60                        ;
+; Average LUT depth     ; 3.99                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:02:17     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Sat Jun 02 12:33:57 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bitcoin_hash -c bitcoin_hash
+Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb_bitcoin_hash.sv
+    Info (12023): Found entity 1: tb_bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/tb_bitcoin_hash.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bitcoin_hash.sv
+    Info (12023): Found entity 1: bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 4
+Info (12127): Elaborating entity "bitcoin_hash" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(103): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 103
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(111): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 111
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(114): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 114
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(129): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 129
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(132): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 132
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(147): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 147
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(150): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 150
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(152): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 152
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(164): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 164
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(176): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 176
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(196): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 196
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(228): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 228
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(245): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 245
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(262): truncated value with size 32 to match size of target (5) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv Line: 262
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "h" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "h2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "w" into its bus
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (128000): Starting physical synthesis optimizations for speed
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'bitcoin_hash.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332128): Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
+    Info (332127): Assuming a default timing requirement
+Info (332111): Found 1 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):    1.000          clk
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 451 ps
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:26
+Info (144001): Generated suppressed messages file E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/output_files/bitcoin_hash.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 33345 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 33227 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 5246 megabytes
+    Info: Processing ended: Sat Jun 02 12:37:32 2018
+    Info: Elapsed time: 00:03:35
+    Info: Total CPU time (on all processors): 00:03:52
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/output_files/bitcoin_hash.map.smsg.
+
+

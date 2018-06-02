@@ -10,7 +10,7 @@ cModel Technology
 Z0 dE:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_4/simulation/modelsim
 vbitcoin_hash
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1527287240
+Z2 !s110 1527746071
 !i10b 1
 !s100 jO;Qin:MFEafgA7]ZXPQE2
 I04e]4jIO;oB4T^lUD:BZk1
@@ -26,7 +26,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1527287240.000000
+Z5 !s108 1527746071.000000
 !s107 E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_4/bitcoin_hash.sv|
 !s90 -reportprogress|300|-work|work|E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_4/bitcoin_hash.sv|
 !i113 1

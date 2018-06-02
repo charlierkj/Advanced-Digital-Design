@@ -1,0 +1,1636 @@
+Analysis & Synthesis report for bitcoin_hash
+Fri Jun 01 04:55:20 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |bitcoin_hash|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Physical Synthesis Netlist Optimizations
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++-----------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status       ; Successful - Fri Jun 01 04:55:19 2018       ;
+; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                     ; bitcoin_hash                                ;
+; Top-level Entity Name             ; bitcoin_hash                                ;
+; Family                            ; Arria II GX                                 ;
+; Logic utilization                 ; N/A                                         ;
+;     Combinational ALUTs           ; 18,316                                      ;
+;     Memory ALUTs                  ; 0                                           ;
+;     Dedicated logic registers     ; 21,070                                      ;
+; Total registers                   ; 21070                                       ;
+; Total pins                        ; 118                                         ;
+; Total virtual pins                ; 0                                           ;
+; Total block memory bits           ; 0                                           ;
+; DSP block 18-bit elements         ; 0                                           ;
+; Total GXB Receiver Channel PCS    ; 0                                           ;
+; Total GXB Receiver Channel PMA    ; 0                                           ;
+; Total GXB Transmitter Channel PCS ; 0                                           ;
+; Total GXB Transmitter Channel PMA ; 0                                           ;
+; Total PLLs                        ; 0                                           ;
+; Total DLLs                        ; 0                                           ;
++-----------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; EP2AGX45DF29I5     ;                    ;
+; Top-level entity name                                                           ; bitcoin_hash       ; bitcoin_hash       ;
+; Family name                                                                     ; Arria II GX        ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                        ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                               ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.2%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; bitcoin_hash.sv                  ; yes             ; User SystemVerilog HDL File  ; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++-----------------------------------------------+-----------+
+; Resource                                      ; Usage     ;
++-----------------------------------------------+-----------+
+; Estimated ALUTs Used                          ; 18316     ;
+;     -- Combinational ALUTs                    ; 18316     ;
+;     -- Memory ALUTs                           ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+; Dedicated logic registers                     ; 21070     ;
+;                                               ;           ;
+; Estimated ALUTs Unavailable                   ; 1213      ;
+;     -- Due to unpartnered combinational logic ; 1213      ;
+;     -- Due to Memory ALUTs                    ; 0         ;
+;                                               ;           ;
+; Total combinational functions                 ; 18316     ;
+; Combinational ALUT usage by number of inputs  ;           ;
+;     -- 7 input functions                      ; 16        ;
+;     -- 6 input functions                      ; 6317      ;
+;     -- 5 input functions                      ; 588       ;
+;     -- 4 input functions                      ; 11        ;
+;     -- <=3 input functions                    ; 11384     ;
+;                                               ;           ;
+; Combinational ALUTs by mode                   ;           ;
+;     -- normal mode                            ; 9932      ;
+;     -- extended LUT mode                      ; 16        ;
+;     -- arithmetic mode                        ; 5200      ;
+;     -- shared arithmetic mode                 ; 3168      ;
+;                                               ;           ;
+; Estimated ALUT/register pairs used            ; 32094     ;
+;                                               ;           ;
+; Total registers                               ; 21070     ;
+;     -- Dedicated logic registers              ; 21070     ;
+;     -- I/O registers                          ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+;                                               ;           ;
+;                                               ;           ;
+; I/O pins                                      ; 118       ;
+;                                               ;           ;
+; DSP block 18-bit elements                     ; 0         ;
+;                                               ;           ;
+; Maximum fan-out node                          ; clk~input ;
+; Maximum fan-out                               ; 21071     ;
+; Total fan-out                                 ; 159565    ;
+; Average fan-out                               ; 4.03      ;
++-----------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+; |bitcoin_hash              ; 18316 (18316)       ; 21070 (21070)             ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |bitcoin_hash       ; bitcoin_hash ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bitcoin_hash|state                                                                                  ;
++----------------+-------------+----------------+---------------+-------------+-------------+-------------+------------+
+; Name           ; state.WRITE ; state.COMPUTE2 ; state.COMPUTE ; state.PREP3 ; state.PREP2 ; state.PREP1 ; state.IDLE ;
++----------------+-------------+----------------+---------------+-------------+-------------+-------------+------------+
+; state.IDLE     ; 0           ; 0              ; 0             ; 0           ; 0           ; 0           ; 0          ;
+; state.PREP1    ; 0           ; 0              ; 0             ; 0           ; 0           ; 1           ; 1          ;
+; state.PREP2    ; 0           ; 0              ; 0             ; 0           ; 1           ; 0           ; 1          ;
+; state.PREP3    ; 0           ; 0              ; 0             ; 1           ; 0           ; 0           ; 1          ;
+; state.COMPUTE  ; 0           ; 0              ; 1             ; 0           ; 0           ; 0           ; 1          ;
+; state.COMPUTE2 ; 0           ; 1              ; 0             ; 0           ; 0           ; 0           ; 1          ;
+; state.WRITE    ; 1           ; 0              ; 0             ; 0           ; 0           ; 0           ; 1          ;
++----------------+-------------+----------------+---------------+-------------+-------------+-------------+------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~8                               ; Lost fanout        ;
+; state~9                               ; Lost fanout        ;
+; state~10                              ; Lost fanout        ;
+; index_h2[3]                           ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 21070 ;
+; Number of registers using Synchronous Clear  ; 8202  ;
+; Number of registers using Synchronous Load   ; 8376  ;
+; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16387 ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------+
+; Physical Synthesis Netlist Optimizations                    ;
++--------------------+------------------+---------------------+
+; Node               ; Action           ; Reason              ;
++--------------------+------------------+---------------------+
+; Add80~2            ; Modified         ; Timing optimization ;
+; Add100~2           ; Modified         ; Timing optimization ;
+; Add132~2           ; Modified         ; Timing optimization ;
+; Add341~1           ; Modified         ; Timing optimization ;
+; F[0][0]            ; Modified         ; Timing optimization ;
+; F[0][0]_OTERM959   ; Retimed Register ; Timing optimization ;
+; F[0][1]            ; Modified         ; Timing optimization ;
+; F[0][1]_OTERM927   ; Retimed Register ; Timing optimization ;
+; F[0][2]            ; Modified         ; Timing optimization ;
+; F[0][2]_OTERM895   ; Retimed Register ; Timing optimization ;
+; F[0][3]            ; Modified         ; Timing optimization ;
+; F[0][3]_OTERM863   ; Retimed Register ; Timing optimization ;
+; F[0][4]            ; Modified         ; Timing optimization ;
+; F[0][4]_OTERM831   ; Retimed Register ; Timing optimization ;
+; F[0][5]            ; Modified         ; Timing optimization ;
+; F[0][5]_OTERM799   ; Retimed Register ; Timing optimization ;
+; F[0][6]            ; Modified         ; Timing optimization ;
+; F[0][6]_OTERM767   ; Retimed Register ; Timing optimization ;
+; F[0][7]            ; Modified         ; Timing optimization ;
+; F[0][7]_OTERM735   ; Retimed Register ; Timing optimization ;
+; F[0][8]            ; Modified         ; Timing optimization ;
+; F[0][8]_OTERM703   ; Retimed Register ; Timing optimization ;
+; F[0][9]            ; Modified         ; Timing optimization ;
+; F[0][9]_OTERM671   ; Retimed Register ; Timing optimization ;
+; F[0][10]           ; Modified         ; Timing optimization ;
+; F[0][10]_OTERM639  ; Retimed Register ; Timing optimization ;
+; F[0][11]           ; Modified         ; Timing optimization ;
+; F[0][11]_OTERM607  ; Retimed Register ; Timing optimization ;
+; F[0][12]           ; Modified         ; Timing optimization ;
+; F[0][12]_OTERM575  ; Retimed Register ; Timing optimization ;
+; F[0][13]           ; Modified         ; Timing optimization ;
+; F[0][13]_OTERM543  ; Retimed Register ; Timing optimization ;
+; F[0][14]           ; Modified         ; Timing optimization ;
+; F[0][14]_OTERM511  ; Retimed Register ; Timing optimization ;
+; F[0][15]           ; Modified         ; Timing optimization ;
+; F[0][15]_OTERM479  ; Retimed Register ; Timing optimization ;
+; F[0][16]           ; Modified         ; Timing optimization ;
+; F[0][16]_OTERM447  ; Retimed Register ; Timing optimization ;
+; F[0][17]           ; Modified         ; Timing optimization ;
+; F[0][17]_OTERM415  ; Retimed Register ; Timing optimization ;
+; F[0][18]           ; Modified         ; Timing optimization ;
+; F[0][18]_OTERM383  ; Retimed Register ; Timing optimization ;
+; F[0][19]           ; Modified         ; Timing optimization ;
+; F[0][19]_OTERM351  ; Retimed Register ; Timing optimization ;
+; F[0][20]           ; Modified         ; Timing optimization ;
+; F[0][20]_OTERM319  ; Retimed Register ; Timing optimization ;
+; F[0][21]           ; Modified         ; Timing optimization ;
+; F[0][21]_OTERM287  ; Retimed Register ; Timing optimization ;
+; F[0][22]           ; Modified         ; Timing optimization ;
+; F[0][22]_OTERM255  ; Retimed Register ; Timing optimization ;
+; F[0][23]           ; Modified         ; Timing optimization ;
+; F[0][23]_OTERM223  ; Retimed Register ; Timing optimization ;
+; F[0][24]           ; Modified         ; Timing optimization ;
+; F[0][24]_OTERM191  ; Retimed Register ; Timing optimization ;
+; F[0][25]           ; Modified         ; Timing optimization ;
+; F[0][25]_OTERM159  ; Retimed Register ; Timing optimization ;
+; F[0][26]           ; Modified         ; Timing optimization ;
+; F[0][26]_OTERM127  ; Retimed Register ; Timing optimization ;
+; F[0][27]           ; Modified         ; Timing optimization ;
+; F[0][27]_OTERM95   ; Retimed Register ; Timing optimization ;
+; F[0][28]           ; Modified         ; Timing optimization ;
+; F[0][28]_OTERM63   ; Retimed Register ; Timing optimization ;
+; F[0][29]           ; Modified         ; Timing optimization ;
+; F[0][29]_OTERM31   ; Retimed Register ; Timing optimization ;
+; F[1][0]            ; Modified         ; Timing optimization ;
+; F[1][0]_OTERM951   ; Retimed Register ; Timing optimization ;
+; F[1][1]            ; Modified         ; Timing optimization ;
+; F[1][1]_OTERM925   ; Retimed Register ; Timing optimization ;
+; F[1][2]            ; Modified         ; Timing optimization ;
+; F[1][2]_OTERM887   ; Retimed Register ; Timing optimization ;
+; F[1][3]            ; Modified         ; Timing optimization ;
+; F[1][3]_OTERM861   ; Retimed Register ; Timing optimization ;
+; F[1][4]            ; Modified         ; Timing optimization ;
+; F[1][4]_OTERM823   ; Retimed Register ; Timing optimization ;
+; F[1][5]            ; Modified         ; Timing optimization ;
+; F[1][5]_OTERM797   ; Retimed Register ; Timing optimization ;
+; F[1][6]            ; Modified         ; Timing optimization ;
+; F[1][6]_OTERM759   ; Retimed Register ; Timing optimization ;
+; F[1][7]            ; Modified         ; Timing optimization ;
+; F[1][7]_OTERM733   ; Retimed Register ; Timing optimization ;
+; F[1][8]            ; Modified         ; Timing optimization ;
+; F[1][8]_OTERM695   ; Retimed Register ; Timing optimization ;
+; F[1][9]            ; Modified         ; Timing optimization ;
+; F[1][9]_OTERM669   ; Retimed Register ; Timing optimization ;
+; F[1][10]           ; Modified         ; Timing optimization ;
+; F[1][10]_OTERM631  ; Retimed Register ; Timing optimization ;
+; F[1][11]           ; Modified         ; Timing optimization ;
+; F[1][11]_OTERM605  ; Retimed Register ; Timing optimization ;
+; F[1][12]           ; Modified         ; Timing optimization ;
+; F[1][12]_OTERM567  ; Retimed Register ; Timing optimization ;
+; F[1][13]           ; Modified         ; Timing optimization ;
+; F[1][13]_OTERM541  ; Retimed Register ; Timing optimization ;
+; F[1][14]           ; Modified         ; Timing optimization ;
+; F[1][14]_OTERM503  ; Retimed Register ; Timing optimization ;
+; F[1][15]           ; Modified         ; Timing optimization ;
+; F[1][15]_OTERM477  ; Retimed Register ; Timing optimization ;
+; F[1][16]           ; Modified         ; Timing optimization ;
+; F[1][16]_OTERM439  ; Retimed Register ; Timing optimization ;
+; F[1][17]           ; Modified         ; Timing optimization ;
+; F[1][17]_OTERM413  ; Retimed Register ; Timing optimization ;
+; F[1][18]           ; Modified         ; Timing optimization ;
+; F[1][18]_OTERM375  ; Retimed Register ; Timing optimization ;
+; F[1][19]           ; Modified         ; Timing optimization ;
+; F[1][19]_OTERM349  ; Retimed Register ; Timing optimization ;
+; F[1][20]           ; Modified         ; Timing optimization ;
+; F[1][20]_OTERM311  ; Retimed Register ; Timing optimization ;
+; F[1][21]           ; Modified         ; Timing optimization ;
+; F[1][21]_OTERM285  ; Retimed Register ; Timing optimization ;
+; F[1][22]           ; Modified         ; Timing optimization ;
+; F[1][22]_OTERM247  ; Retimed Register ; Timing optimization ;
+; F[1][23]           ; Modified         ; Timing optimization ;
+; F[1][23]_OTERM221  ; Retimed Register ; Timing optimization ;
+; F[1][24]           ; Modified         ; Timing optimization ;
+; F[1][24]_OTERM183  ; Retimed Register ; Timing optimization ;
+; F[1][25]           ; Modified         ; Timing optimization ;
+; F[1][25]_OTERM157  ; Retimed Register ; Timing optimization ;
+; F[1][26]           ; Modified         ; Timing optimization ;
+; F[1][26]_OTERM119  ; Retimed Register ; Timing optimization ;
+; F[1][27]           ; Modified         ; Timing optimization ;
+; F[1][27]_OTERM93   ; Retimed Register ; Timing optimization ;
+; F[1][28]           ; Modified         ; Timing optimization ;
+; F[1][28]_OTERM55   ; Retimed Register ; Timing optimization ;
+; F[1][29]           ; Modified         ; Timing optimization ;
+; F[1][29]_OTERM29   ; Retimed Register ; Timing optimization ;
+; F[2][0]            ; Modified         ; Timing optimization ;
+; F[2][0]_OTERM943   ; Retimed Register ; Timing optimization ;
+; F[2][1]            ; Modified         ; Timing optimization ;
+; F[2][1]_OTERM923   ; Retimed Register ; Timing optimization ;
+; F[2][2]            ; Modified         ; Timing optimization ;
+; F[2][2]_OTERM879   ; Retimed Register ; Timing optimization ;
+; F[2][3]            ; Modified         ; Timing optimization ;
+; F[2][3]_OTERM859   ; Retimed Register ; Timing optimization ;
+; F[2][4]            ; Modified         ; Timing optimization ;
+; F[2][4]_OTERM815   ; Retimed Register ; Timing optimization ;
+; F[2][5]            ; Modified         ; Timing optimization ;
+; F[2][5]_OTERM795   ; Retimed Register ; Timing optimization ;
+; F[2][6]            ; Modified         ; Timing optimization ;
+; F[2][6]_OTERM751   ; Retimed Register ; Timing optimization ;
+; F[2][7]            ; Modified         ; Timing optimization ;
+; F[2][7]_OTERM731   ; Retimed Register ; Timing optimization ;
+; F[2][8]            ; Modified         ; Timing optimization ;
+; F[2][8]_OTERM687   ; Retimed Register ; Timing optimization ;
+; F[2][9]            ; Modified         ; Timing optimization ;
+; F[2][9]_OTERM667   ; Retimed Register ; Timing optimization ;
+; F[2][10]           ; Modified         ; Timing optimization ;
+; F[2][10]_OTERM623  ; Retimed Register ; Timing optimization ;
+; F[2][11]           ; Modified         ; Timing optimization ;
+; F[2][11]_OTERM603  ; Retimed Register ; Timing optimization ;
+; F[2][12]           ; Modified         ; Timing optimization ;
+; F[2][12]_OTERM559  ; Retimed Register ; Timing optimization ;
+; F[2][13]           ; Modified         ; Timing optimization ;
+; F[2][13]_OTERM539  ; Retimed Register ; Timing optimization ;
+; F[2][14]           ; Modified         ; Timing optimization ;
+; F[2][14]_OTERM495  ; Retimed Register ; Timing optimization ;
+; F[2][15]           ; Modified         ; Timing optimization ;
+; F[2][15]_OTERM475  ; Retimed Register ; Timing optimization ;
+; F[2][16]           ; Modified         ; Timing optimization ;
+; F[2][16]_OTERM431  ; Retimed Register ; Timing optimization ;
+; F[2][17]           ; Modified         ; Timing optimization ;
+; F[2][17]_OTERM411  ; Retimed Register ; Timing optimization ;
+; F[2][18]           ; Modified         ; Timing optimization ;
+; F[2][18]_OTERM367  ; Retimed Register ; Timing optimization ;
+; F[2][19]           ; Modified         ; Timing optimization ;
+; F[2][19]_OTERM347  ; Retimed Register ; Timing optimization ;
+; F[2][20]           ; Modified         ; Timing optimization ;
+; F[2][20]_OTERM303  ; Retimed Register ; Timing optimization ;
+; F[2][21]           ; Modified         ; Timing optimization ;
+; F[2][21]_OTERM283  ; Retimed Register ; Timing optimization ;
+; F[2][22]           ; Modified         ; Timing optimization ;
+; F[2][22]_OTERM239  ; Retimed Register ; Timing optimization ;
+; F[2][23]           ; Modified         ; Timing optimization ;
+; F[2][23]_OTERM219  ; Retimed Register ; Timing optimization ;
+; F[2][24]           ; Modified         ; Timing optimization ;
+; F[2][24]_OTERM175  ; Retimed Register ; Timing optimization ;
+; F[2][25]           ; Modified         ; Timing optimization ;
+; F[2][25]_OTERM155  ; Retimed Register ; Timing optimization ;
+; F[2][26]           ; Modified         ; Timing optimization ;
+; F[2][26]_OTERM111  ; Retimed Register ; Timing optimization ;
+; F[2][27]           ; Modified         ; Timing optimization ;
+; F[2][27]_OTERM91   ; Retimed Register ; Timing optimization ;
+; F[2][28]           ; Modified         ; Timing optimization ;
+; F[2][28]_OTERM47   ; Retimed Register ; Timing optimization ;
+; F[2][29]           ; Modified         ; Timing optimization ;
+; F[2][29]_OTERM27   ; Retimed Register ; Timing optimization ;
+; F[3][0]            ; Modified         ; Timing optimization ;
+; F[3][0]_OTERM935   ; Retimed Register ; Timing optimization ;
+; F[3][1]            ; Modified         ; Timing optimization ;
+; F[3][1]_OTERM921   ; Retimed Register ; Timing optimization ;
+; F[3][2]            ; Modified         ; Timing optimization ;
+; F[3][2]_OTERM871   ; Retimed Register ; Timing optimization ;
+; F[3][3]            ; Modified         ; Timing optimization ;
+; F[3][3]_OTERM857   ; Retimed Register ; Timing optimization ;
+; F[3][4]            ; Modified         ; Timing optimization ;
+; F[3][4]_OTERM807   ; Retimed Register ; Timing optimization ;
+; F[3][5]            ; Modified         ; Timing optimization ;
+; F[3][5]_OTERM793   ; Retimed Register ; Timing optimization ;
+; F[3][6]            ; Modified         ; Timing optimization ;
+; F[3][6]_OTERM743   ; Retimed Register ; Timing optimization ;
+; F[3][7]            ; Modified         ; Timing optimization ;
+; F[3][7]_OTERM729   ; Retimed Register ; Timing optimization ;
+; F[3][8]            ; Modified         ; Timing optimization ;
+; F[3][8]_OTERM679   ; Retimed Register ; Timing optimization ;
+; F[3][9]            ; Modified         ; Timing optimization ;
+; F[3][9]_OTERM665   ; Retimed Register ; Timing optimization ;
+; F[3][10]           ; Modified         ; Timing optimization ;
+; F[3][10]_OTERM615  ; Retimed Register ; Timing optimization ;
+; F[3][11]           ; Modified         ; Timing optimization ;
+; F[3][11]_OTERM601  ; Retimed Register ; Timing optimization ;
+; F[3][12]           ; Modified         ; Timing optimization ;
+; F[3][12]_OTERM551  ; Retimed Register ; Timing optimization ;
+; F[3][13]           ; Modified         ; Timing optimization ;
+; F[3][13]_OTERM537  ; Retimed Register ; Timing optimization ;
+; F[3][14]           ; Modified         ; Timing optimization ;
+; F[3][14]_OTERM487  ; Retimed Register ; Timing optimization ;
+; F[3][15]           ; Modified         ; Timing optimization ;
+; F[3][15]_OTERM473  ; Retimed Register ; Timing optimization ;
+; F[3][16]           ; Modified         ; Timing optimization ;
+; F[3][16]_OTERM423  ; Retimed Register ; Timing optimization ;
+; F[3][17]           ; Modified         ; Timing optimization ;
+; F[3][17]_OTERM409  ; Retimed Register ; Timing optimization ;
+; F[3][18]           ; Modified         ; Timing optimization ;
+; F[3][18]_OTERM359  ; Retimed Register ; Timing optimization ;
+; F[3][19]           ; Modified         ; Timing optimization ;
+; F[3][19]_OTERM345  ; Retimed Register ; Timing optimization ;
+; F[3][20]           ; Modified         ; Timing optimization ;
+; F[3][20]_OTERM295  ; Retimed Register ; Timing optimization ;
+; F[3][21]           ; Modified         ; Timing optimization ;
+; F[3][21]_OTERM281  ; Retimed Register ; Timing optimization ;
+; F[3][22]           ; Modified         ; Timing optimization ;
+; F[3][22]_OTERM231  ; Retimed Register ; Timing optimization ;
+; F[3][23]           ; Modified         ; Timing optimization ;
+; F[3][23]_OTERM217  ; Retimed Register ; Timing optimization ;
+; F[3][24]           ; Modified         ; Timing optimization ;
+; F[3][24]_OTERM167  ; Retimed Register ; Timing optimization ;
+; F[3][25]           ; Modified         ; Timing optimization ;
+; F[3][25]_OTERM153  ; Retimed Register ; Timing optimization ;
+; F[3][26]           ; Modified         ; Timing optimization ;
+; F[3][26]_OTERM103  ; Retimed Register ; Timing optimization ;
+; F[3][27]           ; Modified         ; Timing optimization ;
+; F[3][27]_OTERM89   ; Retimed Register ; Timing optimization ;
+; F[3][28]           ; Modified         ; Timing optimization ;
+; F[3][28]_OTERM39   ; Retimed Register ; Timing optimization ;
+; F[3][29]           ; Modified         ; Timing optimization ;
+; F[3][29]_OTERM25   ; Retimed Register ; Timing optimization ;
+; F[4][0]            ; Modified         ; Timing optimization ;
+; F[4][0]_OTERM957   ; Retimed Register ; Timing optimization ;
+; F[4][1]            ; Modified         ; Timing optimization ;
+; F[4][1]_OTERM919   ; Retimed Register ; Timing optimization ;
+; F[4][2]            ; Modified         ; Timing optimization ;
+; F[4][2]_OTERM893   ; Retimed Register ; Timing optimization ;
+; F[4][3]            ; Modified         ; Timing optimization ;
+; F[4][3]_OTERM855   ; Retimed Register ; Timing optimization ;
+; F[4][4]            ; Modified         ; Timing optimization ;
+; F[4][4]_OTERM829   ; Retimed Register ; Timing optimization ;
+; F[4][5]            ; Modified         ; Timing optimization ;
+; F[4][5]_OTERM791   ; Retimed Register ; Timing optimization ;
+; F[4][6]            ; Modified         ; Timing optimization ;
+; F[4][6]_OTERM765   ; Retimed Register ; Timing optimization ;
+; F[4][7]            ; Modified         ; Timing optimization ;
+; F[4][7]_OTERM727   ; Retimed Register ; Timing optimization ;
+; F[4][8]            ; Modified         ; Timing optimization ;
+; F[4][8]_OTERM701   ; Retimed Register ; Timing optimization ;
+; F[4][9]            ; Modified         ; Timing optimization ;
+; F[4][9]_OTERM663   ; Retimed Register ; Timing optimization ;
+; F[4][10]           ; Modified         ; Timing optimization ;
+; F[4][10]_OTERM637  ; Retimed Register ; Timing optimization ;
+; F[4][11]           ; Modified         ; Timing optimization ;
+; F[4][11]_OTERM599  ; Retimed Register ; Timing optimization ;
+; F[4][12]           ; Modified         ; Timing optimization ;
+; F[4][12]_OTERM573  ; Retimed Register ; Timing optimization ;
+; F[4][13]           ; Modified         ; Timing optimization ;
+; F[4][13]_OTERM535  ; Retimed Register ; Timing optimization ;
+; F[4][14]           ; Modified         ; Timing optimization ;
+; F[4][14]_OTERM509  ; Retimed Register ; Timing optimization ;
+; F[4][15]           ; Modified         ; Timing optimization ;
+; F[4][15]_OTERM471  ; Retimed Register ; Timing optimization ;
+; F[4][16]           ; Modified         ; Timing optimization ;
+; F[4][16]_OTERM445  ; Retimed Register ; Timing optimization ;
+; F[4][17]           ; Modified         ; Timing optimization ;
+; F[4][17]_OTERM407  ; Retimed Register ; Timing optimization ;
+; F[4][18]           ; Modified         ; Timing optimization ;
+; F[4][18]_OTERM381  ; Retimed Register ; Timing optimization ;
+; F[4][19]           ; Modified         ; Timing optimization ;
+; F[4][19]_OTERM343  ; Retimed Register ; Timing optimization ;
+; F[4][20]           ; Modified         ; Timing optimization ;
+; F[4][20]_OTERM317  ; Retimed Register ; Timing optimization ;
+; F[4][21]           ; Modified         ; Timing optimization ;
+; F[4][21]_OTERM279  ; Retimed Register ; Timing optimization ;
+; F[4][22]           ; Modified         ; Timing optimization ;
+; F[4][22]_OTERM253  ; Retimed Register ; Timing optimization ;
+; F[4][23]           ; Modified         ; Timing optimization ;
+; F[4][23]_OTERM215  ; Retimed Register ; Timing optimization ;
+; F[4][24]           ; Modified         ; Timing optimization ;
+; F[4][24]_OTERM189  ; Retimed Register ; Timing optimization ;
+; F[4][25]           ; Modified         ; Timing optimization ;
+; F[4][25]_OTERM151  ; Retimed Register ; Timing optimization ;
+; F[4][26]           ; Modified         ; Timing optimization ;
+; F[4][26]_OTERM125  ; Retimed Register ; Timing optimization ;
+; F[4][27]           ; Modified         ; Timing optimization ;
+; F[4][27]_OTERM87   ; Retimed Register ; Timing optimization ;
+; F[4][28]           ; Modified         ; Timing optimization ;
+; F[4][28]_OTERM61   ; Retimed Register ; Timing optimization ;
+; F[4][29]           ; Modified         ; Timing optimization ;
+; F[4][29]_OTERM23   ; Retimed Register ; Timing optimization ;
+; F[5][0]            ; Modified         ; Timing optimization ;
+; F[5][0]_OTERM949   ; Retimed Register ; Timing optimization ;
+; F[5][1]            ; Modified         ; Timing optimization ;
+; F[5][1]_OTERM917   ; Retimed Register ; Timing optimization ;
+; F[5][2]            ; Modified         ; Timing optimization ;
+; F[5][2]_OTERM885   ; Retimed Register ; Timing optimization ;
+; F[5][3]            ; Modified         ; Timing optimization ;
+; F[5][3]_OTERM853   ; Retimed Register ; Timing optimization ;
+; F[5][4]            ; Modified         ; Timing optimization ;
+; F[5][4]_OTERM821   ; Retimed Register ; Timing optimization ;
+; F[5][5]            ; Modified         ; Timing optimization ;
+; F[5][5]_OTERM789   ; Retimed Register ; Timing optimization ;
+; F[5][6]            ; Modified         ; Timing optimization ;
+; F[5][6]_OTERM757   ; Retimed Register ; Timing optimization ;
+; F[5][7]            ; Modified         ; Timing optimization ;
+; F[5][7]_OTERM725   ; Retimed Register ; Timing optimization ;
+; F[5][8]            ; Modified         ; Timing optimization ;
+; F[5][8]_OTERM693   ; Retimed Register ; Timing optimization ;
+; F[5][9]            ; Modified         ; Timing optimization ;
+; F[5][9]_OTERM661   ; Retimed Register ; Timing optimization ;
+; F[5][10]           ; Modified         ; Timing optimization ;
+; F[5][10]_OTERM629  ; Retimed Register ; Timing optimization ;
+; F[5][11]           ; Modified         ; Timing optimization ;
+; F[5][11]_OTERM597  ; Retimed Register ; Timing optimization ;
+; F[5][12]           ; Modified         ; Timing optimization ;
+; F[5][12]_OTERM565  ; Retimed Register ; Timing optimization ;
+; F[5][13]           ; Modified         ; Timing optimization ;
+; F[5][13]_OTERM533  ; Retimed Register ; Timing optimization ;
+; F[5][14]           ; Modified         ; Timing optimization ;
+; F[5][14]_OTERM501  ; Retimed Register ; Timing optimization ;
+; F[5][15]           ; Modified         ; Timing optimization ;
+; F[5][15]_OTERM469  ; Retimed Register ; Timing optimization ;
+; F[5][16]           ; Modified         ; Timing optimization ;
+; F[5][16]_OTERM437  ; Retimed Register ; Timing optimization ;
+; F[5][17]           ; Modified         ; Timing optimization ;
+; F[5][17]_OTERM405  ; Retimed Register ; Timing optimization ;
+; F[5][18]           ; Modified         ; Timing optimization ;
+; F[5][18]_OTERM373  ; Retimed Register ; Timing optimization ;
+; F[5][19]           ; Modified         ; Timing optimization ;
+; F[5][19]_OTERM341  ; Retimed Register ; Timing optimization ;
+; F[5][20]           ; Modified         ; Timing optimization ;
+; F[5][20]_OTERM309  ; Retimed Register ; Timing optimization ;
+; F[5][21]           ; Modified         ; Timing optimization ;
+; F[5][21]_OTERM277  ; Retimed Register ; Timing optimization ;
+; F[5][22]           ; Modified         ; Timing optimization ;
+; F[5][22]_OTERM245  ; Retimed Register ; Timing optimization ;
+; F[5][23]           ; Modified         ; Timing optimization ;
+; F[5][23]_OTERM213  ; Retimed Register ; Timing optimization ;
+; F[5][24]           ; Modified         ; Timing optimization ;
+; F[5][24]_OTERM181  ; Retimed Register ; Timing optimization ;
+; F[5][25]           ; Modified         ; Timing optimization ;
+; F[5][25]_OTERM149  ; Retimed Register ; Timing optimization ;
+; F[5][26]           ; Modified         ; Timing optimization ;
+; F[5][26]_OTERM117  ; Retimed Register ; Timing optimization ;
+; F[5][27]           ; Modified         ; Timing optimization ;
+; F[5][27]_OTERM85   ; Retimed Register ; Timing optimization ;
+; F[5][28]           ; Modified         ; Timing optimization ;
+; F[5][28]_OTERM53   ; Retimed Register ; Timing optimization ;
+; F[5][29]           ; Modified         ; Timing optimization ;
+; F[5][29]_OTERM21   ; Retimed Register ; Timing optimization ;
+; F[6][0]            ; Modified         ; Timing optimization ;
+; F[6][0]_OTERM941   ; Retimed Register ; Timing optimization ;
+; F[6][1]            ; Modified         ; Timing optimization ;
+; F[6][1]_OTERM915   ; Retimed Register ; Timing optimization ;
+; F[6][2]            ; Modified         ; Timing optimization ;
+; F[6][2]_OTERM877   ; Retimed Register ; Timing optimization ;
+; F[6][3]            ; Modified         ; Timing optimization ;
+; F[6][3]_OTERM851   ; Retimed Register ; Timing optimization ;
+; F[6][4]            ; Modified         ; Timing optimization ;
+; F[6][4]_OTERM813   ; Retimed Register ; Timing optimization ;
+; F[6][5]            ; Modified         ; Timing optimization ;
+; F[6][5]_OTERM787   ; Retimed Register ; Timing optimization ;
+; F[6][6]            ; Modified         ; Timing optimization ;
+; F[6][6]_OTERM749   ; Retimed Register ; Timing optimization ;
+; F[6][7]            ; Modified         ; Timing optimization ;
+; F[6][7]_OTERM723   ; Retimed Register ; Timing optimization ;
+; F[6][8]            ; Modified         ; Timing optimization ;
+; F[6][8]_OTERM685   ; Retimed Register ; Timing optimization ;
+; F[6][9]            ; Modified         ; Timing optimization ;
+; F[6][9]_OTERM659   ; Retimed Register ; Timing optimization ;
+; F[6][10]           ; Modified         ; Timing optimization ;
+; F[6][10]_OTERM621  ; Retimed Register ; Timing optimization ;
+; F[6][11]           ; Modified         ; Timing optimization ;
+; F[6][11]_OTERM595  ; Retimed Register ; Timing optimization ;
+; F[6][12]           ; Modified         ; Timing optimization ;
+; F[6][12]_OTERM557  ; Retimed Register ; Timing optimization ;
+; F[6][13]           ; Modified         ; Timing optimization ;
+; F[6][13]_OTERM531  ; Retimed Register ; Timing optimization ;
+; F[6][14]           ; Modified         ; Timing optimization ;
+; F[6][14]_OTERM493  ; Retimed Register ; Timing optimization ;
+; F[6][15]           ; Modified         ; Timing optimization ;
+; F[6][15]_OTERM467  ; Retimed Register ; Timing optimization ;
+; F[6][16]           ; Modified         ; Timing optimization ;
+; F[6][16]_OTERM429  ; Retimed Register ; Timing optimization ;
+; F[6][17]           ; Modified         ; Timing optimization ;
+; F[6][17]_OTERM403  ; Retimed Register ; Timing optimization ;
+; F[6][18]           ; Modified         ; Timing optimization ;
+; F[6][18]_OTERM365  ; Retimed Register ; Timing optimization ;
+; F[6][19]           ; Modified         ; Timing optimization ;
+; F[6][19]_OTERM339  ; Retimed Register ; Timing optimization ;
+; F[6][20]           ; Modified         ; Timing optimization ;
+; F[6][20]_OTERM301  ; Retimed Register ; Timing optimization ;
+; F[6][21]           ; Modified         ; Timing optimization ;
+; F[6][21]_OTERM275  ; Retimed Register ; Timing optimization ;
+; F[6][22]           ; Modified         ; Timing optimization ;
+; F[6][22]_OTERM237  ; Retimed Register ; Timing optimization ;
+; F[6][23]           ; Modified         ; Timing optimization ;
+; F[6][23]_OTERM211  ; Retimed Register ; Timing optimization ;
+; F[6][24]           ; Modified         ; Timing optimization ;
+; F[6][24]_OTERM173  ; Retimed Register ; Timing optimization ;
+; F[6][25]           ; Modified         ; Timing optimization ;
+; F[6][25]_OTERM147  ; Retimed Register ; Timing optimization ;
+; F[6][26]           ; Modified         ; Timing optimization ;
+; F[6][26]_OTERM109  ; Retimed Register ; Timing optimization ;
+; F[6][27]           ; Modified         ; Timing optimization ;
+; F[6][27]_OTERM83   ; Retimed Register ; Timing optimization ;
+; F[6][28]           ; Modified         ; Timing optimization ;
+; F[6][28]_OTERM45   ; Retimed Register ; Timing optimization ;
+; F[6][29]           ; Modified         ; Timing optimization ;
+; F[6][29]_OTERM19   ; Retimed Register ; Timing optimization ;
+; F[7][0]            ; Modified         ; Timing optimization ;
+; F[7][0]_OTERM933   ; Retimed Register ; Timing optimization ;
+; F[7][1]            ; Modified         ; Timing optimization ;
+; F[7][1]_OTERM913   ; Retimed Register ; Timing optimization ;
+; F[7][2]            ; Modified         ; Timing optimization ;
+; F[7][2]_OTERM869   ; Retimed Register ; Timing optimization ;
+; F[7][3]            ; Modified         ; Timing optimization ;
+; F[7][3]_OTERM849   ; Retimed Register ; Timing optimization ;
+; F[7][4]            ; Modified         ; Timing optimization ;
+; F[7][4]_OTERM805   ; Retimed Register ; Timing optimization ;
+; F[7][5]            ; Modified         ; Timing optimization ;
+; F[7][5]_OTERM785   ; Retimed Register ; Timing optimization ;
+; F[7][6]            ; Modified         ; Timing optimization ;
+; F[7][6]_OTERM741   ; Retimed Register ; Timing optimization ;
+; F[7][7]            ; Modified         ; Timing optimization ;
+; F[7][7]_OTERM721   ; Retimed Register ; Timing optimization ;
+; F[7][8]            ; Modified         ; Timing optimization ;
+; F[7][8]_OTERM677   ; Retimed Register ; Timing optimization ;
+; F[7][9]            ; Modified         ; Timing optimization ;
+; F[7][9]_OTERM657   ; Retimed Register ; Timing optimization ;
+; F[7][10]           ; Modified         ; Timing optimization ;
+; F[7][10]_OTERM613  ; Retimed Register ; Timing optimization ;
+; F[7][11]           ; Modified         ; Timing optimization ;
+; F[7][11]_OTERM593  ; Retimed Register ; Timing optimization ;
+; F[7][12]           ; Modified         ; Timing optimization ;
+; F[7][12]_OTERM549  ; Retimed Register ; Timing optimization ;
+; F[7][13]           ; Modified         ; Timing optimization ;
+; F[7][13]_OTERM529  ; Retimed Register ; Timing optimization ;
+; F[7][14]           ; Modified         ; Timing optimization ;
+; F[7][14]_OTERM485  ; Retimed Register ; Timing optimization ;
+; F[7][15]           ; Modified         ; Timing optimization ;
+; F[7][15]_OTERM465  ; Retimed Register ; Timing optimization ;
+; F[7][16]           ; Modified         ; Timing optimization ;
+; F[7][16]_OTERM421  ; Retimed Register ; Timing optimization ;
+; F[7][17]           ; Modified         ; Timing optimization ;
+; F[7][17]_OTERM401  ; Retimed Register ; Timing optimization ;
+; F[7][18]           ; Modified         ; Timing optimization ;
+; F[7][18]_OTERM357  ; Retimed Register ; Timing optimization ;
+; F[7][19]           ; Modified         ; Timing optimization ;
+; F[7][19]_OTERM337  ; Retimed Register ; Timing optimization ;
+; F[7][20]           ; Modified         ; Timing optimization ;
+; F[7][20]_OTERM293  ; Retimed Register ; Timing optimization ;
+; F[7][21]           ; Modified         ; Timing optimization ;
+; F[7][21]_OTERM273  ; Retimed Register ; Timing optimization ;
+; F[7][22]           ; Modified         ; Timing optimization ;
+; F[7][22]_OTERM229  ; Retimed Register ; Timing optimization ;
+; F[7][23]           ; Modified         ; Timing optimization ;
+; F[7][23]_OTERM209  ; Retimed Register ; Timing optimization ;
+; F[7][24]           ; Modified         ; Timing optimization ;
+; F[7][24]_OTERM165  ; Retimed Register ; Timing optimization ;
+; F[7][25]           ; Modified         ; Timing optimization ;
+; F[7][25]_OTERM145  ; Retimed Register ; Timing optimization ;
+; F[7][26]           ; Modified         ; Timing optimization ;
+; F[7][26]_OTERM101  ; Retimed Register ; Timing optimization ;
+; F[7][27]           ; Modified         ; Timing optimization ;
+; F[7][27]_OTERM81   ; Retimed Register ; Timing optimization ;
+; F[7][28]           ; Modified         ; Timing optimization ;
+; F[7][28]_OTERM37   ; Retimed Register ; Timing optimization ;
+; F[7][29]           ; Modified         ; Timing optimization ;
+; F[7][29]_OTERM17   ; Retimed Register ; Timing optimization ;
+; F[8][0]            ; Modified         ; Timing optimization ;
+; F[8][0]_OTERM955   ; Retimed Register ; Timing optimization ;
+; F[8][1]            ; Modified         ; Timing optimization ;
+; F[8][1]_OTERM911   ; Retimed Register ; Timing optimization ;
+; F[8][2]            ; Modified         ; Timing optimization ;
+; F[8][2]_OTERM891   ; Retimed Register ; Timing optimization ;
+; F[8][3]            ; Modified         ; Timing optimization ;
+; F[8][3]_OTERM847   ; Retimed Register ; Timing optimization ;
+; F[8][4]            ; Modified         ; Timing optimization ;
+; F[8][4]_OTERM827   ; Retimed Register ; Timing optimization ;
+; F[8][5]            ; Modified         ; Timing optimization ;
+; F[8][5]_OTERM783   ; Retimed Register ; Timing optimization ;
+; F[8][6]            ; Modified         ; Timing optimization ;
+; F[8][6]_OTERM763   ; Retimed Register ; Timing optimization ;
+; F[8][7]            ; Modified         ; Timing optimization ;
+; F[8][7]_OTERM719   ; Retimed Register ; Timing optimization ;
+; F[8][8]            ; Modified         ; Timing optimization ;
+; F[8][8]_OTERM699   ; Retimed Register ; Timing optimization ;
+; F[8][9]            ; Modified         ; Timing optimization ;
+; F[8][9]_OTERM655   ; Retimed Register ; Timing optimization ;
+; F[8][10]           ; Modified         ; Timing optimization ;
+; F[8][10]_OTERM635  ; Retimed Register ; Timing optimization ;
+; F[8][11]           ; Modified         ; Timing optimization ;
+; F[8][11]_OTERM591  ; Retimed Register ; Timing optimization ;
+; F[8][12]           ; Modified         ; Timing optimization ;
+; F[8][12]_OTERM571  ; Retimed Register ; Timing optimization ;
+; F[8][13]           ; Modified         ; Timing optimization ;
+; F[8][13]_OTERM527  ; Retimed Register ; Timing optimization ;
+; F[8][14]           ; Modified         ; Timing optimization ;
+; F[8][14]_OTERM507  ; Retimed Register ; Timing optimization ;
+; F[8][15]           ; Modified         ; Timing optimization ;
+; F[8][15]_OTERM463  ; Retimed Register ; Timing optimization ;
+; F[8][16]           ; Modified         ; Timing optimization ;
+; F[8][16]_OTERM443  ; Retimed Register ; Timing optimization ;
+; F[8][17]           ; Modified         ; Timing optimization ;
+; F[8][17]_OTERM399  ; Retimed Register ; Timing optimization ;
+; F[8][18]           ; Modified         ; Timing optimization ;
+; F[8][18]_OTERM379  ; Retimed Register ; Timing optimization ;
+; F[8][19]           ; Modified         ; Timing optimization ;
+; F[8][19]_OTERM335  ; Retimed Register ; Timing optimization ;
+; F[8][20]           ; Modified         ; Timing optimization ;
+; F[8][20]_OTERM315  ; Retimed Register ; Timing optimization ;
+; F[8][21]           ; Modified         ; Timing optimization ;
+; F[8][21]_OTERM271  ; Retimed Register ; Timing optimization ;
+; F[8][22]           ; Modified         ; Timing optimization ;
+; F[8][22]_OTERM251  ; Retimed Register ; Timing optimization ;
+; F[8][23]           ; Modified         ; Timing optimization ;
+; F[8][23]_OTERM207  ; Retimed Register ; Timing optimization ;
+; F[8][24]           ; Modified         ; Timing optimization ;
+; F[8][24]_OTERM187  ; Retimed Register ; Timing optimization ;
+; F[8][25]           ; Modified         ; Timing optimization ;
+; F[8][25]_OTERM143  ; Retimed Register ; Timing optimization ;
+; F[8][26]           ; Modified         ; Timing optimization ;
+; F[8][26]_OTERM123  ; Retimed Register ; Timing optimization ;
+; F[8][27]           ; Modified         ; Timing optimization ;
+; F[8][27]_OTERM79   ; Retimed Register ; Timing optimization ;
+; F[8][28]           ; Modified         ; Timing optimization ;
+; F[8][28]_OTERM59   ; Retimed Register ; Timing optimization ;
+; F[8][29]           ; Modified         ; Timing optimization ;
+; F[8][29]_OTERM15   ; Retimed Register ; Timing optimization ;
+; F[9][0]            ; Modified         ; Timing optimization ;
+; F[9][0]_OTERM947   ; Retimed Register ; Timing optimization ;
+; F[9][1]            ; Modified         ; Timing optimization ;
+; F[9][1]_OTERM909   ; Retimed Register ; Timing optimization ;
+; F[9][2]            ; Modified         ; Timing optimization ;
+; F[9][2]_OTERM883   ; Retimed Register ; Timing optimization ;
+; F[9][3]            ; Modified         ; Timing optimization ;
+; F[9][3]_OTERM845   ; Retimed Register ; Timing optimization ;
+; F[9][4]            ; Modified         ; Timing optimization ;
+; F[9][4]_OTERM819   ; Retimed Register ; Timing optimization ;
+; F[9][5]            ; Modified         ; Timing optimization ;
+; F[9][5]_OTERM781   ; Retimed Register ; Timing optimization ;
+; F[9][6]            ; Modified         ; Timing optimization ;
+; F[9][6]_OTERM755   ; Retimed Register ; Timing optimization ;
+; F[9][7]            ; Modified         ; Timing optimization ;
+; F[9][7]_OTERM717   ; Retimed Register ; Timing optimization ;
+; F[9][8]            ; Modified         ; Timing optimization ;
+; F[9][8]_OTERM691   ; Retimed Register ; Timing optimization ;
+; F[9][9]            ; Modified         ; Timing optimization ;
+; F[9][9]_OTERM653   ; Retimed Register ; Timing optimization ;
+; F[9][10]           ; Modified         ; Timing optimization ;
+; F[9][10]_OTERM627  ; Retimed Register ; Timing optimization ;
+; F[9][11]           ; Modified         ; Timing optimization ;
+; F[9][11]_OTERM589  ; Retimed Register ; Timing optimization ;
+; F[9][12]           ; Modified         ; Timing optimization ;
+; F[9][12]_OTERM563  ; Retimed Register ; Timing optimization ;
+; F[9][13]           ; Modified         ; Timing optimization ;
+; F[9][13]_OTERM525  ; Retimed Register ; Timing optimization ;
+; F[9][14]           ; Modified         ; Timing optimization ;
+; F[9][14]_OTERM499  ; Retimed Register ; Timing optimization ;
+; F[9][15]           ; Modified         ; Timing optimization ;
+; F[9][15]_OTERM461  ; Retimed Register ; Timing optimization ;
+; F[9][16]           ; Modified         ; Timing optimization ;
+; F[9][16]_OTERM435  ; Retimed Register ; Timing optimization ;
+; F[9][17]           ; Modified         ; Timing optimization ;
+; F[9][17]_OTERM397  ; Retimed Register ; Timing optimization ;
+; F[9][18]           ; Modified         ; Timing optimization ;
+; F[9][18]_OTERM371  ; Retimed Register ; Timing optimization ;
+; F[9][19]           ; Modified         ; Timing optimization ;
+; F[9][19]_OTERM333  ; Retimed Register ; Timing optimization ;
+; F[9][20]           ; Modified         ; Timing optimization ;
+; F[9][20]_OTERM307  ; Retimed Register ; Timing optimization ;
+; F[9][21]           ; Modified         ; Timing optimization ;
+; F[9][21]_OTERM269  ; Retimed Register ; Timing optimization ;
+; F[9][22]           ; Modified         ; Timing optimization ;
+; F[9][22]_OTERM243  ; Retimed Register ; Timing optimization ;
+; F[9][23]           ; Modified         ; Timing optimization ;
+; F[9][23]_OTERM205  ; Retimed Register ; Timing optimization ;
+; F[9][24]           ; Modified         ; Timing optimization ;
+; F[9][24]_OTERM179  ; Retimed Register ; Timing optimization ;
+; F[9][25]           ; Modified         ; Timing optimization ;
+; F[9][25]_OTERM141  ; Retimed Register ; Timing optimization ;
+; F[9][26]           ; Modified         ; Timing optimization ;
+; F[9][26]_OTERM115  ; Retimed Register ; Timing optimization ;
+; F[9][27]           ; Modified         ; Timing optimization ;
+; F[9][27]_OTERM77   ; Retimed Register ; Timing optimization ;
+; F[9][28]           ; Modified         ; Timing optimization ;
+; F[9][28]_OTERM51   ; Retimed Register ; Timing optimization ;
+; F[9][29]           ; Modified         ; Timing optimization ;
+; F[9][29]_OTERM13   ; Retimed Register ; Timing optimization ;
+; F[10][0]           ; Modified         ; Timing optimization ;
+; F[10][0]_OTERM939  ; Retimed Register ; Timing optimization ;
+; F[10][1]           ; Modified         ; Timing optimization ;
+; F[10][1]_OTERM907  ; Retimed Register ; Timing optimization ;
+; F[10][2]           ; Modified         ; Timing optimization ;
+; F[10][2]_OTERM875  ; Retimed Register ; Timing optimization ;
+; F[10][3]           ; Modified         ; Timing optimization ;
+; F[10][3]_OTERM843  ; Retimed Register ; Timing optimization ;
+; F[10][4]           ; Modified         ; Timing optimization ;
+; F[10][4]_OTERM811  ; Retimed Register ; Timing optimization ;
+; F[10][5]           ; Modified         ; Timing optimization ;
+; F[10][5]_OTERM779  ; Retimed Register ; Timing optimization ;
+; F[10][6]           ; Modified         ; Timing optimization ;
+; F[10][6]_OTERM747  ; Retimed Register ; Timing optimization ;
+; F[10][7]           ; Modified         ; Timing optimization ;
+; F[10][7]_OTERM715  ; Retimed Register ; Timing optimization ;
+; F[10][8]           ; Modified         ; Timing optimization ;
+; F[10][8]_OTERM683  ; Retimed Register ; Timing optimization ;
+; F[10][9]           ; Modified         ; Timing optimization ;
+; F[10][9]_OTERM651  ; Retimed Register ; Timing optimization ;
+; F[10][10]          ; Modified         ; Timing optimization ;
+; F[10][10]_OTERM619 ; Retimed Register ; Timing optimization ;
+; F[10][11]          ; Modified         ; Timing optimization ;
+; F[10][11]_OTERM587 ; Retimed Register ; Timing optimization ;
+; F[10][12]          ; Modified         ; Timing optimization ;
+; F[10][12]_OTERM555 ; Retimed Register ; Timing optimization ;
+; F[10][13]          ; Modified         ; Timing optimization ;
+; F[10][13]_OTERM523 ; Retimed Register ; Timing optimization ;
+; F[10][14]          ; Modified         ; Timing optimization ;
+; F[10][14]_OTERM491 ; Retimed Register ; Timing optimization ;
+; F[10][15]          ; Modified         ; Timing optimization ;
+; F[10][15]_OTERM459 ; Retimed Register ; Timing optimization ;
+; F[10][16]          ; Modified         ; Timing optimization ;
+; F[10][16]_OTERM427 ; Retimed Register ; Timing optimization ;
+; F[10][17]          ; Modified         ; Timing optimization ;
+; F[10][17]_OTERM395 ; Retimed Register ; Timing optimization ;
+; F[10][18]          ; Modified         ; Timing optimization ;
+; F[10][18]_OTERM363 ; Retimed Register ; Timing optimization ;
+; F[10][19]          ; Modified         ; Timing optimization ;
+; F[10][19]_OTERM331 ; Retimed Register ; Timing optimization ;
+; F[10][20]          ; Modified         ; Timing optimization ;
+; F[10][20]_OTERM299 ; Retimed Register ; Timing optimization ;
+; F[10][21]          ; Modified         ; Timing optimization ;
+; F[10][21]_OTERM267 ; Retimed Register ; Timing optimization ;
+; F[10][22]          ; Modified         ; Timing optimization ;
+; F[10][22]_OTERM235 ; Retimed Register ; Timing optimization ;
+; F[10][23]          ; Modified         ; Timing optimization ;
+; F[10][23]_OTERM203 ; Retimed Register ; Timing optimization ;
+; F[10][24]          ; Modified         ; Timing optimization ;
+; F[10][24]_OTERM171 ; Retimed Register ; Timing optimization ;
+; F[10][25]          ; Modified         ; Timing optimization ;
+; F[10][25]_OTERM139 ; Retimed Register ; Timing optimization ;
+; F[10][26]          ; Modified         ; Timing optimization ;
+; F[10][26]_OTERM107 ; Retimed Register ; Timing optimization ;
+; F[10][27]          ; Modified         ; Timing optimization ;
+; F[10][27]_OTERM75  ; Retimed Register ; Timing optimization ;
+; F[10][28]          ; Modified         ; Timing optimization ;
+; F[10][28]_OTERM43  ; Retimed Register ; Timing optimization ;
+; F[10][29]          ; Modified         ; Timing optimization ;
+; F[10][29]_OTERM11  ; Retimed Register ; Timing optimization ;
+; F[11][0]           ; Modified         ; Timing optimization ;
+; F[11][0]_OTERM931  ; Retimed Register ; Timing optimization ;
+; F[11][1]           ; Modified         ; Timing optimization ;
+; F[11][1]_OTERM905  ; Retimed Register ; Timing optimization ;
+; F[11][2]           ; Modified         ; Timing optimization ;
+; F[11][2]_OTERM867  ; Retimed Register ; Timing optimization ;
+; F[11][3]           ; Modified         ; Timing optimization ;
+; F[11][3]_OTERM841  ; Retimed Register ; Timing optimization ;
+; F[11][4]           ; Modified         ; Timing optimization ;
+; F[11][4]_OTERM803  ; Retimed Register ; Timing optimization ;
+; F[11][5]           ; Modified         ; Timing optimization ;
+; F[11][5]_OTERM777  ; Retimed Register ; Timing optimization ;
+; F[11][6]           ; Modified         ; Timing optimization ;
+; F[11][6]_OTERM739  ; Retimed Register ; Timing optimization ;
+; F[11][7]           ; Modified         ; Timing optimization ;
+; F[11][7]_OTERM713  ; Retimed Register ; Timing optimization ;
+; F[11][8]           ; Modified         ; Timing optimization ;
+; F[11][8]_OTERM675  ; Retimed Register ; Timing optimization ;
+; F[11][9]           ; Modified         ; Timing optimization ;
+; F[11][9]_OTERM649  ; Retimed Register ; Timing optimization ;
+; F[11][10]          ; Modified         ; Timing optimization ;
+; F[11][10]_OTERM611 ; Retimed Register ; Timing optimization ;
+; F[11][11]          ; Modified         ; Timing optimization ;
+; F[11][11]_OTERM585 ; Retimed Register ; Timing optimization ;
+; F[11][12]          ; Modified         ; Timing optimization ;
+; F[11][12]_OTERM547 ; Retimed Register ; Timing optimization ;
+; F[11][13]          ; Modified         ; Timing optimization ;
+; F[11][13]_OTERM521 ; Retimed Register ; Timing optimization ;
+; F[11][14]          ; Modified         ; Timing optimization ;
+; F[11][14]_OTERM483 ; Retimed Register ; Timing optimization ;
+; F[11][15]          ; Modified         ; Timing optimization ;
+; F[11][15]_OTERM457 ; Retimed Register ; Timing optimization ;
+; F[11][16]          ; Modified         ; Timing optimization ;
+; F[11][16]_OTERM419 ; Retimed Register ; Timing optimization ;
+; F[11][17]          ; Modified         ; Timing optimization ;
+; F[11][17]_OTERM393 ; Retimed Register ; Timing optimization ;
+; F[11][18]          ; Modified         ; Timing optimization ;
+; F[11][18]_OTERM355 ; Retimed Register ; Timing optimization ;
+; F[11][19]          ; Modified         ; Timing optimization ;
+; F[11][19]_OTERM329 ; Retimed Register ; Timing optimization ;
+; F[11][20]          ; Modified         ; Timing optimization ;
+; F[11][20]_OTERM291 ; Retimed Register ; Timing optimization ;
+; F[11][21]          ; Modified         ; Timing optimization ;
+; F[11][21]_OTERM265 ; Retimed Register ; Timing optimization ;
+; F[11][22]          ; Modified         ; Timing optimization ;
+; F[11][22]_OTERM227 ; Retimed Register ; Timing optimization ;
+; F[11][23]          ; Modified         ; Timing optimization ;
+; F[11][23]_OTERM201 ; Retimed Register ; Timing optimization ;
+; F[11][24]          ; Modified         ; Timing optimization ;
+; F[11][24]_OTERM163 ; Retimed Register ; Timing optimization ;
+; F[11][25]          ; Modified         ; Timing optimization ;
+; F[11][25]_OTERM137 ; Retimed Register ; Timing optimization ;
+; F[11][26]          ; Modified         ; Timing optimization ;
+; F[11][26]_OTERM99  ; Retimed Register ; Timing optimization ;
+; F[11][27]          ; Modified         ; Timing optimization ;
+; F[11][27]_OTERM73  ; Retimed Register ; Timing optimization ;
+; F[11][28]          ; Modified         ; Timing optimization ;
+; F[11][28]_OTERM35  ; Retimed Register ; Timing optimization ;
+; F[11][29]          ; Modified         ; Timing optimization ;
+; F[11][29]_OTERM9   ; Retimed Register ; Timing optimization ;
+; F[12][0]           ; Modified         ; Timing optimization ;
+; F[12][0]_OTERM953  ; Retimed Register ; Timing optimization ;
+; F[12][1]           ; Modified         ; Timing optimization ;
+; F[12][1]_OTERM903  ; Retimed Register ; Timing optimization ;
+; F[12][2]           ; Modified         ; Timing optimization ;
+; F[12][2]_OTERM889  ; Retimed Register ; Timing optimization ;
+; F[12][3]           ; Modified         ; Timing optimization ;
+; F[12][3]_OTERM839  ; Retimed Register ; Timing optimization ;
+; F[12][4]           ; Modified         ; Timing optimization ;
+; F[12][4]_OTERM825  ; Retimed Register ; Timing optimization ;
+; F[12][5]           ; Modified         ; Timing optimization ;
+; F[12][5]_OTERM775  ; Retimed Register ; Timing optimization ;
+; F[12][6]           ; Modified         ; Timing optimization ;
+; F[12][6]_OTERM761  ; Retimed Register ; Timing optimization ;
+; F[12][7]           ; Modified         ; Timing optimization ;
+; F[12][7]_OTERM711  ; Retimed Register ; Timing optimization ;
+; F[12][8]           ; Modified         ; Timing optimization ;
+; F[12][8]_OTERM697  ; Retimed Register ; Timing optimization ;
+; F[12][9]           ; Modified         ; Timing optimization ;
+; F[12][9]_OTERM647  ; Retimed Register ; Timing optimization ;
+; F[12][10]          ; Modified         ; Timing optimization ;
+; F[12][10]_OTERM633 ; Retimed Register ; Timing optimization ;
+; F[12][11]          ; Modified         ; Timing optimization ;
+; F[12][11]_OTERM583 ; Retimed Register ; Timing optimization ;
+; F[12][12]          ; Modified         ; Timing optimization ;
+; F[12][12]_OTERM569 ; Retimed Register ; Timing optimization ;
+; F[12][13]          ; Modified         ; Timing optimization ;
+; F[12][13]_OTERM519 ; Retimed Register ; Timing optimization ;
+; F[12][14]          ; Modified         ; Timing optimization ;
+; F[12][14]_OTERM505 ; Retimed Register ; Timing optimization ;
+; F[12][15]          ; Modified         ; Timing optimization ;
+; F[12][15]_OTERM455 ; Retimed Register ; Timing optimization ;
+; F[12][16]          ; Modified         ; Timing optimization ;
+; F[12][16]_OTERM441 ; Retimed Register ; Timing optimization ;
+; F[12][17]          ; Modified         ; Timing optimization ;
+; F[12][17]_OTERM391 ; Retimed Register ; Timing optimization ;
+; F[12][18]          ; Modified         ; Timing optimization ;
+; F[12][18]_OTERM377 ; Retimed Register ; Timing optimization ;
+; F[12][19]          ; Modified         ; Timing optimization ;
+; F[12][19]_OTERM327 ; Retimed Register ; Timing optimization ;
+; F[12][20]          ; Modified         ; Timing optimization ;
+; F[12][20]_OTERM313 ; Retimed Register ; Timing optimization ;
+; F[12][21]          ; Modified         ; Timing optimization ;
+; F[12][21]_OTERM263 ; Retimed Register ; Timing optimization ;
+; F[12][22]          ; Modified         ; Timing optimization ;
+; F[12][22]_OTERM249 ; Retimed Register ; Timing optimization ;
+; F[12][23]          ; Modified         ; Timing optimization ;
+; F[12][23]_OTERM199 ; Retimed Register ; Timing optimization ;
+; F[12][24]          ; Modified         ; Timing optimization ;
+; F[12][24]_OTERM185 ; Retimed Register ; Timing optimization ;
+; F[12][25]          ; Modified         ; Timing optimization ;
+; F[12][25]_OTERM135 ; Retimed Register ; Timing optimization ;
+; F[12][26]          ; Modified         ; Timing optimization ;
+; F[12][26]_OTERM121 ; Retimed Register ; Timing optimization ;
+; F[12][27]          ; Modified         ; Timing optimization ;
+; F[12][27]_OTERM71  ; Retimed Register ; Timing optimization ;
+; F[12][28]          ; Modified         ; Timing optimization ;
+; F[12][28]_OTERM57  ; Retimed Register ; Timing optimization ;
+; F[12][29]          ; Modified         ; Timing optimization ;
+; F[12][29]_OTERM7   ; Retimed Register ; Timing optimization ;
+; F[13][0]           ; Modified         ; Timing optimization ;
+; F[13][0]_OTERM945  ; Retimed Register ; Timing optimization ;
+; F[13][1]           ; Modified         ; Timing optimization ;
+; F[13][1]_OTERM901  ; Retimed Register ; Timing optimization ;
+; F[13][2]           ; Modified         ; Timing optimization ;
+; F[13][2]_OTERM881  ; Retimed Register ; Timing optimization ;
+; F[13][3]           ; Modified         ; Timing optimization ;
+; F[13][3]_OTERM837  ; Retimed Register ; Timing optimization ;
+; F[13][4]           ; Modified         ; Timing optimization ;
+; F[13][4]_OTERM817  ; Retimed Register ; Timing optimization ;
+; F[13][5]           ; Modified         ; Timing optimization ;
+; F[13][5]_OTERM773  ; Retimed Register ; Timing optimization ;
+; F[13][6]           ; Modified         ; Timing optimization ;
+; F[13][6]_OTERM753  ; Retimed Register ; Timing optimization ;
+; F[13][7]           ; Modified         ; Timing optimization ;
+; F[13][7]_OTERM709  ; Retimed Register ; Timing optimization ;
+; F[13][8]           ; Modified         ; Timing optimization ;
+; F[13][8]_OTERM689  ; Retimed Register ; Timing optimization ;
+; F[13][9]           ; Modified         ; Timing optimization ;
+; F[13][9]_OTERM645  ; Retimed Register ; Timing optimization ;
+; F[13][10]          ; Modified         ; Timing optimization ;
+; F[13][10]_OTERM625 ; Retimed Register ; Timing optimization ;
+; F[13][11]          ; Modified         ; Timing optimization ;
+; F[13][11]_OTERM581 ; Retimed Register ; Timing optimization ;
+; F[13][12]          ; Modified         ; Timing optimization ;
+; F[13][12]_OTERM561 ; Retimed Register ; Timing optimization ;
+; F[13][13]          ; Modified         ; Timing optimization ;
+; F[13][13]_OTERM517 ; Retimed Register ; Timing optimization ;
+; F[13][14]          ; Modified         ; Timing optimization ;
+; F[13][14]_OTERM497 ; Retimed Register ; Timing optimization ;
+; F[13][15]          ; Modified         ; Timing optimization ;
+; F[13][15]_OTERM453 ; Retimed Register ; Timing optimization ;
+; F[13][16]          ; Modified         ; Timing optimization ;
+; F[13][16]_OTERM433 ; Retimed Register ; Timing optimization ;
+; F[13][17]          ; Modified         ; Timing optimization ;
+; F[13][17]_OTERM389 ; Retimed Register ; Timing optimization ;
+; F[13][18]          ; Modified         ; Timing optimization ;
+; F[13][18]_OTERM369 ; Retimed Register ; Timing optimization ;
+; F[13][19]          ; Modified         ; Timing optimization ;
+; F[13][19]_OTERM325 ; Retimed Register ; Timing optimization ;
+; F[13][20]          ; Modified         ; Timing optimization ;
+; F[13][20]_OTERM305 ; Retimed Register ; Timing optimization ;
+; F[13][21]          ; Modified         ; Timing optimization ;
+; F[13][21]_OTERM261 ; Retimed Register ; Timing optimization ;
+; F[13][22]          ; Modified         ; Timing optimization ;
+; F[13][22]_OTERM241 ; Retimed Register ; Timing optimization ;
+; F[13][23]          ; Modified         ; Timing optimization ;
+; F[13][23]_OTERM197 ; Retimed Register ; Timing optimization ;
+; F[13][24]          ; Modified         ; Timing optimization ;
+; F[13][24]_OTERM177 ; Retimed Register ; Timing optimization ;
+; F[13][25]          ; Modified         ; Timing optimization ;
+; F[13][25]_OTERM133 ; Retimed Register ; Timing optimization ;
+; F[13][26]          ; Modified         ; Timing optimization ;
+; F[13][26]_OTERM113 ; Retimed Register ; Timing optimization ;
+; F[13][27]          ; Modified         ; Timing optimization ;
+; F[13][27]_OTERM69  ; Retimed Register ; Timing optimization ;
+; F[13][28]          ; Modified         ; Timing optimization ;
+; F[13][28]_OTERM49  ; Retimed Register ; Timing optimization ;
+; F[13][29]          ; Modified         ; Timing optimization ;
+; F[13][29]_OTERM5   ; Retimed Register ; Timing optimization ;
+; F[14][0]           ; Modified         ; Timing optimization ;
+; F[14][0]_OTERM937  ; Retimed Register ; Timing optimization ;
+; F[14][1]           ; Modified         ; Timing optimization ;
+; F[14][1]_OTERM899  ; Retimed Register ; Timing optimization ;
+; F[14][2]           ; Modified         ; Timing optimization ;
+; F[14][2]_OTERM873  ; Retimed Register ; Timing optimization ;
+; F[14][3]           ; Modified         ; Timing optimization ;
+; F[14][3]_OTERM835  ; Retimed Register ; Timing optimization ;
+; F[14][4]           ; Modified         ; Timing optimization ;
+; F[14][4]_OTERM809  ; Retimed Register ; Timing optimization ;
+; F[14][5]           ; Modified         ; Timing optimization ;
+; F[14][5]_OTERM771  ; Retimed Register ; Timing optimization ;
+; F[14][6]           ; Modified         ; Timing optimization ;
+; F[14][6]_OTERM745  ; Retimed Register ; Timing optimization ;
+; F[14][7]           ; Modified         ; Timing optimization ;
+; F[14][7]_OTERM707  ; Retimed Register ; Timing optimization ;
+; F[14][8]           ; Modified         ; Timing optimization ;
+; F[14][8]_OTERM681  ; Retimed Register ; Timing optimization ;
+; F[14][9]           ; Modified         ; Timing optimization ;
+; F[14][9]_OTERM643  ; Retimed Register ; Timing optimization ;
+; F[14][10]          ; Modified         ; Timing optimization ;
+; F[14][10]_OTERM617 ; Retimed Register ; Timing optimization ;
+; F[14][11]          ; Modified         ; Timing optimization ;
+; F[14][11]_OTERM579 ; Retimed Register ; Timing optimization ;
+; F[14][12]          ; Modified         ; Timing optimization ;
+; F[14][12]_OTERM553 ; Retimed Register ; Timing optimization ;
+; F[14][13]          ; Modified         ; Timing optimization ;
+; F[14][13]_OTERM515 ; Retimed Register ; Timing optimization ;
+; F[14][14]          ; Modified         ; Timing optimization ;
+; F[14][14]_OTERM489 ; Retimed Register ; Timing optimization ;
+; F[14][15]          ; Modified         ; Timing optimization ;
+; F[14][15]_OTERM451 ; Retimed Register ; Timing optimization ;
+; F[14][16]          ; Modified         ; Timing optimization ;
+; F[14][16]_OTERM425 ; Retimed Register ; Timing optimization ;
+; F[14][17]          ; Modified         ; Timing optimization ;
+; F[14][17]_OTERM387 ; Retimed Register ; Timing optimization ;
+; F[14][18]          ; Modified         ; Timing optimization ;
+; F[14][18]_OTERM361 ; Retimed Register ; Timing optimization ;
+; F[14][19]          ; Modified         ; Timing optimization ;
+; F[14][19]_OTERM323 ; Retimed Register ; Timing optimization ;
+; F[14][20]          ; Modified         ; Timing optimization ;
+; F[14][20]_OTERM297 ; Retimed Register ; Timing optimization ;
+; F[14][21]          ; Modified         ; Timing optimization ;
+; F[14][21]_OTERM259 ; Retimed Register ; Timing optimization ;
+; F[14][22]          ; Modified         ; Timing optimization ;
+; F[14][22]_OTERM233 ; Retimed Register ; Timing optimization ;
+; F[14][23]          ; Modified         ; Timing optimization ;
+; F[14][23]_OTERM195 ; Retimed Register ; Timing optimization ;
+; F[14][24]          ; Modified         ; Timing optimization ;
+; F[14][24]_OTERM169 ; Retimed Register ; Timing optimization ;
+; F[14][25]          ; Modified         ; Timing optimization ;
+; F[14][25]_OTERM131 ; Retimed Register ; Timing optimization ;
+; F[14][26]          ; Modified         ; Timing optimization ;
+; F[14][26]_OTERM105 ; Retimed Register ; Timing optimization ;
+; F[14][27]          ; Modified         ; Timing optimization ;
+; F[14][27]_OTERM67  ; Retimed Register ; Timing optimization ;
+; F[14][28]          ; Modified         ; Timing optimization ;
+; F[14][28]_OTERM41  ; Retimed Register ; Timing optimization ;
+; F[14][29]          ; Modified         ; Timing optimization ;
+; F[14][29]_OTERM3   ; Retimed Register ; Timing optimization ;
+; F[15][0]           ; Modified         ; Timing optimization ;
+; F[15][0]_OTERM929  ; Retimed Register ; Timing optimization ;
+; F[15][1]           ; Modified         ; Timing optimization ;
+; F[15][1]_OTERM897  ; Retimed Register ; Timing optimization ;
+; F[15][2]           ; Modified         ; Timing optimization ;
+; F[15][2]_OTERM865  ; Retimed Register ; Timing optimization ;
+; F[15][3]           ; Modified         ; Timing optimization ;
+; F[15][3]_OTERM833  ; Retimed Register ; Timing optimization ;
+; F[15][4]           ; Modified         ; Timing optimization ;
+; F[15][4]_OTERM801  ; Retimed Register ; Timing optimization ;
+; F[15][5]           ; Modified         ; Timing optimization ;
+; F[15][5]_OTERM769  ; Retimed Register ; Timing optimization ;
+; F[15][6]           ; Modified         ; Timing optimization ;
+; F[15][6]_OTERM737  ; Retimed Register ; Timing optimization ;
+; F[15][7]           ; Modified         ; Timing optimization ;
+; F[15][7]_OTERM705  ; Retimed Register ; Timing optimization ;
+; F[15][8]           ; Modified         ; Timing optimization ;
+; F[15][8]_OTERM673  ; Retimed Register ; Timing optimization ;
+; F[15][9]           ; Modified         ; Timing optimization ;
+; F[15][9]_OTERM641  ; Retimed Register ; Timing optimization ;
+; F[15][10]          ; Modified         ; Timing optimization ;
+; F[15][10]_OTERM609 ; Retimed Register ; Timing optimization ;
+; F[15][11]          ; Modified         ; Timing optimization ;
+; F[15][11]_OTERM577 ; Retimed Register ; Timing optimization ;
+; F[15][12]          ; Modified         ; Timing optimization ;
+; F[15][12]_OTERM545 ; Retimed Register ; Timing optimization ;
+; F[15][13]          ; Modified         ; Timing optimization ;
+; F[15][13]_OTERM513 ; Retimed Register ; Timing optimization ;
+; F[15][14]          ; Modified         ; Timing optimization ;
+; F[15][14]_OTERM481 ; Retimed Register ; Timing optimization ;
+; F[15][15]          ; Modified         ; Timing optimization ;
+; F[15][15]_OTERM449 ; Retimed Register ; Timing optimization ;
+; F[15][16]          ; Modified         ; Timing optimization ;
+; F[15][16]_OTERM417 ; Retimed Register ; Timing optimization ;
+; F[15][17]          ; Modified         ; Timing optimization ;
+; F[15][17]_OTERM385 ; Retimed Register ; Timing optimization ;
+; F[15][18]          ; Modified         ; Timing optimization ;
+; F[15][18]_OTERM353 ; Retimed Register ; Timing optimization ;
+; F[15][19]          ; Modified         ; Timing optimization ;
+; F[15][19]_OTERM321 ; Retimed Register ; Timing optimization ;
+; F[15][20]          ; Modified         ; Timing optimization ;
+; F[15][20]_OTERM289 ; Retimed Register ; Timing optimization ;
+; F[15][21]          ; Modified         ; Timing optimization ;
+; F[15][21]_OTERM257 ; Retimed Register ; Timing optimization ;
+; F[15][22]          ; Modified         ; Timing optimization ;
+; F[15][22]_OTERM225 ; Retimed Register ; Timing optimization ;
+; F[15][23]          ; Modified         ; Timing optimization ;
+; F[15][23]_OTERM193 ; Retimed Register ; Timing optimization ;
+; F[15][24]          ; Modified         ; Timing optimization ;
+; F[15][24]_OTERM161 ; Retimed Register ; Timing optimization ;
+; F[15][25]          ; Modified         ; Timing optimization ;
+; F[15][25]_OTERM129 ; Retimed Register ; Timing optimization ;
+; F[15][26]          ; Modified         ; Timing optimization ;
+; F[15][26]_OTERM97  ; Retimed Register ; Timing optimization ;
+; F[15][27]          ; Modified         ; Timing optimization ;
+; F[15][27]_OTERM65  ; Retimed Register ; Timing optimization ;
+; F[15][28]          ; Modified         ; Timing optimization ;
+; F[15][28]_OTERM33  ; Retimed Register ; Timing optimization ;
+; F[15][29]          ; Modified         ; Timing optimization ;
+; F[15][29]_OTERM1   ; Retimed Register ; Timing optimization ;
+; G[0][0]            ; Modified         ; Timing optimization ;
+; G[0][0]_OTERM991   ; Retimed Register ; Timing optimization ;
+; G[0][1]            ; Modified         ; Timing optimization ;
+; G[0][1]_OTERM1023  ; Retimed Register ; Timing optimization ;
+; G[0][2]            ; Modified         ; Timing optimization ;
+; G[0][2]_OTERM1055  ; Retimed Register ; Timing optimization ;
+; G[0][3]            ; Modified         ; Timing optimization ;
+; G[0][3]_OTERM1087  ; Retimed Register ; Timing optimization ;
+; G[0][4]            ; Modified         ; Timing optimization ;
+; G[0][4]_OTERM1119  ; Retimed Register ; Timing optimization ;
+; G[0][5]            ; Modified         ; Timing optimization ;
+; G[0][5]_OTERM1151  ; Retimed Register ; Timing optimization ;
+; G[1][0]            ; Modified         ; Timing optimization ;
+; G[1][0]_OTERM983   ; Retimed Register ; Timing optimization ;
+; G[1][1]            ; Modified         ; Timing optimization ;
+; G[1][1]_OTERM1021  ; Retimed Register ; Timing optimization ;
+; G[1][2]            ; Modified         ; Timing optimization ;
+; G[1][2]_OTERM1047  ; Retimed Register ; Timing optimization ;
+; G[1][3]            ; Modified         ; Timing optimization ;
+; G[1][3]_OTERM1085  ; Retimed Register ; Timing optimization ;
+; G[1][4]            ; Modified         ; Timing optimization ;
+; G[1][4]_OTERM1111  ; Retimed Register ; Timing optimization ;
+; G[1][5]            ; Modified         ; Timing optimization ;
+; G[1][5]_OTERM1149  ; Retimed Register ; Timing optimization ;
+; G[2][0]            ; Modified         ; Timing optimization ;
+; G[2][0]_OTERM975   ; Retimed Register ; Timing optimization ;
+; G[2][1]            ; Modified         ; Timing optimization ;
+; G[2][1]_OTERM1019  ; Retimed Register ; Timing optimization ;
+; G[2][2]            ; Modified         ; Timing optimization ;
+; G[2][2]_OTERM1039  ; Retimed Register ; Timing optimization ;
+; G[2][3]            ; Modified         ; Timing optimization ;
+; G[2][3]_OTERM1083  ; Retimed Register ; Timing optimization ;
+; G[2][4]            ; Modified         ; Timing optimization ;
+; G[2][4]_OTERM1103  ; Retimed Register ; Timing optimization ;
+; G[2][5]            ; Modified         ; Timing optimization ;
+; G[2][5]_OTERM1147  ; Retimed Register ; Timing optimization ;
+; G[3][0]            ; Modified         ; Timing optimization ;
+; G[3][0]_OTERM967   ; Retimed Register ; Timing optimization ;
+; G[3][1]            ; Modified         ; Timing optimization ;
+; G[3][1]_OTERM1017  ; Retimed Register ; Timing optimization ;
+; G[3][2]            ; Modified         ; Timing optimization ;
+; G[3][2]_OTERM1031  ; Retimed Register ; Timing optimization ;
+; G[3][3]            ; Modified         ; Timing optimization ;
+; G[3][3]_OTERM1081  ; Retimed Register ; Timing optimization ;
+; G[3][4]            ; Modified         ; Timing optimization ;
+; G[3][4]_OTERM1095  ; Retimed Register ; Timing optimization ;
+; G[3][5]            ; Modified         ; Timing optimization ;
+; G[3][5]_OTERM1145  ; Retimed Register ; Timing optimization ;
+; G[4][0]            ; Modified         ; Timing optimization ;
+; G[4][0]_OTERM989   ; Retimed Register ; Timing optimization ;
+; G[4][1]            ; Modified         ; Timing optimization ;
+; G[4][1]_OTERM1015  ; Retimed Register ; Timing optimization ;
+; G[4][2]            ; Modified         ; Timing optimization ;
+; G[4][2]_OTERM1053  ; Retimed Register ; Timing optimization ;
+; G[4][3]            ; Modified         ; Timing optimization ;
+; G[4][3]_OTERM1079  ; Retimed Register ; Timing optimization ;
+; G[4][4]            ; Modified         ; Timing optimization ;
+; G[4][4]_OTERM1117  ; Retimed Register ; Timing optimization ;
+; G[4][5]            ; Modified         ; Timing optimization ;
+; G[4][5]_OTERM1143  ; Retimed Register ; Timing optimization ;
+; G[5][0]            ; Modified         ; Timing optimization ;
+; G[5][0]_OTERM981   ; Retimed Register ; Timing optimization ;
+; G[5][1]            ; Modified         ; Timing optimization ;
+; G[5][1]_OTERM1013  ; Retimed Register ; Timing optimization ;
+; G[5][2]            ; Modified         ; Timing optimization ;
+; G[5][2]_OTERM1045  ; Retimed Register ; Timing optimization ;
+; G[5][3]            ; Modified         ; Timing optimization ;
+; G[5][3]_OTERM1077  ; Retimed Register ; Timing optimization ;
+; G[5][4]            ; Modified         ; Timing optimization ;
+; G[5][4]_OTERM1109  ; Retimed Register ; Timing optimization ;
+; G[5][5]            ; Modified         ; Timing optimization ;
+; G[5][5]_OTERM1141  ; Retimed Register ; Timing optimization ;
+; G[6][0]            ; Modified         ; Timing optimization ;
+; G[6][0]_OTERM973   ; Retimed Register ; Timing optimization ;
+; G[6][1]            ; Modified         ; Timing optimization ;
+; G[6][1]_OTERM1011  ; Retimed Register ; Timing optimization ;
+; G[6][2]            ; Modified         ; Timing optimization ;
+; G[6][2]_OTERM1037  ; Retimed Register ; Timing optimization ;
+; G[6][3]            ; Modified         ; Timing optimization ;
+; G[6][3]_OTERM1075  ; Retimed Register ; Timing optimization ;
+; G[6][4]            ; Modified         ; Timing optimization ;
+; G[6][4]_OTERM1101  ; Retimed Register ; Timing optimization ;
+; G[6][5]            ; Modified         ; Timing optimization ;
+; G[6][5]_OTERM1139  ; Retimed Register ; Timing optimization ;
+; G[7][0]            ; Modified         ; Timing optimization ;
+; G[7][0]_OTERM965   ; Retimed Register ; Timing optimization ;
+; G[7][1]            ; Modified         ; Timing optimization ;
+; G[7][1]_OTERM1009  ; Retimed Register ; Timing optimization ;
+; G[7][2]            ; Modified         ; Timing optimization ;
+; G[7][2]_OTERM1029  ; Retimed Register ; Timing optimization ;
+; G[7][3]            ; Modified         ; Timing optimization ;
+; G[7][3]_OTERM1073  ; Retimed Register ; Timing optimization ;
+; G[7][4]            ; Modified         ; Timing optimization ;
+; G[7][4]_OTERM1093  ; Retimed Register ; Timing optimization ;
+; G[7][5]            ; Modified         ; Timing optimization ;
+; G[7][5]_OTERM1137  ; Retimed Register ; Timing optimization ;
+; G[8][0]            ; Modified         ; Timing optimization ;
+; G[8][0]_OTERM987   ; Retimed Register ; Timing optimization ;
+; G[8][1]            ; Modified         ; Timing optimization ;
+; G[8][1]_OTERM1007  ; Retimed Register ; Timing optimization ;
+; G[8][2]            ; Modified         ; Timing optimization ;
+; G[8][2]_OTERM1051  ; Retimed Register ; Timing optimization ;
+; G[8][3]            ; Modified         ; Timing optimization ;
+; G[8][3]_OTERM1071  ; Retimed Register ; Timing optimization ;
+; G[8][4]            ; Modified         ; Timing optimization ;
+; G[8][4]_OTERM1115  ; Retimed Register ; Timing optimization ;
+; G[8][5]            ; Modified         ; Timing optimization ;
+; G[8][5]_OTERM1135  ; Retimed Register ; Timing optimization ;
+; G[9][0]            ; Modified         ; Timing optimization ;
+; G[9][0]_OTERM979   ; Retimed Register ; Timing optimization ;
+; G[9][1]            ; Modified         ; Timing optimization ;
+; G[9][1]_OTERM1005  ; Retimed Register ; Timing optimization ;
+; G[9][2]            ; Modified         ; Timing optimization ;
+; G[9][2]_OTERM1043  ; Retimed Register ; Timing optimization ;
+; G[9][3]            ; Modified         ; Timing optimization ;
+; G[9][3]_OTERM1069  ; Retimed Register ; Timing optimization ;
+; G[9][4]            ; Modified         ; Timing optimization ;
+; G[9][4]_OTERM1107  ; Retimed Register ; Timing optimization ;
+; G[9][5]            ; Modified         ; Timing optimization ;
+; G[9][5]_OTERM1133  ; Retimed Register ; Timing optimization ;
+; G[10][0]           ; Modified         ; Timing optimization ;
+; G[10][0]_OTERM971  ; Retimed Register ; Timing optimization ;
+; G[10][1]           ; Modified         ; Timing optimization ;
+; G[10][1]_OTERM1003 ; Retimed Register ; Timing optimization ;
+; G[10][2]           ; Modified         ; Timing optimization ;
+; G[10][2]_OTERM1035 ; Retimed Register ; Timing optimization ;
+; G[10][3]           ; Modified         ; Timing optimization ;
+; G[10][3]_OTERM1067 ; Retimed Register ; Timing optimization ;
+; G[10][4]           ; Modified         ; Timing optimization ;
+; G[10][4]_OTERM1099 ; Retimed Register ; Timing optimization ;
+; G[10][5]           ; Modified         ; Timing optimization ;
+; G[10][5]_OTERM1131 ; Retimed Register ; Timing optimization ;
+; G[11][0]           ; Modified         ; Timing optimization ;
+; G[11][0]_OTERM963  ; Retimed Register ; Timing optimization ;
+; G[11][1]           ; Modified         ; Timing optimization ;
+; G[11][1]_OTERM1001 ; Retimed Register ; Timing optimization ;
+; G[11][2]           ; Modified         ; Timing optimization ;
+; G[11][2]_OTERM1027 ; Retimed Register ; Timing optimization ;
+; G[11][3]           ; Modified         ; Timing optimization ;
+; G[11][3]_OTERM1065 ; Retimed Register ; Timing optimization ;
+; G[11][4]           ; Modified         ; Timing optimization ;
+; G[11][4]_OTERM1091 ; Retimed Register ; Timing optimization ;
+; G[11][5]           ; Modified         ; Timing optimization ;
+; G[11][5]_OTERM1129 ; Retimed Register ; Timing optimization ;
+; G[12][0]           ; Modified         ; Timing optimization ;
+; G[12][0]_OTERM985  ; Retimed Register ; Timing optimization ;
+; G[12][1]           ; Modified         ; Timing optimization ;
+; G[12][1]_OTERM999  ; Retimed Register ; Timing optimization ;
+; G[12][2]           ; Modified         ; Timing optimization ;
+; G[12][2]_OTERM1049 ; Retimed Register ; Timing optimization ;
+; G[12][3]           ; Modified         ; Timing optimization ;
+; G[12][3]_OTERM1063 ; Retimed Register ; Timing optimization ;
+; G[12][4]           ; Modified         ; Timing optimization ;
+; G[12][4]_OTERM1113 ; Retimed Register ; Timing optimization ;
+; G[12][5]           ; Modified         ; Timing optimization ;
+; G[12][5]_OTERM1127 ; Retimed Register ; Timing optimization ;
+; G[13][0]           ; Modified         ; Timing optimization ;
+; G[13][0]_OTERM977  ; Retimed Register ; Timing optimization ;
+; G[13][1]           ; Modified         ; Timing optimization ;
+; G[13][1]_OTERM997  ; Retimed Register ; Timing optimization ;
+; G[13][2]           ; Modified         ; Timing optimization ;
+; G[13][2]_OTERM1041 ; Retimed Register ; Timing optimization ;
+; G[13][3]           ; Modified         ; Timing optimization ;
+; G[13][3]_OTERM1061 ; Retimed Register ; Timing optimization ;
+; G[13][4]           ; Modified         ; Timing optimization ;
+; G[13][4]_OTERM1105 ; Retimed Register ; Timing optimization ;
+; G[13][5]           ; Modified         ; Timing optimization ;
+; G[13][5]_OTERM1125 ; Retimed Register ; Timing optimization ;
+; G[14][0]           ; Modified         ; Timing optimization ;
+; G[14][0]_OTERM969  ; Retimed Register ; Timing optimization ;
+; G[14][1]           ; Modified         ; Timing optimization ;
+; G[14][1]_OTERM995  ; Retimed Register ; Timing optimization ;
+; G[14][2]           ; Modified         ; Timing optimization ;
+; G[14][2]_OTERM1033 ; Retimed Register ; Timing optimization ;
+; G[14][3]           ; Modified         ; Timing optimization ;
+; G[14][3]_OTERM1059 ; Retimed Register ; Timing optimization ;
+; G[14][4]           ; Modified         ; Timing optimization ;
+; G[14][4]_OTERM1097 ; Retimed Register ; Timing optimization ;
+; G[14][5]           ; Modified         ; Timing optimization ;
+; G[14][5]_OTERM1123 ; Retimed Register ; Timing optimization ;
+; G[15][0]           ; Modified         ; Timing optimization ;
+; G[15][0]_OTERM961  ; Retimed Register ; Timing optimization ;
+; G[15][1]           ; Modified         ; Timing optimization ;
+; G[15][1]_OTERM993  ; Retimed Register ; Timing optimization ;
+; G[15][2]           ; Modified         ; Timing optimization ;
+; G[15][2]_OTERM1025 ; Retimed Register ; Timing optimization ;
+; G[15][3]           ; Modified         ; Timing optimization ;
+; G[15][3]_OTERM1057 ; Retimed Register ; Timing optimization ;
+; G[15][4]           ; Modified         ; Timing optimization ;
+; G[15][4]_OTERM1089 ; Retimed Register ; Timing optimization ;
+; G[15][5]           ; Modified         ; Timing optimization ;
+; G[15][5]_OTERM1121 ; Retimed Register ; Timing optimization ;
+; Selector4112~1     ; Modified         ; Timing optimization ;
+; Selector16740~0    ; Modified         ; Timing optimization ;
+; WideOr672~0        ; Modified         ; Timing optimization ;
+; WideOr673~0        ; Modified         ; Timing optimization ;
+; WideOr674~0        ; Modified         ; Timing optimization ;
+; WideOr675~0        ; Modified         ; Timing optimization ;
+; WideOr676~0        ; Modified         ; Timing optimization ;
+; WideOr677~0        ; Modified         ; Timing optimization ;
+; WideOr678~0        ; Modified         ; Timing optimization ;
+; WideOr679~0        ; Modified         ; Timing optimization ;
+; WideOr680~0        ; Modified         ; Timing optimization ;
+; WideOr681~0        ; Modified         ; Timing optimization ;
+; WideOr682~0        ; Modified         ; Timing optimization ;
+; WideOr683~0        ; Modified         ; Timing optimization ;
+; WideOr684~0        ; Modified         ; Timing optimization ;
+; WideOr685~0        ; Modified         ; Timing optimization ;
+; WideOr686~0        ; Modified         ; Timing optimization ;
+; WideOr687~0        ; Modified         ; Timing optimization ;
+; WideOr688~0        ; Modified         ; Timing optimization ;
+; WideOr689~0        ; Modified         ; Timing optimization ;
+; WideOr690~0        ; Modified         ; Timing optimization ;
+; WideOr691~0        ; Modified         ; Timing optimization ;
+; WideOr692~0        ; Modified         ; Timing optimization ;
+; WideOr693~0        ; Modified         ; Timing optimization ;
+; WideOr694~0        ; Modified         ; Timing optimization ;
+; WideOr695~0        ; Modified         ; Timing optimization ;
+; WideOr696~0        ; Modified         ; Timing optimization ;
+; WideOr697~0        ; Modified         ; Timing optimization ;
+; WideOr698~0        ; Modified         ; Timing optimization ;
+; WideOr699~0        ; Modified         ; Timing optimization ;
+; WideOr700~0        ; Modified         ; Timing optimization ;
+; WideOr701~0        ; Modified         ; Timing optimization ;
+; WideOr702~0        ; Modified         ; Timing optimization ;
+; WideOr703~0        ; Modified         ; Timing optimization ;
++--------------------+------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 5:1                ; 8 bits    ; 24 ALUTs      ; 8 ALUTs              ; 16 ALUTs               ; Yes        ; |bitcoin_hash|wc[0]                  ;
+; 5:1                ; 32 bits   ; 96 ALUTs      ; 0 ALUTs              ; 96 ALUTs               ; Yes        ; |bitcoin_hash|mem_write_data[9]~reg0 ;
+; 4:1                ; 192 bits  ; 384 ALUTs     ; 192 ALUTs            ; 192 ALUTs              ; Yes        ; |bitcoin_hash|temp[14][10]           ;
+; 4:1                ; 4096 bits ; 8192 ALUTs    ; 0 ALUTs              ; 8192 ALUTs             ; Yes        ; |bitcoin_hash|B[5][6]                ;
+; 6:1                ; 4096 bits ; 16384 ALUTs   ; 4096 ALUTs           ; 12288 ALUTs            ; Yes        ; |bitcoin_hash|h3[15][28]             ;
+; 6:1                ; 7680 bits ; 30720 ALUTs   ; 0 ALUTs              ; 30720 ALUTs            ; Yes        ; |bitcoin_hash|w1[0][24]              ;
+; 8:1                ; 32 bits   ; 160 ALUTs     ; 64 ALUTs             ; 96 ALUTs               ; Yes        ; |bitcoin_hash|temp[9][31]            ;
+; 7:1                ; 288 bits  ; 1152 ALUTs    ; 576 ALUTs            ; 576 ALUTs              ; Yes        ; |bitcoin_hash|temp[0][22]            ;
+; 7:1                ; 8 bits    ; 32 ALUTs      ; 0 ALUTs              ; 32 ALUTs               ; Yes        ; |bitcoin_hash|t[5]                   ;
+; 7:1                ; 4 bits    ; 16 ALUTs      ; 4 ALUTs              ; 12 ALUTs               ; Yes        ; |bitcoin_hash|index_h2[0]            ;
+; 12:1               ; 16 bits   ; 128 ALUTs     ; 48 ALUTs             ; 80 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[7]~reg0       ;
+; 18:1               ; 480 bits  ; 5760 ALUTs    ; 2880 ALUTs           ; 2880 ALUTs             ; Yes        ; |bitcoin_hash|w15[0][20]             ;
+; 18:1               ; 32 bits   ; 384 ALUTs     ; 256 ALUTs            ; 128 ALUTs              ; Yes        ; |bitcoin_hash|w15[11][8]             ;
+; 16:1               ; 64 bits   ; 640 ALUTs     ; 640 ALUTs            ; 0 ALUTs                ; No         ; |bitcoin_hash|Mux550                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash                                       ;
++----------------+----------------------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                                            ; Type           ;
++----------------+----------------------------------------------------------------------------------+----------------+
+; num_nonces     ; 16                                                                               ; Signed Integer ;
+; k              ; (1116352408,1899447441,-1245643825,-373957723,961987163,1508970993,-1841331548,- ; Array/Record   ;
+; k              ; 1424204075,-670586216,310598401,607225278,1426881987,1925078388,-2132889090,-168 ;                ;
+; k              ; 0079193,-1046744716,-459576895,-272742522,264347078,604807628,770255983,12491501 ;                ;
+; k              ; 22,1555081692,1996064986,-1740746414,-1473132947,-1341970488,-1084653625,-958395 ;                ;
+; k              ; 405,-710438585,113926993,338241895,666307205,773529912,1294757372,1396182291,169 ;                ;
+; k              ; 5183700,1986661051,-2117940946,-1838011259,-1564481375,-1474664885,-1035236496,- ;                ;
+; k              ; 949202525,-778901479,-694614492,-200395387,275423344,430227734,506948616,6590605 ;                ;
+; k              ; 56,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,-2 ;                ;
+;                ; 067236844,-1933114872,-1866530822,-1538233109,-1090935817,-965641998)            ;                ;
++----------------+----------------------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriaii_ff            ; 21070                       ;
+;     CLR               ; 9                           ;
+;     ENA               ; 289                         ;
+;     ENA SCLR          ; 7722                        ;
+;     ENA SCLR SLD      ; 480                         ;
+;     ENA SLD           ; 7896                        ;
+;     plain             ; 4674                        ;
+; boundary_port         ; 118                         ;
+; stratixiv_lcell_comb  ; 18316                       ;
+;     arith             ; 5200                        ;
+;         1 data inputs ; 40                          ;
+;         2 data inputs ; 5000                        ;
+;         3 data inputs ; 160                         ;
+;     extend            ; 16                          ;
+;         7 data inputs ; 16                          ;
+;     normal            ; 9932                        ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 88                          ;
+;         3 data inputs ; 2927                        ;
+;         4 data inputs ; 11                          ;
+;         5 data inputs ; 588                         ;
+;         6 data inputs ; 6317                        ;
+;     shared            ; 3168                        ;
+;         3 data inputs ; 3168                        ;
+;                       ;                             ;
+; Max LUT depth         ; 7.60                        ;
+; Average LUT depth     ; 3.86                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:01:47     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Fri Jun 01 04:52:27 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bitcoin_hash -c bitcoin_hash
+Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb_bitcoin_hash.sv
+    Info (12023): Found entity 1: tb_bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/tb_bitcoin_hash.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bitcoin_hash.sv
+    Info (12023): Found entity 1: bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 4
+Info (12127): Elaborating entity "bitcoin_hash" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at bitcoin_hash.sv(20): object "w0" assigned a value but never read File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 20
+Info (10264): Verilog HDL Case Statement information at bitcoin_hash.sv(94): all case item expressions in this case statement are onehot File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 94
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(154): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 154
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(180): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 180
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(199): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 199
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(225): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 225
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(245): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 245
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(272): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 272
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(277): truncated value with size 32 to match size of target (8) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 277
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(304): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 304
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(329): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 329
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(348): truncated value with size 32 to match size of target (8) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 348
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(439): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 439
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(455): truncated value with size 32 to match size of target (8) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 455
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(471): truncated value with size 32 to match size of target (8) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_6/bitcoin_hash.sv Line: 471
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (128000): Starting physical synthesis optimizations for speed
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'bitcoin_hash.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332128): Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
+    Info (332127): Assuming a default timing requirement
+Info (332111): Found 1 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):    1.000          clk
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm register retiming
+Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:24
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 32714 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 32596 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 5237 megabytes
+    Info: Processing ended: Fri Jun 01 04:55:20 2018
+    Info: Elapsed time: 00:02:53
+    Info: Total CPU time (on all processors): 00:03:14
+
+

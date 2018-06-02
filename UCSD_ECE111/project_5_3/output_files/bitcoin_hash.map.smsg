@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at bitcoin_hash.sv(18): object "h" differs only in case from object "H" in the same scope File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 18
