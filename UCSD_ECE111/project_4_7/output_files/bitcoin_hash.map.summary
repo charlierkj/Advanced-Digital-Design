@@ -1,0 +1,20 @@
+Analysis & Synthesis Status : Successful - Thu Jun 07 18:12:56 2018
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : bitcoin_hash
+Top-level Entity Name : bitcoin_hash
+Family : Arria II GX
+Logic utilization : N/A
+    Combinational ALUTs : 981
+    Memory ALUTs : 0
+    Dedicated logic registers : 1,643
+Total registers : 1643
+Total pins : 118
+Total virtual pins : 0
+Total block memory bits : 0
+DSP block 18-bit elements : 0
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0
+Total DLLs : 0
