@@ -8,21 +8,19 @@ module bitcoin_hash (input logic clk, reset_n, start,
 									output logic [31:0] mem_write_data,
 									input logic [31:0] mem_read_data);
 									
-  enum logic[2:0] {IDLE=3'b000, PREP1=3'b001, PREP2=3'b010, PREP3=3'b011, COMPUTE=3'b100, COMPUTE2=3'b101, WRITE=3'b110} state;
+  enum logic[3:0] {IDLE=4'b0000, PREP11=4'b0001, PREP12=4'b0010, PREP13=4'b0011, COMPUTE1=4'b0100, PREP21=4'b0101, PREP22=4'b0110, COMPUTE2=4'b0111, PREP31=4'b1000, PREP32=4'b1001, COMPUTE3=4'b1010, POST=4'b1011, WRITE=4'b1100} state;
 	
   parameter num_nonces = 16;
-	
-  logic [4:0] wc; //write counters
-  logic block;
+  
+  logic [6:0] wc; //write counters
   logic [6:0] t;
-  logic [31:0] h[8][num_nonces];
+  logic [31:0] h[num_nonces][8];
   logic [31:0] h2[num_nonces][8];
-  logic [31:0] w[16][num_nonces];
+  logic [31:0] w[num_nonces][16];
   logic [31:0] A[num_nonces], B[num_nonces], C[num_nonces], D[num_nonces], E[num_nonces], F[num_nonces], G[num_nonces], H[num_nonces];
   logic [31:0] temp[num_nonces];
-  logic phase;
-  logic [3:0] index_h2;
-    	
+  logic [6:0] index_h2;
+
   parameter int k[0:63] = '{
   32'h428a2f98,32'h71374491,32'hb5c0fbcf,32'he9b5dba5,32'h3956c25b,32'h59f111f1,32'h923f82a4,32'hab1c5ed5,
   32'hd807aa98,32'h12835b01,32'h243185be,32'h550c7dc3,32'h72be5d74,32'h80deb1fe,32'h9bdc06a7,32'hc19bf174,
@@ -56,15 +54,14 @@ module bitcoin_hash (input logic clk, reset_n, start,
   end
   endfunction
   
-  
   function logic [31:0] wtnew(input logic [3:0] n);
     logic [31:0] s0, s1;
 	
-	 s0 = rightrotate(w[1][n], 7) ^ rightrotate(w[1][n], 18) ^ (w[1][n]>>3);
-	 s1 = rightrotate(w[14][n], 17) ^ rightrotate(w[14][n], 19) ^ (w[14][n]>>10);
-	 wtnew = w[0][n] + s0+ w[9][n] + s1;      
+	 s0 = rightrotate(w[n][1], 7) ^ rightrotate(w[n][1], 18) ^ (w[n][1]>>3);
+	 s1 = rightrotate(w[n][14], 17) ^ rightrotate(w[n][14], 19) ^ (w[n][14]>>10);
+	 wtnew = w[n][0] + s0+ w[n][9] + s1;      
   endfunction
-							
+									
   
   assign mem_clk=clk;	
 	
@@ -74,193 +71,227 @@ module bitcoin_hash (input logic clk, reset_n, start,
     if(!reset_n) begin
 	   state <= IDLE;
 	   done <= 0;
-		block <= 0;
 	 end else		
 	 case(state)
 		IDLE:
 		    if(start) begin
 		      mem_we <= 0;
 		      mem_addr <= message_addr;
-				phase <= 0;
-				t <= 0;
-				
-				for (int n = 0; n < num_nonces; n++) begin
-				h[0][n] <= 32'h6a09e667;
-            h[1][n] <= 32'hbb67ae85;
-            h[2][n] <= 32'h3c6ef372;
-            h[3][n] <= 32'ha54ff53a;
-            h[4][n] <= 32'h510e527f;
-            h[5][n] <= 32'h9b05688c;
-            h[6][n] <= 32'h1f83d9ab;
-            h[7][n] <= 32'h5be0cd19; 
-				end
-			
-			   state <= PREP1;
-				block <= 0;
+				t <= 0;			
+			   state <= PREP11;
 		    end
 			 
-	   PREP1: begin
-		    state <= PREP2;
+	   PREP11: begin
+		    state <= PREP12;				
 			 mem_addr <= mem_addr + 1;			 
 		end
 			
-	   PREP2: begin				
-		    state <= PREP3;
-			 if (phase == 0) begin
-			   for (int n = 0; n < num_nonces; n++) w[15][n] <= mem_read_data;
-			   mem_addr <= mem_addr + 1;
-			 end else begin
-			   for (int n = 0; n < num_nonces; n++) w[15][n] <= h2[n][index_h2];
-			   index_h2 <= index_h2 + 1;
-			 end
+	   PREP12: begin
 			 for (int n = 0; n < num_nonces; n++) begin
-			   for (int m = 0; m < 15; m++) w[m][n] <= w[m+1][n];
-			   {A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= {h[0][n], h[1][n], h[2][n], h[3][n], h[4][n], h[5][n], h[6][n], h[7][n]};
+			   for (int m = 0; m < 15; m++) w[n][m] <= w[n][m+1];
+				w[n][15] <= mem_read_data;
+			   
+				h[n][0] <= 32'h6a09e667;
+            h[n][1] <= 32'hbb67ae85;
+            h[n][2] <= 32'h3c6ef372;
+            h[n][3] <= 32'ha54ff53a;
+            h[n][4] <= 32'h510e527f;
+            h[n][5] <= 32'h9b05688c;
+            h[n][6] <= 32'h1f83d9ab;
+            h[n][7] <= 32'h5be0cd19;
+			 
 			 end
+			 state <= PREP13;
+			 mem_addr <= mem_addr + 1;
 	   end
 		
-		PREP3: begin
-			 for (int n = 0; n < num_nonces; n++) begin
-			   temp[n] <= w[15][n] + k[t] + H[n];
-			   for (int m = 0; m < 15; m++) w[m][n] <= w[m+1][n];
+		PREP13: begin
+		    for (int n = 0; n < num_nonces; n++) begin
+			     temp[n] <= w[n][15] + k[t] + h[n][7];
+				  for (int m = 0; m < 15; m++) w[n][m] <= w[n][m+1];
+				  w[n][15] <= mem_read_data;
+				  {A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= {h[n][0], h[n][1], h[n][2], h[n][3], h[n][4], h[n][5], h[n][6], h[n][7]};
 			 end
-			 if (phase == 0) begin
-			   for (int n = 0; n < num_nonces; n++) w[15][n] <= mem_read_data;
-			   mem_addr <= mem_addr + 1;
-			   state <= COMPUTE;
-			 end else begin
-			   state <= COMPUTE2;
-			   for (int n = 0; n < num_nonces; n++) w[15][n] <= h2[n][index_h2];
-			   index_h2 <= index_h2 + 1;
-			 end
+			 mem_addr <= mem_addr + 1;
+			 state <= COMPUTE1;
 		end	 
 						
-		COMPUTE: begin
-		    if (block == 0) begin 
+		COMPUTE1: begin
 			   if (t<64) begin 
 				  for (int n = 0; n < num_nonces; n++) begin
 				  for (int m = 0; m < 15; m++)
-				  w[m][n] <= w[m+1][n];
+				  w[n][m] <= w[n][m+1];
 				  end
 		        if (t<14) begin
-				    for (int n = 0; n < num_nonces; n++) w[15][n] <= mem_read_data;
+				    for (int n = 0; n < num_nonces; n++) w[n][15] <= mem_read_data;
 					 mem_addr <= mem_addr + 1;
 		        end else begin
-			       for (int n = 0; n < num_nonces; n++) w[15][n] <= wtnew(n);
+			       for (int n = 0; n < num_nonces; n++) w[n][15] <= wtnew(n);
 					 mem_addr <= message_addr + 16;
 		        end
 				  t <= t + 1;
 				  for (int n = 0; n < num_nonces; n++) begin
-				    temp[n] <= w[15][n] + k[t+1] + G[n];
+				    temp[n] <= w[n][15] + k[t+1] + G[n];
 				    {A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= sha256_op(A[n], B[n], C[n], D[n], E[n], F[n], G[n], temp[n]);
 				  end
-				  state <= COMPUTE;
-				end else begin
-			     for (int n = 0; n < num_nonces; n++) begin
-				    {h[0][n], h[1][n], h[2][n], h[3][n], h[4][n], h[5][n], h[6][n], h[7][n]} <= {h[0][n] + A[n], h[1][n] + B[n], h[2][n] + C[n], h[3][n] + D[n], h[4][n] + E[n], h[5][n] + F[n], h[6][n] + G[n], h[7][n] + H[n]};
-                for (int m = 0; m < 16; m++) w[m][n] <= 32'h00000000;
+				  state <= COMPUTE1;
+				end else begin 
+				  for (int n = 0; n < num_nonces; n++) begin
+				    
+                for (int m = 0; m < 16; m++)
+					 w[n][m] <= 32'h00000000;
 				  end
 				  t <= 0;
-				  block <= 1;
 				  mem_addr <= mem_addr + 1;
-				  state <= PREP2;
+				  state <= PREP21;
 				end
-			 end else begin 
-			   if (t<64) begin
-				  for (int n = 0; n < num_nonces; n++) begin
-				  for (int m = 0; m < 15; m++)
-				  w[m][n] <= w[m+1][n];
-				  end
-				  if (t<14) begin
-		          if (t<1) begin
-                  for (int n = 0; n < num_nonces; n++) w[15][n] <= mem_read_data;
-					   mem_addr <= mem_addr + 1;
-		          end 
-					 else if (t == 1 ) begin
-					   for (int n = 0; n < num_nonces; n++) w[15][n] <= n;
-					 end
-				    else if (t == 2 ) begin
-				      for (int n = 0; n < num_nonces; n++) w[15][n] <= 32'h80000000;
-					 end 
-					 else if (t>2 && t<13) begin
-					   for (int n = 0; n < num_nonces; n++) w[15][n] <= 32'h00000000;
-					 end else begin
-					   for (int n = 0; n < num_nonces; n++) w[15][n] <= 32'h00000280;
-					 end
-				  end else begin
-			       for (int n = 0; n < num_nonces; n++) w[15][n] <= wtnew(n);
-		        end
-				  for (int n = 0; n < num_nonces; n++) begin
-				    temp[n] <= w[15][n] + k[t+1] + G[n];
-					 {A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= sha256_op(A[n], B[n], C[n], D[n], E[n], F[n], G[n], temp[n]);
-				  end
-				  t <= t + 1;
-				  state <= COMPUTE;
-				end else begin
-				  for (int n = 0; n < num_nonces; n++) begin
-				    for (int m = 0; m < 16; m++) w[m][n] <= 32'h00000000;
-				  
-				    h[0][n] <= 32'h6a09e667;
-                h[1][n] <= 32'hbb67ae85;
-                h[2][n] <= 32'h3c6ef372;
-                h[3][n] <= 32'ha54ff53a;
-                h[4][n] <= 32'h510e527f;
-                h[5][n] <= 32'h9b05688c;
-                h[6][n] <= 32'h1f83d9ab;
-                h[7][n] <= 32'h5be0cd19; 
-					 
-					 {h2[n][0], h2[n][1], h2[n][2], h2[n][3], h2[n][4], h2[n][5], h2[n][6], h2[n][7]} <= {h[0][n] + A[n], h[1][n] + B[n], h[2][n] + C[n], h[3][n] + D[n], h[4][n] + E[n], h[5][n] + F[n], h[6][n] + G[n], h[7][n] + H[n]};
-				  end
-				  t <= 0;
-				  index_h2 <= 0;
-				  state <= PREP2;
-				  phase <= 1;
-			  end
-			end
+      end
+		
+		PREP21: begin
+		    for (int n = 0; n < num_nonces; n++) begin
+			   for (int m = 0; m < 15; m++)
+			   w[n][m] <= w[n][m+1];
+				w[n][15] <= mem_read_data;
+			   {h[n][0], h[n][1], h[n][2], h[n][3], h[n][4], h[n][5], h[n][6], h[n][7]} <= {h[n][0] + A[n], h[n][1] + B[n], h[n][2] + C[n], h[n][3] + D[n], h[n][4] + E[n], h[n][5] + F[n], h[n][6] + G[n], h[n][7] + H[n]};
+			 end
+			 state <= PREP22;
+			 mem_addr <= mem_addr + 1;
+		end
+		
+		PREP22: begin
+		    for (int n = 0; n < num_nonces; n++) begin
+			   temp[n] <= w[n][15] + k[t] + h[n][7];
+				for (int m = 0; m < 15; m++)
+				w[n][m] <= w[n][m+1];
+				w[n][15] <= mem_read_data;
+				{A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= {h[n][0], h[n][1], h[n][2], h[n][3], h[n][4], h[n][5], h[n][6], h[n][7]};
+			 end
+			 mem_addr <= mem_addr + 1;
+			 state <= COMPUTE2;
 		end
 		
 		COMPUTE2: begin
-		    if (t<64) begin
-			     for (int n = 0; n < num_nonces; n++) begin
+			   if (t<64) begin
+				  for (int n = 0; n < num_nonces; n++) begin
 				  for (int m = 0; m < 15; m++)
-				  w[m][n] <= w[m+1][n];
+				  w[n][m] <= w[n][m+1];
 				  end
 				  if (t<14) begin
-		          if (t<6) begin
-                  for (int n = 0; n < num_nonces; n++)
-                  w[15][n] <= h2[n][index_h2];
-					   index_h2 <= index_h2 + 1;
+		          if (t<1) begin
+                  for (int n = 0; n < num_nonces; n++) w[n][15] <= mem_read_data;
+					   mem_addr <= mem_addr + 1;
 		          end 
-				    else if (t == 6 ) begin
-				      for (int n = 0; n < num_nonces; n++) w[15][n] <= 32'h80000000;
+					 else if (t == 1 ) begin
+					   for (int n = 0; n < num_nonces; n++) w[n][15] <= n;
+					 end
+				    else if (t == 2 ) begin
+				      for (int n = 0; n < num_nonces; n++) w[n][15] <= 32'h80000000;
 					 end 
-					 else if (t>6 && t<13) begin
-					   for (int n = 0; n < num_nonces; n++) w[15][n] <= 32'h00000000;
+					 else if (t>2 && t<13) begin
+					   for (int n = 0; n < num_nonces; n++) w[n][15] <= 32'h00000000;
 					 end else begin
-					   for (int n = 0; n < num_nonces; n++) w[15][n] <= 32'h00000100;
+					   for (int n = 0; n < num_nonces; n++) w[n][15] <= 32'h00000280;
 					 end
 				  end else begin
-			       for (int n = 0; n < num_nonces; n++) w[15][n] <= wtnew(n);
+			       for (int n = 0; n < num_nonces; n++) w[n][15] <= wtnew(n);
 		        end
 				  for (int n = 0; n < num_nonces; n++) begin
-				    temp[n] <= w[15][n] + k[t+1] + G[n];
+				    temp[n] <= w[n][15] + k[t+1] + G[n];
 					 {A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= sha256_op(A[n], B[n], C[n], D[n], E[n], F[n], G[n], temp[n]);
 				  end
 				  t <= t + 1;
 				  state <= COMPUTE2;
-			  end else begin
-		        mem_we <= 1;
-			     mem_addr <= output_addr;
-	           mem_write_data <= h[0][0] + A[0];
-              wc <= 1;
-				  state <= WRITE;
+				end else begin
+				  for (int n = 0; n < num_nonces; n++) begin
+				  for (int m = 0; m < 16; m++) w[n][m] <= 32'h00000000;
+				 
+				  {h2[n][0], h2[n][1], h2[n][2], h2[n][3], h2[n][4], h2[n][5], h2[n][6], h2[n][7]} <= {h[n][0] + A[n], h[n][1] + B[n], h[n][2] + C[n], h[n][3] + D[n], h[n][4] + E[n], h[n][5] + F[n], h[n][6] + G[n], h[n][7] + H[n]};
+				  end
+				  t <= 0;
+				  index_h2 <= 0;
+              state <= 	PREP31;
 			  end
-		end		 
-			
+		end
+		
+		
+	   PREP31: begin
+		    for (int n = 0; n < num_nonces; n++) begin
+			   for (int m = 0; m < 15; m++) w[n][m] <= w[n][m+1];
+			   w[n][15] <= h2[n][index_h2];
+			   
+				h[n][0] <= 32'h6a09e667;
+            h[n][1] <= 32'hbb67ae85;
+            h[n][2] <= 32'h3c6ef372;
+            h[n][3] <= 32'ha54ff53a;
+            h[n][4] <= 32'h510e527f;
+            h[n][5] <= 32'h9b05688c;
+            h[n][6] <= 32'h1f83d9ab;
+            h[n][7] <= 32'h5be0cd19; 
+			 end
+			 state <= PREP32;
+			 index_h2 <= index_h2 + 1;
+		end
+		
+		PREP32: begin
+			 for (int n = 0; n < num_nonces; n++) begin
+			   temp[n] <= w[n][15] + k[t] + h[n][7];
+				for (int m = 0; m < 15; m++) w[n][m] <= w[n][m+1];
+			   w[n][15] <= h2[n][index_h2];
+				{A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= {h[n][0], h[n][1], h[n][2], h[n][3], h[n][4], h[n][5], h[n][6], h[n][7]};
+			 end
+			 state <= COMPUTE3;
+			 index_h2 <= index_h2 + 1;
+		end
+		
+		COMPUTE3: begin
+		    if (t<64) begin
+				  for (int n = 0; n < num_nonces; n++) begin
+				  for (int m = 0; m < 15; m++)
+				  w[n][m] <= w[n][m+1];
+				  end
+				  if (t<14) begin
+		          if (t<6) begin
+					   for (int n = 0; n < num_nonces; n++)
+                  w[n][15] <= h2[n][index_h2];
+					   index_h2 <= index_h2 + 1;
+		          end 
+				    else if (t == 6 ) begin
+				      for (int n = 0; n < num_nonces; n++) w[n][15] <= 32'h80000000;
+					 end 
+					 else if (t>6 && t<13) begin
+					   for (int n = 0; n < num_nonces; n++) w[n][15] <= 32'h00000000;
+					 end else begin
+					   for (int n = 0; n < num_nonces; n++) w[n][15] <= 32'h00000100;
+					 end
+				  end else begin
+			       for (int n = 0; n < num_nonces; n++) w[n][15] <= wtnew(n);
+		        end
+				  for (int n = 0; n < num_nonces; n++) begin
+				    temp[n] <= w[n][15] + k[t+1] + G[n];
+					 {A[n], B[n], C[n], D[n], E[n], F[n], G[n], H[n]} <= sha256_op(A[n], B[n], C[n], D[n], E[n], F[n], G[n], temp[n]);
+				  end
+				  t <= t + 1;
+				  state <= COMPUTE3;
+			  end else begin
+			     for (int n = 0; n < num_nonces; n++) begin
+				    h[n][0] <= h[n][0] + A[n];
+				  end
+				  state <= POST;
+			  end
+		end
+
+      POST: begin
+       	 mem_we <= 1;
+			 mem_addr <= output_addr;
+		    mem_write_data <= h[0][0];
+		    state <= WRITE;
+		    wc <= 1;
+		end		
+	
 		WRITE: begin
-		    if (wc < num_nonces) begin
+          if (wc < num_nonces) begin
 			   mem_addr <= output_addr + wc;
-				mem_write_data <= h[0][wc] + A[wc];
+				mem_write_data <= h[wc][0];
 				state <= WRITE;
 				wc <= wc + 1;
    		 end else begin

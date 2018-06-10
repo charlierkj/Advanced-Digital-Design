@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bitcoin_hash
-Fri Jun 01 05:59:00 2018
+Sat Jun 02 17:14:57 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -15,13 +15,14 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |bitcoin_hash|state
   9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
- 16. Analysis & Synthesis Suppressed Messages
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |bitcoin_hash
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -47,16 +48,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status       ; Successful - Fri Jun 01 05:58:59 2018       ;
+; Analysis & Synthesis Status       ; Successful - Sat Jun 02 17:14:56 2018       ;
 ; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                     ; bitcoin_hash                                ;
 ; Top-level Entity Name             ; bitcoin_hash                                ;
 ; Family                            ; Arria II GX                                 ;
 ; Logic utilization                 ; N/A                                         ;
-;     Combinational ALUTs           ; 17,793                                      ;
+;     Combinational ALUTs           ; 15,179                                      ;
 ;     Memory ALUTs                  ; 0                                           ;
-;     Dedicated logic registers     ; 21,066                                      ;
-; Total registers                   ; 21066                                       ;
+;     Dedicated logic registers     ; 21,072                                      ;
+; Total registers                   ; 21072                                       ;
 ; Total pins                        ; 118                                         ;
 ; Total virtual pins                ; 0                                           ;
 ; Total block memory bits           ; 0                                           ;
@@ -179,7 +180,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
-; bitcoin_hash.sv                  ; yes             ; User SystemVerilog HDL File  ; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv ;         ;
+; bitcoin_hash.sv                  ; yes             ; User SystemVerilog HDL File  ; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv ;         ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 
 
@@ -188,34 +189,34 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------+-----------+
 ; Resource                                      ; Usage     ;
 +-----------------------------------------------+-----------+
-; Estimated ALUTs Used                          ; 17793     ;
-;     -- Combinational ALUTs                    ; 17793     ;
+; Estimated ALUTs Used                          ; 15179     ;
+;     -- Combinational ALUTs                    ; 15179     ;
 ;     -- Memory ALUTs                           ; 0         ;
 ;     -- LUT_REGs                               ; 0         ;
-; Dedicated logic registers                     ; 21066     ;
+; Dedicated logic registers                     ; 21072     ;
 ;                                               ;           ;
-; Estimated ALUTs Unavailable                   ; 0         ;
-;     -- Due to unpartnered combinational logic ; 0         ;
+; Estimated ALUTs Unavailable                   ; 3         ;
+;     -- Due to unpartnered combinational logic ; 3         ;
 ;     -- Due to Memory ALUTs                    ; 0         ;
 ;                                               ;           ;
-; Total combinational functions                 ; 17793     ;
+; Total combinational functions                 ; 15179     ;
 ; Combinational ALUT usage by number of inputs  ;           ;
-;     -- 7 input functions                      ; 0         ;
-;     -- 6 input functions                      ; 2284      ;
-;     -- 5 input functions                      ; 10        ;
-;     -- 4 input functions                      ; 25        ;
-;     -- <=3 input functions                    ; 15474     ;
+;     -- 7 input functions                      ; 3         ;
+;     -- 6 input functions                      ; 2118      ;
+;     -- 5 input functions                      ; 15        ;
+;     -- 4 input functions                      ; 1699      ;
+;     -- <=3 input functions                    ; 11344     ;
 ;                                               ;           ;
 ; Combinational ALUTs by mode                   ;           ;
-;     -- normal mode                            ; 9422      ;
-;     -- extended LUT mode                      ; 0         ;
-;     -- arithmetic mode                        ; 5203      ;
+;     -- normal mode                            ; 6827      ;
+;     -- extended LUT mode                      ; 3         ;
+;     -- arithmetic mode                        ; 5181      ;
 ;     -- shared arithmetic mode                 ; 3168      ;
 ;                                               ;           ;
-; Estimated ALUT/register pairs used            ; 29042     ;
+; Estimated ALUT/register pairs used            ; 24361     ;
 ;                                               ;           ;
-; Total registers                               ; 21066     ;
-;     -- Dedicated logic registers              ; 21066     ;
+; Total registers                               ; 21072     ;
+;     -- Dedicated logic registers              ; 21072     ;
 ;     -- I/O registers                          ; 0         ;
 ;     -- LUT_REGs                               ; 0         ;
 ;                                               ;           ;
@@ -225,9 +226,9 @@ refer to the applicable agreement for further details.
 ; DSP block 18-bit elements                     ; 0         ;
 ;                                               ;           ;
 ; Maximum fan-out node                          ; clk~input ;
-; Maximum fan-out                               ; 21067     ;
-; Total fan-out                                 ; 146378    ;
-; Average fan-out                               ; 3.74      ;
+; Maximum fan-out                               ; 21073     ;
+; Total fan-out                                 ; 140708    ;
+; Average fan-out                               ; 3.86      ;
 +-----------------------------------------------+-----------+
 
 
@@ -236,25 +237,31 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
-; |bitcoin_hash              ; 17793 (17793)       ; 21066 (21066)             ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |bitcoin_hash       ; bitcoin_hash ; work         ;
+; |bitcoin_hash              ; 15179 (15179)       ; 21072 (21072)             ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |bitcoin_hash       ; bitcoin_hash ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------+
-; State Machine - |bitcoin_hash|state                                                                                  ;
-+----------------+-------------+----------------+---------------+-------------+-------------+-------------+------------+
-; Name           ; state.WRITE ; state.COMPUTE2 ; state.COMPUTE ; state.PREP3 ; state.PREP2 ; state.PREP1 ; state.IDLE ;
-+----------------+-------------+----------------+---------------+-------------+-------------+-------------+------------+
-; state.IDLE     ; 0           ; 0              ; 0             ; 0           ; 0           ; 0           ; 0          ;
-; state.PREP1    ; 0           ; 0              ; 0             ; 0           ; 0           ; 1           ; 1          ;
-; state.PREP2    ; 0           ; 0              ; 0             ; 0           ; 1           ; 0           ; 1          ;
-; state.PREP3    ; 0           ; 0              ; 0             ; 1           ; 0           ; 0           ; 1          ;
-; state.COMPUTE  ; 0           ; 0              ; 1             ; 0           ; 0           ; 0           ; 1          ;
-; state.COMPUTE2 ; 0           ; 1              ; 0             ; 0           ; 0           ; 0           ; 1          ;
-; state.WRITE    ; 1           ; 0              ; 0             ; 0           ; 0           ; 0           ; 1          ;
-+----------------+-------------+----------------+---------------+-------------+-------------+-------------+------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bitcoin_hash|state                                                                                                                                                                                ;
++----------------+-------------+------------+----------------+--------------+--------------+----------------+--------------+--------------+----------------+--------------+--------------+--------------+------------+
+; Name           ; state.WRITE ; state.POST ; state.COMPUTE3 ; state.PREP32 ; state.PREP31 ; state.COMPUTE2 ; state.PREP22 ; state.PREP21 ; state.COMPUTE1 ; state.PREP13 ; state.PREP12 ; state.PREP11 ; state.IDLE ;
++----------------+-------------+------------+----------------+--------------+--------------+----------------+--------------+--------------+----------------+--------------+--------------+--------------+------------+
+; state.IDLE     ; 0           ; 0          ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0            ; 0          ;
+; state.PREP11   ; 0           ; 0          ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 1            ; 1          ;
+; state.PREP12   ; 0           ; 0          ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0              ; 0            ; 1            ; 0            ; 1          ;
+; state.PREP13   ; 0           ; 0          ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0              ; 1            ; 0            ; 0            ; 1          ;
+; state.COMPUTE1 ; 0           ; 0          ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 1              ; 0            ; 0            ; 0            ; 1          ;
+; state.PREP21   ; 0           ; 0          ; 0              ; 0            ; 0            ; 0              ; 0            ; 1            ; 0              ; 0            ; 0            ; 0            ; 1          ;
+; state.PREP22   ; 0           ; 0          ; 0              ; 0            ; 0            ; 0              ; 1            ; 0            ; 0              ; 0            ; 0            ; 0            ; 1          ;
+; state.COMPUTE2 ; 0           ; 0          ; 0              ; 0            ; 0            ; 1              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0            ; 1          ;
+; state.PREP31   ; 0           ; 0          ; 0              ; 0            ; 1            ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0            ; 1          ;
+; state.PREP32   ; 0           ; 0          ; 0              ; 1            ; 0            ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0            ; 1          ;
+; state.COMPUTE3 ; 0           ; 0          ; 1              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0            ; 1          ;
+; state.POST     ; 0           ; 1          ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0            ; 1          ;
+; state.WRITE    ; 1           ; 0          ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0              ; 0            ; 0            ; 0            ; 1          ;
++----------------+-------------+------------+----------------+--------------+--------------+----------------+--------------+--------------+----------------+--------------+--------------+--------------+------------+
 
 
 +------------------------------------------------------------+
@@ -262,12 +269,22 @@ Encoding Type:  One-Hot
 +---------------------------------------+--------------------+
 ; Register name                         ; Reason for Removal ;
 +---------------------------------------+--------------------+
-; state~11                              ; Lost fanout        ;
-; state~12                              ; Lost fanout        ;
-; state~13                              ; Lost fanout        ;
-; index_h2[3]                           ; Lost fanout        ;
-; Total Number of Removed Registers = 4 ;                    ;
+; state~17                              ; Lost fanout        ;
+; state~18                              ; Lost fanout        ;
+; state~19                              ; Lost fanout        ;
+; state~20                              ; Lost fanout        ;
+; index_h2[3..6]                        ; Lost fanout        ;
+; Total Number of Removed Registers = 8 ;                    ;
 +---------------------------------------+--------------------+
+
+
++-----------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                 ;
++---------------+--------------------+----------------------------------------+
+; Register name ; Reason for Removal ; Registers Removed due to This Register ;
++---------------+--------------------+----------------------------------------+
+; index_h2[6]   ; Lost Fanouts       ; index_h2[5], index_h2[4], index_h2[3]  ;
++---------------+--------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -275,37 +292,36 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 21066 ;
-; Number of registers using Synchronous Clear  ; 8203  ;
-; Number of registers using Synchronous Load   ; 8928  ;
-; Number of registers using Asynchronous Clear ; 9     ;
+; Total registers                              ; 21072 ;
+; Number of registers using Synchronous Clear  ; 8454  ;
+; Number of registers using Synchronous Load   ; 7237  ;
+; Number of registers using Asynchronous Clear ; 14    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 16959 ;
+; Number of registers using Clock Enable       ; 21058 ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; 5:1                ; 4 bits    ; 12 ALUTs      ; 4 ALUTs              ; 8 ALUTs                ; Yes        ; |bitcoin_hash|wc[3]                   ;
-; 5:1                ; 32 bits   ; 96 ALUTs      ; 0 ALUTs              ; 96 ALUTs               ; Yes        ; |bitcoin_hash|mem_write_data[26]~reg0 ;
-; 4:1                ; 4096 bits ; 8192 ALUTs    ; 0 ALUTs              ; 8192 ALUTs             ; Yes        ; |bitcoin_hash|B[5][8]                 ;
-; 4:1                ; 192 bits  ; 384 ALUTs     ; 192 ALUTs            ; 192 ALUTs              ; Yes        ; |bitcoin_hash|temp[13][19]            ;
-; 6:1                ; 4096 bits ; 16384 ALUTs   ; 4096 ALUTs           ; 12288 ALUTs            ; Yes        ; |bitcoin_hash|h[3][8][12]             ;
-; 6:1                ; 7680 bits ; 30720 ALUTs   ; 0 ALUTs              ; 30720 ALUTs            ; Yes        ; |bitcoin_hash|w[1][0][13]             ;
-; 8:1                ; 32 bits   ; 160 ALUTs     ; 64 ALUTs             ; 96 ALUTs               ; Yes        ; |bitcoin_hash|temp[9][29]             ;
-; 7:1                ; 288 bits  ; 1152 ALUTs    ; 576 ALUTs            ; 576 ALUTs              ; Yes        ; |bitcoin_hash|temp[1][22]             ;
-; 7:1                ; 6 bits    ; 24 ALUTs      ; 12 ALUTs             ; 12 ALUTs               ; Yes        ; |bitcoin_hash|t[3]                    ;
-; 7:1                ; 4 bits    ; 16 ALUTs      ; 4 ALUTs              ; 12 ALUTs               ; Yes        ; |bitcoin_hash|index_h2[0]             ;
-; 12:1               ; 4 bits    ; 32 ALUTs      ; 8 ALUTs              ; 24 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[0]~reg0        ;
-; 12:1               ; 12 bits   ; 96 ALUTs      ; 36 ALUTs             ; 60 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[15]~reg0       ;
-; 18:1               ; 480 bits  ; 5760 ALUTs    ; 2880 ALUTs           ; 2880 ALUTs             ; Yes        ; |bitcoin_hash|w[15][0][21]            ;
-; 18:1               ; 32 bits   ; 384 ALUTs     ; 256 ALUTs            ; 128 ALUTs              ; Yes        ; |bitcoin_hash|w[15][2][31]            ;
-; 16:1               ; 64 bits   ; 640 ALUTs     ; 640 ALUTs            ; 0 ALUTs                ; No         ; |bitcoin_hash|Mux540                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 1920 bits ; 3840 ALUTs    ; 1920 ALUTs           ; 1920 ALUTs             ; Yes        ; |bitcoin_hash|h[14][4][5]            ;
+; 5:1                ; 512 bits  ; 1536 ALUTs    ; 512 ALUTs            ; 1024 ALUTs             ; Yes        ; |bitcoin_hash|h[0][0][0]             ;
+; 4:1                ; 4096 bits ; 8192 ALUTs    ; 0 ALUTs              ; 8192 ALUTs             ; Yes        ; |bitcoin_hash|G[6][0]                ;
+; 7:1                ; 7 bits    ; 28 ALUTs      ; 7 ALUTs              ; 21 ALUTs               ; Yes        ; |bitcoin_hash|index_h2[6]            ;
+; 6:1                ; 7680 bits ; 30720 ALUTs   ; 0 ALUTs              ; 30720 ALUTs            ; Yes        ; |bitcoin_hash|w[15][7][1]            ;
+; 19:1               ; 32 bits   ; 384 ALUTs     ; 320 ALUTs            ; 64 ALUTs               ; Yes        ; |bitcoin_hash|mem_write_data[4]~reg0 ;
+; 6:1                ; 192 bits  ; 768 ALUTs     ; 192 ALUTs            ; 576 ALUTs              ; Yes        ; |bitcoin_hash|temp[12][15]           ;
+; 7:1                ; 6 bits    ; 24 ALUTs      ; 12 ALUTs             ; 12 ALUTs               ; Yes        ; |bitcoin_hash|t[5]                   ;
+; 8:1                ; 32 bits   ; 160 ALUTs     ; 64 ALUTs             ; 96 ALUTs               ; Yes        ; |bitcoin_hash|temp[9][14]            ;
+; 10:1               ; 288 bits  ; 1728 ALUTs    ; 576 ALUTs            ; 1152 ALUTs             ; Yes        ; |bitcoin_hash|temp[2][5]             ;
+; 15:1               ; 4 bits    ; 40 ALUTs      ; 8 ALUTs              ; 32 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[0]~reg0       ;
+; 15:1               ; 12 bits   ; 120 ALUTs     ; 48 ALUTs             ; 72 ALUTs               ; Yes        ; |bitcoin_hash|mem_addr[5]~reg0       ;
+; 19:1               ; 480 bits  ; 5760 ALUTs    ; 2880 ALUTs           ; 2880 ALUTs             ; Yes        ; |bitcoin_hash|w[7][15][2]            ;
+; 19:1               ; 32 bits   ; 384 ALUTs     ; 288 ALUTs            ; 96 ALUTs               ; Yes        ; |bitcoin_hash|w[3][15][8]            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -332,31 +348,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriaii_ff            ; 21066                       ;
-;     CLR               ; 9                           ;
-;     ENA               ; 308                         ;
-;     ENA SCLR          ; 7723                        ;
-;     ENA SCLR SLD      ; 480                         ;
-;     ENA SLD           ; 8448                        ;
-;     plain             ; 4098                        ;
+; arriaii_ff            ; 21072                       ;
+;     CLR               ; 12                          ;
+;     CLR SLD           ; 2                           ;
+;     ENA               ; 6105                        ;
+;     ENA SCLR          ; 7718                        ;
+;     ENA SCLR SLD      ; 736                         ;
+;     ENA SLD           ; 6499                        ;
 ; boundary_port         ; 118                         ;
-; stratixiv_lcell_comb  ; 17793                       ;
-;     arith             ; 5203                        ;
-;         1 data inputs ; 46                          ;
-;         2 data inputs ; 4997                        ;
+; stratixiv_lcell_comb  ; 15179                       ;
+;     arith             ; 5181                        ;
+;         1 data inputs ; 54                          ;
+;         2 data inputs ; 4967                        ;
 ;         3 data inputs ; 160                         ;
-;     normal            ; 9422                        ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 6827                        ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 65                          ;
-;         3 data inputs ; 7037                        ;
-;         4 data inputs ; 25                          ;
-;         5 data inputs ; 10                          ;
-;         6 data inputs ; 2284                        ;
+;         2 data inputs ; 67                          ;
+;         3 data inputs ; 2927                        ;
+;         4 data inputs ; 1699                        ;
+;         5 data inputs ; 15                          ;
+;         6 data inputs ; 2118                        ;
 ;     shared            ; 3168                        ;
 ;         3 data inputs ; 3168                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.60                        ;
-; Average LUT depth     ; 3.88                        ;
+; Average LUT depth     ; 3.78                        ;
 +-----------------------+-----------------------------+
 
 
@@ -365,7 +383,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:01:37     ;
+; Top            ; 00:01:17     ;
 +----------------+--------------+
 
 
@@ -375,35 +393,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Jun 01 05:57:00 2018
+    Info: Processing started: Sat Jun 02 17:12:36 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bitcoin_hash -c bitcoin_hash
 Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file tb_bitcoin_hash.sv
-    Info (12023): Found entity 1: tb_bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/tb_bitcoin_hash.sv Line: 1
+    Info (12023): Found entity 1: tb_bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/tb_bitcoin_hash.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file bitcoin_hash.sv
-    Info (12023): Found entity 1: bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 4
+    Info (12023): Found entity 1: bitcoin_hash File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 4
 Info (12127): Elaborating entity "bitcoin_hash" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(104): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 104
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(111): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 111
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(114): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 114
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(129): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 129
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(134): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 134
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(147): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 147
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(150): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 150
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(152): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 152
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(165): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 165
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(177): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 177
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(197): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 197
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(232): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 232
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(249): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 249
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(265): truncated value with size 32 to match size of target (5) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv Line: 265
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(86): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 86
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(105): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 105
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(115): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 115
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(127): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 127
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(130): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 130
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(132): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 132
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(145): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 145
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(158): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 158
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(169): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 169
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(182): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 182
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(202): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 202
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(232): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 232
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(243): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 243
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(256): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 256
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(273): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 273
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(296): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/bitcoin_hash.sv Line: 296
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "h" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "h2" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "w" into its bus
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (128000): Starting physical synthesis optimizations for speed
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'bitcoin_hash.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
@@ -423,24 +443,24 @@ Info (128002): Starting physical synthesis algorithm register retiming
 Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
-Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:16
-Info (144001): Generated suppressed messages file E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/output_files/bitcoin_hash.map.smsg
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:15
+Info (144001): Generated suppressed messages file E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/output_files/bitcoin_hash.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 32767 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 32590 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 67 input pins
     Info (21059): Implemented 51 output pins
-    Info (21061): Implemented 32649 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 5227 megabytes
-    Info: Processing ended: Fri Jun 01 05:59:00 2018
-    Info: Elapsed time: 00:02:00
-    Info: Total CPU time (on all processors): 00:02:20
+    Info (21061): Implemented 32472 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 5219 megabytes
+    Info: Processing ended: Sat Jun 02 17:14:57 2018
+    Info: Elapsed time: 00:02:21
+    Info: Total CPU time (on all processors): 00:02:41
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/output_files/bitcoin_hash.map.smsg.
+The suppressed messages can be found in E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/output_files/bitcoin_hash.map.smsg.
 
 

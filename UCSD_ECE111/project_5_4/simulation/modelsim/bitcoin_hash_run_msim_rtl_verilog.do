@@ -5,5 +5,5 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -sv -work work +incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4 {E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_4/bitcoin_hash.sv}
+vlog -sv -work work +incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_8 {E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_8/bitcoin_hash.sv}
 

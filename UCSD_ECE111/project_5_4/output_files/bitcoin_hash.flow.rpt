@@ -1,5 +1,5 @@
 Flow report for bitcoin_hash
-Sat Jun 02 12:58:34 2018
+Thu Jun 07 18:49:29 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Flow Status                       ; Successful - Sat Jun 02 12:58:34 2018       ;
+; Flow Status                       ; Successful - Thu Jun 07 18:49:28 2018       ;
 ; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                     ; bitcoin_hash                                ;
 ; Top-level Entity Name             ; bitcoin_hash                                ;
 ; Family                            ; Arria II GX                                 ;
 ; Device                            ; EP2AGX45DF29I5                              ;
 ; Timing Models                     ; Final                                       ;
-; Logic utilization                 ; 97 %                                        ;
-;     Combinational ALUTs           ; 20,583 / 36,100 ( 57 % )                    ;
+; Logic utilization                 ; 82 %                                        ;
+;     Combinational ALUTs           ; 22,878 / 36,100 ( 63 % )                    ;
 ;     Memory ALUTs                  ; 0 / 18,050 ( 0 % )                          ;
-;     Dedicated logic registers     ; 21,065 / 36,100 ( 58 % )                    ;
-; Total registers                   ; 21065                                       ;
+;     Dedicated logic registers     ; 21,072 / 36,100 ( 58 % )                    ;
+; Total registers                   ; 21072                                       ;
 ; Total pins                        ; 118 / 404 ( 29 % )                          ;
 ; Total virtual pins                ; 0                                           ;
 ; Total block memory bits           ; 0 / 2,939,904 ( 0 % )                       ;
@@ -70,7 +70,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/02/2018 12:33:58 ;
+; Start date & time ; 06/07/2018 18:29:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; bitcoin_hash        ;
 +-------------------+---------------------+
@@ -81,7 +81,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 128534985542631.152791403712468        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 128534985542631.152836739401180        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -107,12 +107,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:03:31     ; 1.0                     ; 5246 MB             ; 00:03:48                           ;
-; Fitter                    ; 00:18:43     ; 1.0                     ; 6071 MB             ; 00:28:54                           ;
-; Assembler                 ; 00:00:20     ; 1.0                     ; 4930 MB             ; 00:00:20                           ;
-; TimeQuest Timing Analyzer ; 00:00:39     ; 1.4                     ; 5309 MB             ; 00:00:44                           ;
-; EDA Netlist Writer        ; 00:01:04     ; 1.0                     ; 5010 MB             ; 00:01:02                           ;
-; Total                     ; 00:24:17     ; --                      ; --                  ; 00:34:48                           ;
+; Analysis & Synthesis      ; 00:03:52     ; 1.0                     ; 5232 MB             ; 00:04:12                           ;
+; Fitter                    ; 00:14:08     ; 1.0                     ; 6046 MB             ; 00:22:55                           ;
+; Assembler                 ; 00:00:14     ; 1.0                     ; 4920 MB             ; 00:00:14                           ;
+; TimeQuest Timing Analyzer ; 00:00:24     ; 1.4                     ; 5296 MB             ; 00:00:28                           ;
+; EDA Netlist Writer        ; 00:00:37     ; 1.0                     ; 5005 MB             ; 00:00:38                           ;
+; Total                     ; 00:19:15     ; --                      ; --                  ; 00:28:27                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

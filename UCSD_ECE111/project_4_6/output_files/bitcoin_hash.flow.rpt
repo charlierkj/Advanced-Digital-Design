@@ -1,5 +1,5 @@
 Flow report for bitcoin_hash
-Sat Jun 02 14:11:49 2018
+Sat Jun 02 15:15:46 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Flow Status                       ; Successful - Sat Jun 02 14:11:49 2018       ;
+; Flow Status                       ; Successful - Sat Jun 02 15:15:46 2018       ;
 ; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                     ; bitcoin_hash                                ;
 ; Top-level Entity Name             ; bitcoin_hash                                ;
@@ -70,7 +70,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/02/2018 14:10:10 ;
+; Start date & time ; 06/02/2018 15:14:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; bitcoin_hash        ;
 +-------------------+---------------------+
@@ -81,7 +81,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 128534985542631.152791980903896        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 128534985542631.152792364415208        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -107,12 +107,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:21     ; 1.0                     ; 4975 MB             ; 00:00:41                           ;
-; Fitter                    ; 00:01:00     ; 1.0                     ; 5705 MB             ; 00:01:19                           ;
+; Analysis & Synthesis      ; 00:00:21     ; 1.0                     ; 4976 MB             ; 00:00:41                           ;
+; Fitter                    ; 00:01:01     ; 1.0                     ; 5701 MB             ; 00:01:21                           ;
 ; Assembler                 ; 00:00:04     ; 1.0                     ; 4827 MB             ; 00:00:04                           ;
 ; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 4940 MB             ; 00:00:05                           ;
 ; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 4780 MB             ; 00:00:04                           ;
-; Total                     ; 00:01:34     ; --                      ; --                  ; 00:02:13                           ;
+; Total                     ; 00:01:35     ; --                      ; --                  ; 00:02:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,5 +1,5 @@
 Assembler report for bitcoin_hash
-Fri Jun 01 06:14:27 2018
+Sat Jun 02 17:27:04 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/output_files/bitcoin_hash.sof
+  5. Assembler Device Options: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/output_files/bitcoin_hash.sof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Jun 01 06:14:27 2018 ;
+; Assembler Status      ; Successful - Sat Jun 02 17:27:04 2018 ;
 ; Revision Name         ; bitcoin_hash                          ;
 ; Top-level Entity Name ; bitcoin_hash                          ;
 ; Family                ; Arria II GX                           ;
@@ -57,17 +57,17 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------------+
 ; File Name                                                                                  ;
 +--------------------------------------------------------------------------------------------+
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/output_files/bitcoin_hash.sof ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/output_files/bitcoin_hash.sof ;
 +--------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/output_files/bitcoin_hash.sof ;
+; Assembler Device Options: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_5/output_files/bitcoin_hash.sof ;
 +----------------+-----------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                             ;
 +----------------+-----------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x038E931B                                                                                          ;
-; Checksum       ; 0x038E931B                                                                                          ;
+; JTAG usercode  ; 0x0348BB78                                                                                          ;
+; Checksum       ; 0x0348BB78                                                                                          ;
 +----------------+-----------------------------------------------------------------------------------------------------+
 
 
@@ -77,15 +77,15 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Jun 01 06:14:13 2018
+    Info: Processing started: Sat Jun 02 17:26:50 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off bitcoin_hash -c bitcoin_hash
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4925 megabytes
-    Info: Processing ended: Fri Jun 01 06:14:27 2018
+    Info: Peak virtual memory: 4911 megabytes
+    Info: Processing ended: Sat Jun 02 17:27:04 2018
     Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Total CPU time (on all processors): 00:00:14
 
 

@@ -10,43 +10,44 @@
 # Copying E:/Quartus_Prime/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2 {E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/bitcoin_hash.sv}
+# vlog -sv -work work +incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3 {E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:58:34 on Jun 02,2018
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2" E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/bitcoin_hash.sv 
+# Start time: 13:13:30 on May 31,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3" E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv 
 # -- Compiling module bitcoin_hash
 # 
 # Top level modules:
 # 	bitcoin_hash
-# End time: 10:58:34 on Jun 02,2018, Elapsed time: 0:00:00
+# End time: 13:13:30 on May 31,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/bitcoin_hash.sv
+vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:58:44 on Jun 02,2018
-# vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/bitcoin_hash.sv 
+# Start time: 13:13:38 on May 31,2018
+# vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/bitcoin_hash.sv 
 # -- Compiling module bitcoin_hash
 # 
 # Top level modules:
 # 	bitcoin_hash
-# End time: 10:58:44 on Jun 02,2018, Elapsed time: 0:00:00
+# End time: 13:13:38 on May 31,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vlog -reportprogress 30 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/tb_bitcoin_hash.sv
+vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/tb_bitcoin_hash.sv
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:58:44 on Jun 02,2018
-# vlog -reportprogress 30 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/tb_bitcoin_hash.sv 
+# Start time: 13:13:38 on May 31,2018
+# vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/tb_bitcoin_hash.sv 
 # -- Compiling module tb_bitcoin_hash
 # 
 # Top level modules:
 # 	tb_bitcoin_hash
-# End time: 10:58:44 on Jun 02,2018, Elapsed time: 0:00:00
+# End time: 13:13:38 on May 31,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim work.tb_bitcoin_hash
 # vsim work.tb_bitcoin_hash 
-# Start time: 10:58:47 on Jun 02,2018
+# Start time: 13:13:41 on May 31,2018
 # Loading sv_std.std
 # Loading work.tb_bitcoin_hash
 # Loading work.bitcoin_hash
+add wave -r /*
 run -all
 # ---------------
 # 19 WORD HEADER:
@@ -95,13 +96,13 @@ run -all
 # 
 # CONGRATULATIONS! All your hash results are correct!
 # 
-# Total number of cycles:         222
+# Total number of cycles:         221
 # 
 # 
 # ***************************
 # 
-# ** Note: $stop    : E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/tb_bitcoin_hash.sv(334)
-#    Time: 4490 ps  Iteration: 2  Instance: /tb_bitcoin_hash
-# Break in Module tb_bitcoin_hash at E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/tb_bitcoin_hash.sv line 334
-# End time: 10:58:59 on Jun 02,2018, Elapsed time: 0:00:12
+# ** Note: $stop    : E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/tb_bitcoin_hash.sv(334)
+#    Time: 4470 ps  Iteration: 2  Instance: /tb_bitcoin_hash
+# Break in Module tb_bitcoin_hash at E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_3/tb_bitcoin_hash.sv line 334
+# End time: 13:13:54 on May 31,2018, Elapsed time: 0:00:13
 # Errors: 0, Warnings: 0

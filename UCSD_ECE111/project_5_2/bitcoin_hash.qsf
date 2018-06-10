@@ -18,7 +18,7 @@
 #
 # Quartus Prime
 # Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-# Date created = 04:30:53  May 31, 2018
+# Date created = 06:52:35  May 11, 2018
 #
 # -------------------------------------------------------------------------- #
 #
@@ -40,7 +40,7 @@ set_global_assignment -name FAMILY "Arria II GX"
 set_global_assignment -name DEVICE EP2AGX45DF29I5
 set_global_assignment -name TOP_LEVEL_ENTITY bitcoin_hash
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "04:30:53  MAY 31, 2018"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "06:52:35  MAY 11, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
 set_global_assignment -name SYSTEMVERILOG_FILE tb_bitcoin_hash.sv
 set_global_assignment -name SYSTEMVERILOG_FILE bitcoin_hash.sv

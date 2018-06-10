@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bitcoin_hash
-Sat Jun 02 14:10:29 2018
+Sat Jun 02 15:14:25 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -48,7 +48,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status       ; Successful - Sat Jun 02 14:10:29 2018       ;
+; Analysis & Synthesis Status       ; Successful - Sat Jun 02 15:14:25 2018       ;
 ; Quartus Prime Version             ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                     ; bitcoin_hash                                ;
 ; Top-level Entity Name             ; bitcoin_hash                                ;
@@ -410,7 +410,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Jun 02 14:10:08 2018
+    Info: Processing started: Sat Jun 02 15:14:03 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bitcoin_hash -c bitcoin_hash
 Info (16303): High Performance Effort optimization mode selected -- timing performance will be prioritized at the potential cost of increased compilation time
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -437,7 +437,7 @@ Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(216): truncat
 Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(238): truncated value with size 32 to match size of target (7) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_6/bitcoin_hash.sv Line: 238
 Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(253): truncated value with size 32 to match size of target (4) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_6/bitcoin_hash.sv Line: 253
 Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(259): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_6/bitcoin_hash.sv Line: 259
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(265): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_6/bitcoin_hash.sv Line: 265
+Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(264): truncated value with size 32 to match size of target (16) File: E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_6/bitcoin_hash.sv Line: 264
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (128000): Starting physical synthesis optimizations for speed
@@ -459,7 +459,7 @@ Info (128002): Starting physical synthesis algorithm register retiming
 Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
-Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:01
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:02
 Info (144001): Generated suppressed messages file E:/Quartus_Prime/Advanced_Digital_Design_Project/project_4_6/output_files/bitcoin_hash.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -468,10 +468,10 @@ Info (21057): Implemented 2586 device resources after synthesis - the final reso
     Info (21059): Implemented 51 output pins
     Info (21061): Implemented 2468 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4975 megabytes
-    Info: Processing ended: Sat Jun 02 14:10:29 2018
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:41
+    Info: Peak virtual memory: 4976 megabytes
+    Info: Processing ended: Sat Jun 02 15:14:25 2018
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:42
 
 
 +------------------------------------------+

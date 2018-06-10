@@ -257,7 +257,6 @@ module bitcoin_hash (input logic clk, reset_n, start,
 			 end
 			 mem_we <= 0;
 			 mem_addr <= message_addr + 16;
-			 
 		end
 		
 		POST: begin

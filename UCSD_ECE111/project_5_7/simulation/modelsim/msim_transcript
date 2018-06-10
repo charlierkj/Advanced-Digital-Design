@@ -1,0 +1,107 @@
+# Reading E:/Quartus_Prime/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do bitcoin_hash_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying E:/Quartus_Prime/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11 {E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/bitcoin_hash.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 08:20:36 on Jun 10,2018
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11" E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/bitcoin_hash.sv 
+# -- Compiling module bitcoin_hash
+# 
+# Top level modules:
+# 	bitcoin_hash
+# End time: 08:20:36 on Jun 10,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/bitcoin_hash.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 08:20:43 on Jun 10,2018
+# vlog -reportprogress 300 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/bitcoin_hash.sv 
+# -- Compiling module bitcoin_hash
+# 
+# Top level modules:
+# 	bitcoin_hash
+# End time: 08:20:43 on Jun 10,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/tb_bitcoin_hash.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 08:20:43 on Jun 10,2018
+# vlog -reportprogress 30 -work work E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/tb_bitcoin_hash.sv 
+# -- Compiling module tb_bitcoin_hash
+# 
+# Top level modules:
+# 	tb_bitcoin_hash
+# End time: 08:20:43 on Jun 10,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_bitcoin_hash
+# vsim work.tb_bitcoin_hash 
+# Start time: 08:20:46 on Jun 10,2018
+# Loading sv_std.std
+# Loading work.tb_bitcoin_hash
+# Loading work.bitcoin_hash
+run -all
+# ---------------
+# 19 WORD HEADER:
+# ---------------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H0[ 0] = 7106973a	Your H0[ 0] = 7106973a
+# Correct H0[ 1] = 6e66eea7	Your H0[ 1] = 6e66eea7
+# Correct H0[ 2] = fbef64dc	Your H0[ 2] = fbef64dc
+# Correct H0[ 3] = 0888a18c	Your H0[ 3] = 0888a18c
+# Correct H0[ 4] = 9642d5aa	Your H0[ 4] = 9642d5aa
+# Correct H0[ 5] = 2ab6af8b	Your H0[ 5] = 2ab6af8b
+# Correct H0[ 6] = 24259d8c	Your H0[ 6] = 24259d8c
+# Correct H0[ 7] = ffb9bcd9	Your H0[ 7] = ffb9bcd9
+# Correct H0[ 8] = 642138c9	Your H0[ 8] = 642138c9
+# Correct H0[ 9] = 054cafc7	Your H0[ 9] = 054cafc7
+# Correct H0[10] = 78251a17	Your H0[10] = 78251a17
+# Correct H0[11] = af8c8f22	Your H0[11] = af8c8f22
+# Correct H0[12] = d7a79ef8	Your H0[12] = d7a79ef8
+# Correct H0[13] = c7d10c84	Your H0[13] = c7d10c84
+# Correct H0[14] = 9537acfd	Your H0[14] = 9537acfd
+# Correct H0[15] = c1e4c72b	Your H0[15] = c1e4c72b
+# ***************************
+# 
+# CONGRATULATIONS! All your hash results are correct!
+# 
+# Total number of cycles:         222
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/tb_bitcoin_hash.sv(334)
+#    Time: 4490 ps  Iteration: 2  Instance: /tb_bitcoin_hash
+# Break in Module tb_bitcoin_hash at E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_11/tb_bitcoin_hash.sv line 334
+# End time: 08:20:56 on Jun 10,2018, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 0

@@ -16,7 +16,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
-// DATE "06/07/2018 18:15:11"
+// DATE "06/10/2018 13:24:58"
 
 // 
 // Device: Altera EP2AGX45DF29I5 Package FBGA780
@@ -40,17 +40,17 @@ module bitcoin_hash (
 	mem_addr,
 	mem_write_data,
 	mem_read_data);
-input 	logic clk ;
-input 	logic reset_n ;
-input 	logic start ;
-input 	logic [15:0] message_addr ;
-input 	logic [15:0] output_addr ;
-output 	logic done ;
-output 	logic mem_clk ;
-output 	logic mem_we ;
-output 	logic [15:0] mem_addr ;
-output 	logic [31:0] mem_write_data ;
-input 	logic [31:0] mem_read_data ;
+input 	clk;
+input 	reset_n;
+input 	start;
+input 	[15:0] message_addr;
+input 	[15:0] output_addr;
+output 	done;
+output 	mem_clk;
+output 	mem_we;
+output 	[15:0] mem_addr;
+output 	[31:0] mem_write_data;
+input 	[31:0] mem_read_data;
 
 // Design Ports Information
 // done	=>  Location: PIN_N4,	 I/O Standard: 2.5 V,	 Current Strength: Default

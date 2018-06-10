@@ -1,5 +1,5 @@
 EDA Netlist Writer report for bitcoin_hash
-Fri May 18 15:24:15 2018
+Sat Jun 02 10:54:18 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri May 18 15:24:15 2018 ;
+; EDA Netlist Writer Status ; Successful - Sat Jun 02 10:54:18 2018 ;
 ; Revision Name             ; bitcoin_hash                          ;
 ; Top-level Entity Name     ; bitcoin_hash                          ;
 ; Family                    ; Arria II GX                           ;
@@ -71,14 +71,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------------------------------------------------+
 ; Generated Files                                                                                                         ;
 +-------------------------------------------------------------------------------------------------------------------------+
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash_5_900mv_100c_slow.svo     ;
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash_5_900mv_-40c_slow.svo     ;
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash_min_900mv_-40c_fast.svo   ;
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash.svo                       ;
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash_5_900mv_100c_v_slow.sdo   ;
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash_5_900mv_-40c_v_slow.sdo   ;
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash_min_900mv_-40c_v_fast.sdo ;
-; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/bitcoin_hash_v.sdo                     ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash_5_900mv_100c_slow.svo     ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash_5_900mv_-40c_slow.svo     ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash_min_900mv_-40c_fast.svo   ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash.svo                       ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash_5_900mv_100c_v_slow.sdo   ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash_5_900mv_-40c_v_slow.sdo   ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash_min_900mv_-40c_v_fast.sdo ;
+; E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/bitcoin_hash_v.sdo                     ;
 +-------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -88,21 +88,21 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri May 18 15:22:42 2018
+    Info: Processing started: Sat Jun 02 10:53:20 2018
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off bitcoin_hash -c bitcoin_hash
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file bitcoin_hash_5_900mv_100c_slow.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file bitcoin_hash_5_900mv_-40c_slow.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file bitcoin_hash_min_900mv_-40c_fast.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file bitcoin_hash.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file bitcoin_hash_5_900mv_100c_v_slow.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file bitcoin_hash_5_900mv_-40c_v_slow.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file bitcoin_hash_min_900mv_-40c_v_fast.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file bitcoin_hash_v.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_1/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash_5_900mv_100c_slow.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash_5_900mv_-40c_slow.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash_min_900mv_-40c_fast.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash.svo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash_5_900mv_100c_v_slow.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash_5_900mv_-40c_v_slow.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash_min_900mv_-40c_v_fast.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file bitcoin_hash_v.sdo in folder "E:/Quartus_Prime/Advanced_Digital_Design_Project/project_5_2/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 916 megabytes
-    Info: Processing ended: Fri May 18 15:24:16 2018
-    Info: Elapsed time: 00:01:34
+    Info: Peak virtual memory: 5003 megabytes
+    Info: Processing ended: Sat Jun 02 10:54:19 2018
+    Info: Elapsed time: 00:00:59
     Info: Total CPU time (on all processors): 00:00:57
 
 
