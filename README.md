@@ -1,3 +1,3 @@
-# UCSD-ECE111
+# UCSD-ECE111-Advanced Digital Design
 
-Course Project-Bitcoin hashing, using System Verilog in Quartus Prime software
+Bitcoin Hashing course projects, using SystemVerilog in Quartus Prime software.
